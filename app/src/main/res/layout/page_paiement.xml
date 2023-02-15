@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity5">
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="394dp"
+        android:layout_height="36dp"
+        android:text="Payement Amount"
+        tools:layout_editor_absoluteX="15dp"
+        tools:layout_editor_absoluteY="20dp" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="129dp"
+        android:layout_height="38dp"
+        android:text="Payment Methode"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="91dp" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CANCEL"
+        tools:layout_editor_absoluteX="260dp"
+        tools:layout_editor_absoluteY="91dp" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="229dp"
+        android:layout_height="31dp"
+        android:text="Pay P al"
+        tools:layout_editor_absoluteX="51dp"
+        tools:layout_editor_absoluteY="196dp" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="122dp"
+        android:layout_height="26dp"
+        android:text="Name of Card"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="300dp" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="137dp"
+        android:layout_height="31dp"
+        android:text="Expiry Date"
+        tools:layout_editor_absoluteX="263dp"
+        tools:layout_editor_absoluteY="296dp" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="299dp"
+        android:layout_height="34dp"
+        android:text="Payment Amount"
+        tools:layout_editor_absoluteX="77dp"
+        tools:layout_editor_absoluteY="379dp" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="292dp"
+        android:layout_height="32dp"
+        android:text="Card Number"
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="448dp" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="112dp"
+        android:layout_height="40dp"
+        android:text="Expiry Date"
+        tools:layout_editor_absoluteX="23dp"
+        tools:layout_editor_absoluteY="524dp" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="138dp"
+        android:layout_height="38dp"
+        android:text="CCV"
+        tools:layout_editor_absoluteX="220dp"
+        tools:layout_editor_absoluteY="521dp" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="384dp"
+        android:layout_height="42dp"
+        android:text="PAY"
+        tools:layout_editor_absoluteX="14dp"
+        tools:layout_editor_absoluteY="619dp" />
+</android.support.constraint.ConstraintLayout>
