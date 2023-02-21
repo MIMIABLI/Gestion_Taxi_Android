@@ -1,28 +1,28 @@
 package org.doranco.gesttion_reserv;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
-    private ImageView play;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity   {
+    private Button button ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_accueil);
-        this.play = (ImageView) findViewById(R.id.play);
+        setContentView(R.layout.page_connexion);
+        this.button = findViewById(R.id.btn);
 
-        play.setOnClickListener(new View.OnClickListener(){
+        button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void  onClick(View view) {
-                Intent otherActivity = new Intent(getApplicationContext(), MainActivity2.class);
+                Intent otherActivity = new Intent(getApplicationContext(), Reservation.class);
                 startActivity(otherActivity);
                 finish();
-                @Override
-                        public void OnClick(View ){
 
             }
         });

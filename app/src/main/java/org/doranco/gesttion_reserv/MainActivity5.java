@@ -1,7 +1,8 @@
 package org.doranco.gesttion_reserv;
 
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity5 extends AppCompatActivity {
 
