@@ -4,28 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp">
+    android:layout_marginTop="5dp">
 
 
     <ImageView
         android:id="@+id/imageviewtest"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
         android:layout_centerVertical="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp" />
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/imageviewtest"
         tools:text="Nom Prénom"
-        android:textSize="20dp"
-        android:layout_marginRight="10dp"
-        android:id="@+id/nomprenom"
-    />
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:id="@+id/nomprenom"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -33,9 +32,9 @@
         android:layout_toEndOf="@id/imageviewtest"
         android:layout_below="@id/nomprenom"
         tools:text="Type de véhicule"
-        android:layout_marginRight="10dp"
-        android:id="@+id/vehicule"
-    />
+        android:textColor="@color/black"
+        android:textSize="10dp"
+        android:id="@+id/vehicule"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -43,9 +42,9 @@
         android:layout_toEndOf="@id/imageviewtest"
         android:layout_below="@id/prix"
         tools:text="note"
-        android:layout_marginRight="10dp"
-        android:id="@+id/note"
-    />
+        android:textSize="10dp"
+        android:textColor="@color/black"
+        android:id="@+id/note"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -53,17 +52,16 @@
         android:layout_toEndOf="@id/imageviewtest"
         android:layout_below="@id/vehicule"
         tools:text="Prix"
-        android:textSize="20dp"
-        android:layout_marginRight="10dp"
-        android:id="@+id/prix"
-    />
+        android:textSize="15dp"
+        android:textColor="@color/black"
+        android:id="@+id/prix"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="#3F51B5"
         android:layout_below="@id/note"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="5dp"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -71,10 +69,9 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:text="Réserver"
-        android:layout_marginRight="10dp"
+        android:layout_marginRight="30dp"
         android:textSize="10dp"
-        android:id="@+id/btn_reserver"
-    />
+        android:id="@+id/btn_reserver"/>
 
 
 </RelativeLayout>
