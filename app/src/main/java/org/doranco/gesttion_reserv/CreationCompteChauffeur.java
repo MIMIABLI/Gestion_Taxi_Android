@@ -7,12 +7,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import org.doranco.models.Chauffeur;
+import org.doranco.retrofit.ChauffeurApi;
 import org.doranco.retrofit.ClientApi;
 import org.doranco.retrofit.RetrofitService;
 
 import java.util.List;
 
-public class CreationCompteChauffeur<ChauffeurApi> extends AppCompatActivity {
+public class CreationCompteChauffeur extends AppCompatActivity {
     private RetrofitService retrofitService = new RetrofitService();
     private ChauffeurApi chauffeurApi;
     private Button creerCompte;
@@ -28,11 +29,11 @@ public class CreationCompteChauffeur<ChauffeurApi> extends AppCompatActivity {
         creerCompte.setOnClickListener(view -> {
             String Nom = String.valueOf(etNom.getText());
             String Prenom = String.valueOf(etPrenom.getText());
-            String Deconnexion = String.valueOf(etDeconnexion.getText());
+            String  = String.valueOf(et.getText());
             String Motdepasse= String.valueOf(etMotdepasse.getText());
             String Date = String.valueOf(etDate.getText());
-            String Demandedereservation = String.valueOf(etDemandedereservation.getText());
-            String Voirmacourse = String.valueOf(etVoirmescourse.getText());
+           //List <Demandedereservation> = List.(etDemandedereservation.getText());
+            //String Voirmacourse = String.valueOf(etVoirmescourse.getText());
 
             Chauffeur chauffeur = new Chauffeur();
             chauffeur.setNom(nom);
@@ -40,29 +41,7 @@ public class CreationCompteChauffeur<ChauffeurApi> extends AppCompatActivity {
             chauffeur.setCouleurDuVehicule(CouleurDuVehicule);
             chauffeur.setImmatriculationDuVehicule(ImmatriculationDuVehicule);*
 
-            ChauffeurApi.saveChauffeur(chauffeur);
-
-            @GetMapping("/all")
-            public List<Chauffeur> getAllChauffeur(){
-                List<Chauffeur> chauffeurList=chauffeurApi.findAll();
-                return new List<>(chauffeurList, HttpStatus.OK);
-            }
-
-            @GetMapping("/find/{id}")
-            public List<Chauffeur> getChauffeurById   {
-                Chauffeur chauffeur=chauffeurApi.findChauffeurRById(id);
-                return new List<>(chauffeur, HttpStatus.OK);
-            }
-            @PutMapping("/update")
-            public List<Chauffeur> updateChauffeur(@RequestBody Chauffeur chauffeur){
-                Chauffeur updateChauffeur=chauffeurService.update(chauffeur);
-                return new Chauffeur<>(updateChauffeur,HttpStatus.OK);
-            }
-            @DeleteMapping("/delete/{id}")
-            public List<Chauffeur> delete(reservationList){
-                ChauffeurApi.delete(id);
-                return new List<Chauffeur>(HttpStatus.OK);
-            }
+            chauffeurApi.saveChauffeur(chauffeur);
 
         });
     }
