@@ -17,7 +17,7 @@ public class CreationCompteClientEtape2 extends AppCompatActivity {
     EditText login, password, confirmationPassword;
     Button creerMonCompte;
 
-    Client clientSuite;
+    Client clientSuite = new Client();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,14 +33,26 @@ public class CreationCompteClientEtape2 extends AppCompatActivity {
 
         clientSuite = (Client) getIntent().getSerializableExtra("client");
 
-        System.out.println("Nom: " + clientSuite.getNom() + ", prénom: " + clientSuite.getPrenom());
-
         creerMonCompte.setOnClickListener(view -> {
 
+            String cliLog = String.valueOf(login.getText());
+            String mdp = String.valueOf(password.getText());
+            String confMdp = String.valueOf(confirmationPassword.getText());
+
+            if(mdp == confMdp) {
+                clientSuite.setPassword(mdp);
+            } else {
+                clientSuite.setPassword("mot de passe incorrect");
+            }
+
+            clientSuite.setLogin(cliLog);
+
+            System.out.println(clientSuite.getNom() + " " + clientSuite.getPrenom() + " " +
+                    clientSuite.getEmail() + " " + clientSuite.getTelephone() + " " +
+                    clientSuite.getLogin() + " suite " + clientSuite.getPassword() );
 
 
-
-            clientApi.saveClient(clientSuite);
+            //clientApi.saveClient(clientSuite);
 
         });
 
