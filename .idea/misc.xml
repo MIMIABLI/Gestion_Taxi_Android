@@ -3,17 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/leche/AndroidStudioProjects/Gesttionreserv/app/src/main/res/layout/activity_creation_compte_chauffeur.xml" value="0.3625" />
+        <entry key="..\:/Users/leche/AndroidStudioProjects/Gesttionreserv/app/src/main/res/layout/activity_creation_compte_client.xml" value="0.3625" />
         <entry key="..\:/Users/leche/AndroidStudioProjects/Gesttionreserv/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/Users/leche/AndroidStudioProjects/Gesttionreserv/app/src/main/res/layout/activity_main2.xml" value="0.3625" />
         <entry key="..\:/Users/leche/AndroidStudioProjects/Gesttionreserv/app/src/main/res/layout/activity_main3.xml" value="0.3625" />
         <entry key="..\:/Users/leche/AndroidStudioProjects/Gesttionreserv/app/src/main/res/layout/activity_main4.xml" value="0.3484375" />
         <entry key="..\:/Users/leche/AndroidStudioProjects/Gesttionreserv/app/src/main/res/layout/activity_main5.xml" value="0.3484375" />
+        <entry key="..\:/Users/leche/AndroidStudioProjects/Gesttionreserv/app/src/main/res/layout/activity_page_reservation.xml" value="0.3625" />
+        <entry key="..\:/Users/leche/AndroidStudioProjects/Gesttionreserv/app/src/main/res/layout/activity_page_trajet.xml" value="0.3484375" />
         <entry key="..\:/Users/leche/AndroidStudioProjects/Gesttionreserv/app/src/main/res/layout/creation_compte.xml" value="0.3614583333333333" />
         <entry key="..\:/Users/leche/AndroidStudioProjects/Gesttionreserv/app/src/main/res/layout/information_chauffeur.xml" value="0.3625" />
         <entry key="..\:/Users/leche/AndroidStudioProjects/Gesttionreserv/app/src/main/res/layout/liste_chauffeur.xml" value="0.3625" />
         <entry key="..\:/Users/leche/AndroidStudioProjects/Gesttionreserv/app/src/main/res/layout/page_accueil.xml" value="0.21810699588477367" />
+        <entry key="..\:/Users/leche/AndroidStudioProjects/Gesttionreserv/app/src/main/res/layout/page_chauffeur.xml" value="0.3625" />
         <entry key="..\:/Users/leche/AndroidStudioProjects/Gesttionreserv/app/src/main/res/layout/page_client.xml" value="0.3614583333333333" />
         <entry key="..\:/Users/leche/AndroidStudioProjects/Gesttionreserv/app/src/main/res/layout/page_connexion.xml" value="0.3625" />
+        <entry key="..\:/Users/leche/AndroidStudioProjects/Gesttionreserv/app/src/main/res/layout/page_gestion_reservation.xml" value="0.3625" />
         <entry key="..\:/Users/leche/AndroidStudioProjects/Gesttionreserv/app/src/main/res/layout/page_paiement.xml" value="0.3625" />
         <entry key="..\:/Users/leche/AndroidStudioProjects/Gesttionreserv/app/src/main/res/layout/page_reservation.xml" value="0.3625" />
         <entry key="..\:/Users/leche/AndroidStudioProjects/Gesttionreserv/app/src/main/res/layout/page_trajet.xml" value="0.3625" />
