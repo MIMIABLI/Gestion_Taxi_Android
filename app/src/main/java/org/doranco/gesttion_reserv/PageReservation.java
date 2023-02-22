@@ -39,8 +39,8 @@ public class PageReservation extends AppCompatActivity {
             Reservation reservation = new Reservation();
           //  reservation.setClient(client);
            // reservation.setChauffeur(chauffeur);
-            reservation.setHeureDepart(heureDepart);
-            reservation.setHeureArrive(heureArrive);
+            //reservation.setHeureDepart(heureDepart);
+            //reservation.setHeureArrive(heureArrive);
             reservation.setStatut(statut);
            // reservation.setTrajet(trajet);
 

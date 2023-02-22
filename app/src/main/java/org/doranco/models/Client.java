@@ -1,8 +1,9 @@
 package org.doranco.models;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Client {
+public class Client implements Serializable {
 
 
 

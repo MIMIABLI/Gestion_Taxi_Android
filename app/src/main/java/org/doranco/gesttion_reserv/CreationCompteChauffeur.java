@@ -29,17 +29,17 @@ public class CreationCompteChauffeur extends AppCompatActivity {
         creerCompte.setOnClickListener(view -> {
             String Nom = String.valueOf(etNom.getText());
             String Prenom = String.valueOf(etPrenom.getText());
-            String  = String.valueOf(et.getText());
+            //String  = String.valueOf(et.getText());
             String Motdepasse= String.valueOf(etMotdepasse.getText());
             String Date = String.valueOf(etDate.getText());
            //List <Demandedereservation> = List.(etDemandedereservation.getText());
             //String Voirmacourse = String.valueOf(etVoirmescourse.getText());
 
             Chauffeur chauffeur = new Chauffeur();
-            chauffeur.setNom(nom);
+           /* chauffeur.setNom(nom);
             chauffeur.setPrenom(prenom);
             chauffeur.setCouleurDuVehicule(CouleurDuVehicule);
-            chauffeur.setImmatriculationDuVehicule(ImmatriculationDuVehicule);*
+            chauffeur.setImmatriculationDuVehicule(ImmatriculationDuVehicule);*/
 
             chauffeurApi.saveChauffeur(chauffeur);
 

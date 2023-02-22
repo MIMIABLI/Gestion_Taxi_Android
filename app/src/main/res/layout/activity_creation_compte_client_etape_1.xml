@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreationCompteClient"
+    android:layout_margin="5dp">
+
+    <TextView
+        android:id="@+id/titrePageCreerTonCompte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/creerSonCompteTitre"
+        android:textSize="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"/>
+
+    <EditText
+        android:id="@+id/entrezNom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="80dp"
+        android:layout_below="@+id/titrePageCreerTonCompte"
+        android:hint="@string/entrezNom"/>
+
+    <EditText
+        android:id="@+id/entrezPrenom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/entrezNom"
+        android:hint="@string/entrezPrenom"/>
+
+    <EditText
+        android:id="@+id/entrezMail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/entrezPrenom"
+        android:hint="@string/entrezMail"/>
+
+    <EditText
+        android:id="@+id/entrezTelephone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/entrezMail"
+        android:hint="@string/entrezTel"
+        android:inputType="phone"/>
+
+    <Button
+        android:id="@+id/continuerCreationCompte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Suivant"
+        android:textSize="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"/>
+
+
+
+</RelativeLayout>

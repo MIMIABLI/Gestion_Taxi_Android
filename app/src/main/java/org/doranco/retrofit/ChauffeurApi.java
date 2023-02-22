@@ -11,10 +11,10 @@ import retrofit2.http.POST;
 
 public interface ChauffeurApi {
 
-    @GET("chauffeur/all");
+    @GET("chauffeur/all")
     Call<List<Chauffeur>> getAllChauffeur();
 
-    @POST("chauffeur/add");
+    @POST("chauffeur/add")
     Call<List<Chauffeur>>saveChauffeur (@Body Chauffeur chauffeur);
 
 

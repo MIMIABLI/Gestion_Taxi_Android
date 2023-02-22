@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreationCompteClientEtape2"
+    android:layout_margin="5dp">
+
+    <TextView
+        android:id="@+id/titrePageCreerTonCompte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/creerSonCompteTitre"
+        android:textSize="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"/>
+
+    <EditText
+        android:id="@+id/entrezLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="80dp"
+        android:layout_below="@+id/titrePageCreerTonCompte"
+        android:hint="@string/entrezLogin"/>
+
+    <EditText
+        android:id="@+id/entrezMotDePasse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/entrezLogin"
+        android:hint="@string/entrezMdp"
+        android:inputType="textPassword"/>
+
+    <EditText
+        android:id="@+id/entrezMotDePasseConfirmation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/entrezMotDePasse"
+        android:hint="@string/confirmezMdp"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/boutonCreationCompte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/creerSonCompteBouton"
+        android:textSize="25dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"/>
+
+</RelativeLayout>

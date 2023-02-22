@@ -2,4 +2,13 @@
     <string name="app_name">Mobil_APP</string>
     <string name="welcome_mag">Bienvenue sur mon application</string>
     <string name="points_mag">points :0</string>
+    <string name="creerSonCompteTitre">Créez votre compte</string>
+    <string name="creerSonCompteBouton">Créez mon compte</string>
+    <string name="entrezNom">Entrez votre nom</string>
+    <string name="entrezPrenom">Entrez votre prénom</string>
+    <string name="entrezLogin">Entrez votre login</string>
+    <string name="entrezMdp">Entrez votre mot de passe</string>
+    <string name="confirmezMdp">Confirmez votre mot de passe</string>
+    <string name="entrezMail">Entrez votre mail</string>
+    <string name="entrezTel">Entrez votre n° de téléphone</string>
 </resources>
