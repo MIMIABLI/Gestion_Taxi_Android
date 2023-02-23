@@ -8,7 +8,6 @@ import android.widget.EditText;
 
 import org.doranco.gesttion_reserv.R;
 import org.doranco.models.Administrateur;
-import org.doranco.retrofit.ClientApi;
 import org.doranco.retrofit.RetrofitService;
 
 import java.util.List;

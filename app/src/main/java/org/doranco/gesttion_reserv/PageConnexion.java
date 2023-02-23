@@ -8,10 +8,9 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.doranco.models.MyAdapter;
 import org.doranco.parcours.client.CreationCompteClient;
 
-public class MainActivity extends AppCompatActivity   {
+public class PageConnexion extends AppCompatActivity   {
     private Button button ;
 
     @Override
@@ -23,7 +22,7 @@ public class MainActivity extends AppCompatActivity   {
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void  onClick(View view) {
-                Intent otherActivity = new Intent(getApplicationContext(), MainActivity3.class);
+                Intent otherActivity = new Intent(getApplicationContext(), CreationCompteClient.class);
                 startActivity(otherActivity);
                 finish();
 
