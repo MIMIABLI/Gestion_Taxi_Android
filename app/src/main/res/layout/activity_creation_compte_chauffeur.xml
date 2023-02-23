@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreationCompteChauffeur">
-
+    tools:context="org.doranco.parcours.admin.CreationCompteChauffeur">
 
     <TextView
-        android:id="@+id/titrePageCreerTonCompte"
+        android:id="@+id/creerCompteChauffeurTitre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/creerSonCompteTitre"
-        android:textSize="32dp"
+        android:text="@string/creerSonCompteChauffeurTitre"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"/>
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:layout_marginTop="50dp"/>
 
     <EditText
         android:id="@+id/entrezNom"
@@ -22,8 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
-        android:layout_marginTop="80dp"
-        android:layout_below="@+id/titrePageCreerTonCompte"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/creerCompteChauffeurTitre"
         android:hint="@string/entrezNom"/>
 
     <EditText
@@ -46,73 +46,4 @@
         android:layout_below="@+id/entrezPrenom"
         android:hint="@string/entrezMail"/>
 
-    <EditText
-        android:id="@+id/entrezTelephone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/entrezMail"
-        android:hint="@string/entrezTel"
-        android:inputType="phone"/>
-
-    <EditText
-        android:id="@+id/entrezType du vehicule"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/entrezTelephone"
-        android:hint="@string/type de vehicule"
-        android:inputType="phone"/>
-
-    <EditText
-        android:id="@+id/entrez couleur du vehicule"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/entreztype de vehicule"
-        android:hint="@string/couleur du vehicule"
-        android:inputType="phone"/>
-
-    <EditText
-        android:id="@+id/entrezvotre immatriculation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/entrezcouleur du vehicule"
-        android:hint="@string/votre immatriculation"
-        android:inputType="phone"/>
-
-    <EditText
-        android:id="@+id/entrez votre position GPS"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/entrezImmatriculation"
-        android:hint="@string/votre position GPS"
-        android:inputType="phone"/>
-
-
-    <Button
-        android:id="@+id/continuerCreationCompte"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Valider"
-        android:textSize="30dp"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="100dp"/>
-
-
-
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
