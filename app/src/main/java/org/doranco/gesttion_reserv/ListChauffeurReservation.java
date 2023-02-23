@@ -12,7 +12,7 @@ import org.doranco.models.MyAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity3 extends AppCompatActivity {
+public class ListChauffeurReservation extends AppCompatActivity {
 
     RecyclerView recyclerView;
     List<Chauffeur> chauffeurList = new ArrayList<>();

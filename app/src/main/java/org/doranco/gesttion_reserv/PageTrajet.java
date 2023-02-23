@@ -8,7 +8,7 @@ import android.widget.EditText;
 
 import org.doranco.models.Trajet;
 import org.doranco.retrofit.RetrofitService;
-import org.doranco.retrofit.TrajetApi;
+import org.doranco.retrofit.interfacesapi.TrajetApi;
 
 import java.util.List;
 

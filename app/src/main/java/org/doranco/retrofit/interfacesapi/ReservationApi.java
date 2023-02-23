@@ -1,4 +1,4 @@
-package org.doranco.retrofit;
+package org.doranco.retrofit.interfacesapi;
 
 
 import org.doranco.models.Reservation;
@@ -11,23 +11,24 @@ import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Path;
 
 public interface ReservationApi {
 
-    @GET("/all")
+    @GET("/reservation/all")
     Call<List<Reservation>> getAllReservation();
 
     @POST("/reservation/add")
     Call<Reservation> saveReservation(@Body Reservation reservation);
 
-    //@GET("/find/{id}")
-   // Call List<Reservation> getReservationById(@PathVariable("id") Long id);
+    @GET("/reservation/find/{id}")
+   Call<List<Reservation>> getReservationById(@Path("id") Long id);
 
-    @PUT("/update")
+    @PUT("/reservation/update")
    Call<List<Reservation>> updateReservation(@Body Reservation reservation);
 
-    @DELETE("/delete/{id}")
-    Call<List<Reservation>> delete();
+    @DELETE("/reservation/delete/{id}")
+    Call<List<Reservation>> delete(@Path("id") long id);
 
 
 

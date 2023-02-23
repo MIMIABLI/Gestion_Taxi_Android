@@ -21,4 +21,8 @@
     <string name="entrerPermis">permis de conduire</string>
     <string name="entrerCI">pièce d\'identité</string>
     <string name="entrerPhoto">photo</string>
+
+    //Messages
+    <string name="addUserSuccess">Client ajouté avec succès !</string>
+    <string name="addUserFailure">Erreur durant la création du compte</string>
 </resources>

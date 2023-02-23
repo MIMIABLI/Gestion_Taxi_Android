@@ -3,12 +3,10 @@ package org.doranco.gesttion_reserv;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import org.doranco.models.Reservation;
-import org.doranco.retrofit.ClientApi;
-import org.doranco.retrofit.ReservationApi;
+import org.doranco.retrofit.interfacesapi.ReservationApi;
 import org.doranco.retrofit.RetrofitService;
 
 import java.util.List;

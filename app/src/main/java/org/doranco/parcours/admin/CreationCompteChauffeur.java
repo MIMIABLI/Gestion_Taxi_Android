@@ -9,7 +9,7 @@ import android.widget.EditText;
 import org.doranco.gesttion_reserv.R;
 import org.doranco.parcours.client.Reservation;
 import org.doranco.models.Chauffeur;
-import org.doranco.retrofit.ChauffeurApi;
+import org.doranco.retrofit.interfacesapi.ChauffeurApi;
 import org.doranco.retrofit.RetrofitService;
 
 import java.util.List;
