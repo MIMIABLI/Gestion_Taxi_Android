@@ -1,9 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="org.doranco.parcours.admin.CreationCompteChauffeurEtape2">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/InformationChauffeur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="InformationChauffeur"
+        android:textSize="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"/>
+
+
+    <EditText
+        android:id="@+id/entrezLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/InformationChauffeur"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:hint="@string/entrezLogin" />
+
+    <EditText
+        android:id="@+id/entrezMotDePasse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/entrezLogin"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:hint="@string/entrezMdp" />
+
+    <EditText
+        android:id="@+id/entrezPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/entrezMotDePasse"
+        android:hint="@string/entrerPhoto"/>
+
+    <EditText
+        android:id="@+id/entrezTypeDeVehicule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/entrezPhoto"
+        android:hint="@string/entrerTypeVehicule"/>
+
+    <EditText
+        android:id="@+id/entrezCouleurDuVehicule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/entrezTypeDeVehicule"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="32dp"
+        android:hint="@string/couleurVehicule" />
+
+    <EditText
+        android:id="@+id/entrezImmatriculation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/entrezTypeDeVehicule"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="32dp"
+        android:hint="@id/entrezImmatriculation" />
+
+
+    <Button
+        android:id="@+id/boutonCreationCompte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/creerSonCompteBouton"
+        android:textSize="25dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"/>
+
+</RelativeLayout>

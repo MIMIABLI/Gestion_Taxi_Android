@@ -31,7 +31,7 @@ public class Chauffeur {
 
     private String positionGPS;
 
-    private Double Prix;
+    //private Double Prix;
     //private List<Reservation> listReservation;
 
 
