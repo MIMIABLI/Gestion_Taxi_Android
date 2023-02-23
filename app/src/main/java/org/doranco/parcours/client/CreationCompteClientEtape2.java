@@ -1,4 +1,4 @@
-package org.doranco.gesttion_reserv;
+package org.doranco.parcours.client;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
+import org.doranco.gesttion_reserv.R;
 import org.doranco.models.Client;
 import org.doranco.retrofit.ClientApi;
 import org.doranco.retrofit.RetrofitService;
@@ -49,7 +50,7 @@ public class CreationCompteClientEtape2 extends AppCompatActivity {
 
             System.out.println(clientSuite.getNom() + " " + clientSuite.getPrenom() + " " +
                     clientSuite.getEmail() + " " + clientSuite.getTelephone() + " " +
-                    clientSuite.getLogin() + " suite " + clientSuite.getPassword() );
+                    clientSuite.getLogin() + " " + clientSuite.getPassword() );
 
 
             //clientApi.saveClient(clientSuite);

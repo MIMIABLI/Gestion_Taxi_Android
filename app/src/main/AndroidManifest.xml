@@ -14,14 +14,21 @@
         android:theme="@style/Theme.Gesttionreserv"
         tools:targetApi="31">
         <activity
-            android:name=".CreationCompteClientEtape2"
+            android:name="org.doranco.parcours.admin.CreationCompteChauffeurEtape2"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".CreationCompteAdministrateur"
+            android:name="org.doranco.parcours.client.CreationCompteClientEtape2"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="org.doranco.parcours.admin.CreationCompteAdministrateur"
             android:exported="false" />
         <activity
             android:name=".PageReservation"
@@ -30,10 +37,10 @@
             android:name=".PageTrajet"
             android:exported="false" />
         <activity
-            android:name=".CreationCompteChauffeur"
+            android:name="org.doranco.parcours.admin.CreationCompteChauffeur"
             android:exported="false" />
         <activity
-            android:name=".CreationCompteClient"
+            android:name="org.doranco.parcours.client.CreationCompteClient"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -49,7 +56,7 @@
             android:name=".MainActivity3"
             android:exported="false" />
         <activity
-            android:name=".Reservation"
+            android:name="org.doranco.parcours.client.Reservation"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

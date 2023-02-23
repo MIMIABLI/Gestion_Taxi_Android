@@ -1,4 +1,4 @@
-package org.doranco.gesttion_reserv;
+package org.doranco.parcours.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,9 +6,10 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
+import org.doranco.gesttion_reserv.R;
+import org.doranco.parcours.client.Reservation;
 import org.doranco.models.Chauffeur;
 import org.doranco.retrofit.ChauffeurApi;
-import org.doranco.retrofit.ClientApi;
 import org.doranco.retrofit.RetrofitService;
 
 import java.util.List;

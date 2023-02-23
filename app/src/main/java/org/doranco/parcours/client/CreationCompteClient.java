@@ -1,4 +1,4 @@
-package org.doranco.gesttion_reserv;
+package org.doranco.parcours.client;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,12 +7,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
+import org.doranco.gesttion_reserv.R;
 import org.doranco.models.Client;
-import org.doranco.retrofit.ClientApi;
-import org.doranco.retrofit.RetrofitService;
-
-import java.io.Serializable;
-import java.util.List;
 
 public class CreationCompteClient extends AppCompatActivity {
 
