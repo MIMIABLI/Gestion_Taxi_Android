@@ -1,4 +1,4 @@
-package org.doranco.gesttion_reserv;
+package org.doranco.parcours.client;
 
 
 import androidx.appcompat.app.AppCompatActivity;

@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreationCompteClient"
+    tools:context="org.doranco.parcours.client.CreationCompteClient"
     android:layout_margin="5dp">
 
     <TextView
         android:id="@+id/titrePageCreerTonCompte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/creerSonCompteTitre"
+        android:text="@string/creerSonCompteClientTitre"
         android:textSize="32dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"/>
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:layout_below="@+id/titrePageCreerTonCompte"
         android:hint="@string/entrezNom"/>
 
@@ -65,7 +65,7 @@
         android:textSize="30dp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="100dp"/>
+        android:layout_marginBottom="50dp"/>
 
 
 

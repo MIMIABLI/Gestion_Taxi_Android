@@ -1,4 +1,4 @@
-package org.doranco.gesttion_reserv;
+package org.doranco.parcours.client;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,12 +7,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
+import org.doranco.gesttion_reserv.R;
 import org.doranco.models.Client;
-import org.doranco.retrofit.ClientApi;
-import org.doranco.retrofit.RetrofitService;
-
-import java.io.Serializable;
-import java.util.List;
 
 public class CreationCompteClient extends AppCompatActivity {
 
@@ -28,6 +24,7 @@ public class CreationCompteClient extends AppCompatActivity {
         etPrenom = findViewById(R.id.entrezPrenom);
         etMail = findViewById(R.id.entrezMail);
         etTelephone = findViewById(R.id.entrezTelephone);
+        creerCompteEtape1 = findViewById(R.id.continuerCreationCompte);
 
         creerCompteEtape1.setOnClickListener(view -> {
             String nom = String.valueOf(etNom.getText());
@@ -42,7 +39,11 @@ public class CreationCompteClient extends AppCompatActivity {
             client.setTelephone(telephone);
 
             Intent creerCompteEtape2 = new Intent(getApplicationContext(), CreationCompteClientEtape2.class);
-            creerCompteEtape2.putExtra("client", client);
+
+            if (client != null) {
+                creerCompteEtape2.putExtra("client", client);
+            }
+
             startActivity(creerCompteEtape2);
             finish();
 

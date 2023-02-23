@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreationCompteClientEtape2"
+    tools:context="org.doranco.parcours.client.CreationCompteClientEtape2"
     android:layout_margin="5dp">
 
     <TextView
         android:id="@+id/titrePageCreerTonCompte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/creerSonCompteTitre"
+        android:text="@string/creerSonCompteClientTitre"
         android:textSize="32dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"/>

@@ -8,6 +8,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.doranco.parcours.client.CreationCompteClient;
+
 public class MainActivity extends AppCompatActivity   {
     private Button button ;
 
@@ -15,7 +17,7 @@ public class MainActivity extends AppCompatActivity   {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_connexion);
-        this.button = findViewById(R.id.btn);
+        this.button = (Button) findViewById(R.id.btn);
 
         button.setOnClickListener(new View.OnClickListener(){
             @Override
