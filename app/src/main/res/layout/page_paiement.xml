@@ -7,33 +7,23 @@
     tools:context=".MainActivity5">
 
     <TextView
-        android:id="@+id/titrePageCreerTonCompte"
+        android:id="@+id/coordonneesBancaires"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@stringCompte de carte"
+        android:text="Coordonnées Bancaires"
         android:textSize="32dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"/>
 
     <EditText
-        android:id="@+id/entrezNomdeCarte"
+        android:id="@+id/entrezNumdeCarte"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginTop="80dp"
-        android:layout_below="@+id/titreCompte de carte"
-        android:hint="@string/entrezNumdeCarte"/>
-
-    <EditText
-        android:id="@+id/entrezDatedeValidité"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/entrezNumdeCarte"
-        android:hint="@string/entrezDatedeValidité"/>
+        android:layout_below="@+id/coordonneesBancaires"
+        android:hint="n° de CB"/>
 
     <EditText
         android:id="@+id/entrezDatedeFindeValidité"
@@ -42,25 +32,44 @@
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginTop="50dp"
-        android:layout_below="@+id/entrezDatedeValidité"
-        android:hint="@string/entrezDatedeFinDEValidité"/>
+        android:layout_below="@+id/entrezNumdeCarte"
+        android:hint="Date de Fin de Validité"
+        android:inputType="date"/>
+
+    <EditText
+        android:id="@+id/entrezCCV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/entrezDatedeFindeValidité"
+        android:hint="CCV"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/entrezCCV"
+        android:layout_marginTop="50dp">
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/buttonAnnuler"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@string/entrezDatedeFindeValidite"
-        android:layout_alignBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="60dp"
-        android:text="Annuler" />
+        android:text="Annuler"
+        android:layout_marginLeft="50dp"
+        android:layout_alignParentLeft="true"/>
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/buttonValider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Valider"
+        android:layout_alignParentRight="true"
         tools:layout_editor_absoluteX="238dp"
-        tools:layout_editor_absoluteY="654dp" />
+        tools:layout_editor_absoluteY="654dp"
+        android:layout_marginRight="50dp"/>
+
+    </RelativeLayout>
+
 </RelativeLayout>
