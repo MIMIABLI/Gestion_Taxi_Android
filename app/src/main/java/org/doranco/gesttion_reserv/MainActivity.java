@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.doranco.models.MyAdapter;
 import org.doranco.parcours.client.CreationCompteClient;
 
 public class MainActivity extends AppCompatActivity   {
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity   {
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void  onClick(View view) {
-                Intent otherActivity = new Intent(getApplicationContext(), CreationCompteClient.class);
+                Intent otherActivity = new Intent(getApplicationContext(), MainActivity3.class);
                 startActivity(otherActivity);
                 finish();
 

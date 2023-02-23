@@ -12,7 +12,7 @@
         android:id="@+id/titrePageCreerTonCompte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/creerSonCompteTitre"
+        android:text="@string/creerSonCompteClientTitre"
         android:textSize="32dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"/>
