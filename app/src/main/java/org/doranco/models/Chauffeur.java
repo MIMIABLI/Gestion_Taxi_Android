@@ -38,13 +38,7 @@ public class Chauffeur {
     public Chauffeur() {
     }
 
-    public Double getPrix() {
-        return Prix;
-    }
 
-    public void setPrix(Double prix) {
-        Prix = prix;
-    }
 
     public Long getId() {
         return id;
