@@ -24,8 +24,13 @@ public class CreationCompteClient extends AppCompatActivity {
         etPrenom = findViewById(R.id.entrezPrenom);
         etMail = findViewById(R.id.entrezMail);
         etTelephone = findViewById(R.id.entrezTelephone);
-        creerCompteEtape1 = findViewById(R.id.continuerCreationCompte);
+        creerCompteEtape1 = findViewById(R.id.btnContinuerCreationCompte);
 
+        continuerCreationCompteClient();
+
+    }
+
+    private void continuerCreationCompteClient() {
         creerCompteEtape1.setOnClickListener(view -> {
             String nom = String.valueOf(etNom.getText());
             String prenom = String.valueOf(etPrenom.getText());
@@ -48,6 +53,5 @@ public class CreationCompteClient extends AppCompatActivity {
             finish();
 
         });
-
     }
 }
