@@ -41,6 +41,11 @@ public class CreationCompteClientEtape2 extends AppCompatActivity {
 
         clientSuite = (Client) getIntent().getSerializableExtra("client");
 
+        creerMonCompteEtapeFinale();
+
+    }
+
+    private void creerMonCompteEtapeFinale() {
         creerMonCompte.setOnClickListener(view -> {
 
             String cliLog = String.valueOf(login.getText());
@@ -52,39 +57,29 @@ public class CreationCompteClientEtape2 extends AppCompatActivity {
 //            } else {
 //                clientSuite.setPassword("mot de passe incorrect");
 //            }
-            clientSuite.setPassword(mdp);
 
+            clientSuite.setPassword(mdp);
             clientSuite.setLogin(cliLog);
 
-            System.out.println(clientSuite.getNom() + " " + clientSuite.getPrenom() + " " +
-                    clientSuite.getEmail() + " " + clientSuite.getTelephone() + " " +
-                    clientSuite.getLogin() + " " + clientSuite.getPassword() );
-
-
-            clientApi.saveClient(clientSuite)
-                    .enqueue(new Callback<Client>() {
-                        @Override
-                        public void onResponse(Call<Client> call, Response<Client> response) {
-                            Toast.makeText(CreationCompteClientEtape2.this, R.string.addUserSuccess, Toast.LENGTH_SHORT).show();
-                            Intent compteClientActivity = new Intent(getApplicationContext(), CompteClient.class);
-                            startActivity(compteClientActivity);
-                            finish();
-                        }
-                        @Override
-                        public void onFailure(Call<Client> call, Throwable t) {
-                            Toast.makeText(CreationCompteClientEtape2.this, R.string.addUserFailure, Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
+            saveClientInDatabase(clientSuite);
 
         });
+    }
 
-
-
-
-
-
-
-
+    private void saveClientInDatabase(Client client) {
+        clientApi.saveClient(client)
+                .enqueue(new Callback<Client>() {
+                    @Override
+                    public void onResponse(Call<Client> call, Response<Client> response) {
+                        Toast.makeText(CreationCompteClientEtape2.this, R.string.addUserSuccess, Toast.LENGTH_SHORT).show();
+                        Intent compteClientActivity = new Intent(getApplicationContext(), CompteClient.class);
+                        startActivity(compteClientActivity);
+                        finish();
+                    }
+                    @Override
+                    public void onFailure(Call<Client> call, Throwable t) {
+                        Toast.makeText(CreationCompteClientEtape2.this, R.string.addUserFailure, Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }
