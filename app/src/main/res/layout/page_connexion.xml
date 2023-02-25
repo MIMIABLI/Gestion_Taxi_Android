@@ -10,7 +10,7 @@
         android:textSize="20dp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/btn"/>
+        android:id="@+id/btnLogin"/>
 
     <EditText
         android:layout_width="250dp"
@@ -19,7 +19,7 @@
         android:id="@+id/password"
         android:inputType="textPassword"
         android:layout_centerHorizontal="true"
-        android:layout_above="@id/btn"
+        android:layout_above="@id/btnLogin"
         android:layout_marginBottom="30dp"
         />
 
@@ -40,7 +40,27 @@
         android:id="@+id/forgotpassword"
         android:textStyle="italic"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/btn"
+        android:layout_below="@id/btnLogin"
         android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="Créer mon compte"
+        android:id="@+id/créerUnCompte"
+        android:textStyle="italic"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/forgotpassword"
+        android:layout_marginTop="50dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/créerUnCompte"
+        android:id="@+id/btnSignUp"/>
 
 </RelativeLayout>

@@ -1,24 +1,32 @@
 package org.doranco.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.List;
 
 public class Client implements Serializable {
 
 
-
+    @SerializedName("idClient")
     private Long id;
 
+    @SerializedName("nom")
     private String nom;
 
+    @SerializedName("prenom")
     private String prenom;
 
+    @SerializedName("login")
     private String login;
 
+    @SerializedName("password")
     private String password;
 
+    @SerializedName("email")
     private String email;
 
+    @SerializedName("telephone")
     private String telephone;
 
     private List<Reservation> listReservation;

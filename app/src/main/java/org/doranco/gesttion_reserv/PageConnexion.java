@@ -11,47 +11,39 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.doranco.parcours.client.CreationCompteClient;
 
 public class PageConnexion extends AppCompatActivity   {
-    private Button button ;
+    private Button buttonLogin, buttonSignUp ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_connexion);
-        this.button = (Button) findViewById(R.id.btn);
+        this.buttonLogin = (Button) findViewById(R.id.btnLogin);
+        this.buttonSignUp = (Button) findViewById(R.id.btnSignUp);
 
-        button.setOnClickListener(new View.OnClickListener(){
+        connexionMonCompte();
+        creationMonCompte();
+
+    }
+
+    public void connexionMonCompte(){
+        buttonLogin.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void  onClick(View view) {
+                Intent otherActivity = new Intent(getApplicationContext(), CompteClient.class);
+                startActivity(otherActivity);
+                finish();
+            }
+        });
+    }
+
+    public void creationMonCompte(){
+        buttonSignUp.setOnClickListener(new View.OnClickListener(){
             @Override
             public void  onClick(View view) {
                 Intent otherActivity = new Intent(getApplicationContext(), CreationCompteClient.class);
                 startActivity(otherActivity);
                 finish();
-
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
