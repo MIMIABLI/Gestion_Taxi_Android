@@ -22,7 +22,7 @@ public class PageTrajet extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_page_trajet);
+        setContentView(R.layout.client_page_trajet);
 
         //etLieuDepart = FindById(R.Id.LieuDepart;
         trajetApi = retrofitService.getRetrofit().create(TrajetApi.class);

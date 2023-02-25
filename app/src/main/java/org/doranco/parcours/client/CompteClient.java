@@ -1,7 +1,8 @@
-package org.doranco.gesttion_reserv;
+package org.doranco.parcours.client;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +11,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.doranco.gesttion_reserv.MaListeDeReservations;
+import org.doranco.gesttion_reserv.MonCompteParametres;
+import org.doranco.gesttion_reserv.PageConnexion;
+import org.doranco.gesttion_reserv.PageReservation;
+import org.doranco.gesttion_reserv.R;
 import org.doranco.models.Client;
+import org.doranco.models.Reservation;
 import org.doranco.retrofit.RetrofitService;
 import org.doranco.retrofit.interfacesapi.ClientApi;
 
@@ -19,6 +26,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CompteClient extends AppCompatActivity {
+
+    private final String SHARED_PREF_USER = "SHARED_PREF_USER";
+    private final String SHARED_PREF_USER_INFO_NAME = "SHARED_PREF_USER_INFO_NAME";
+    private SharedPreferences sharedPreferences;
 
     TextView nomClient, menuMonCompte, menuSeDéconnecter;
     Button btnReserver, btnConsulterMesReservation;
@@ -45,18 +56,24 @@ public class CompteClient extends AppCompatActivity {
         consulterMesReservations();
         mesParametresDeCompte();
         meDeconnecter();
+        System.out.println(client.getLogin());
 
 
     }
 
 
     private void getClientDatas() {
-        Call<Client> clientCall = clientApi.getClientById(numId);
+        Call<Client> clientCall = clientApi.getClientByLogin("test");
         clientCall.enqueue(new Callback<Client>() {
             @Override
             public void onResponse(Call<Client> call, Response<Client> response) {
                 System.out.println(client = response.body());
                 nomClient.setText("Bonjour " + (client.getNom()));
+                sharedPreferences = getSharedPreferences(SHARED_PREF_USER, MODE_PRIVATE);
+                sharedPreferences.edit()
+                        .putString(SHARED_PREF_USER_INFO_NAME, client.getLogin())
+                        .apply();
+
             }
 
             @Override
@@ -70,6 +87,15 @@ public class CompteClient extends AppCompatActivity {
         btnReserver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Reservation resa = new Reservation();
+                String loginCLient = getSharedPreferences(SHARED_PREF_USER, MODE_PRIVATE)
+                        .getString(SHARED_PREF_USER_INFO_NAME, null);
+
+                if (loginCLient != null) {
+                    clientApi.getClientByLogin(loginCLient);
+//                    resa.setClient();
+                }
+
                 Intent faireUneReservation = new Intent(getApplicationContext(), PageReservation.class);
                 startActivity(faireUneReservation);
                 finish();

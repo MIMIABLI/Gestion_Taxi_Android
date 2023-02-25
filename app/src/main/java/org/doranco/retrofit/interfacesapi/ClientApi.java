@@ -21,6 +21,9 @@ public interface ClientApi {
     @GET("/client/find/{id}")
     Call<Client> getClientById(@Path("id") Long id);
 
+    @GET("/client/findByLogin/{login}")
+    Call<Client> getClientByLogin(@Path("login") String login);
+
     @PUT("/client/update")
     Call<List<Client>> updateClient(@Body Client Client);
 

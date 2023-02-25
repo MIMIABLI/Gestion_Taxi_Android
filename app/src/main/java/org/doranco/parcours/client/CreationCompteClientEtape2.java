@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.doranco.gesttion_reserv.CompteClient;
 import org.doranco.gesttion_reserv.R;
 import org.doranco.models.Client;
 import org.doranco.retrofit.interfacesapi.ClientApi;

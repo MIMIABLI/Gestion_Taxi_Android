@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import org.doranco.gesttion_reserv.R;
-import org.doranco.parcours.client.Reservation;
+import org.doranco.parcours.client.ChoisirChauffeur;
 import org.doranco.models.Chauffeur;
 import org.doranco.retrofit.interfacesapi.ChauffeurApi;
 import org.doranco.retrofit.RetrofitService;
@@ -19,7 +19,7 @@ public class CreationCompteChauffeur extends AppCompatActivity {
     private ChauffeurApi chauffeurApi;
     private Button creerCompte;
     private EditText etNom, etPrenom, etDeconnexion, etMotdepasse, etDate, etDemandedereservation, etVoirmescourse;
-    private List<Reservation> reservationList;
+    private List<ChoisirChauffeur> reservationList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

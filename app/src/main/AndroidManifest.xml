@@ -68,13 +68,13 @@
             android:name=".MainActivity5"
             android:exported="false" />
         <activity
-            android:name=".CompteClient"
+            android:name="org.doranco.parcours.client.CompteClient"
             android:exported="false" />
         <activity
             android:name=".ListChauffeurReservation"
             android:exported="false" />
         <activity
-            android:name="org.doranco.parcours.client.Reservation"
+            android:name="org.doranco.parcours.client.ChoisirChauffeur"
             android:exported="false" />
         <activity
             android:name=".PageConnexion"
