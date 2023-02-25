@@ -20,7 +20,7 @@ public class ListChauffeurReservation extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_trajet);
+        setContentView(R.layout.client_page_trajet);
 
         Chauffeur chauffeur1 = new Chauffeur();
         chauffeur1.setNom("Riri");

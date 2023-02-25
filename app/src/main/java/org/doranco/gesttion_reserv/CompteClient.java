@@ -30,7 +30,7 @@ public class CompteClient extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_client);
+        setContentView(R.layout.client_page_mon_compte);
 
         clientApi = retrofitService.getRetrofit().create(ClientApi.class);
 

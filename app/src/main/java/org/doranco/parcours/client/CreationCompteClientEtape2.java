@@ -30,7 +30,7 @@ public class CreationCompteClientEtape2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_creation_compte_client_etape_2);
+        setContentView(R.layout.client_creation_compte_etape_2);
 
         login = findViewById(R.id.entrezLogin);
         password = findViewById(R.id.entrezMotDePasse);

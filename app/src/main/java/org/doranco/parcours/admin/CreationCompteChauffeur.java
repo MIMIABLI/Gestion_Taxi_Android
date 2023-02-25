@@ -24,7 +24,7 @@ public class CreationCompteChauffeur extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_creation_compte_chauffeur);
+        setContentView(R.layout.chauffeur_creation_compte);
         //etnom = findViewById(R.Id.nom);
         chauffeurApi = retrofitService.getRetrofit().create(ChauffeurApi.class);
         creerCompte.setOnClickListener(view -> {

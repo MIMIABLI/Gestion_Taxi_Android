@@ -22,7 +22,7 @@ public class CreationCompteAdministrateur<AdministrateurApi> extends AppCompatAc
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_creation_compte_administrateur);
+        setContentView(R.layout.administrateur_creation_compte);
 
         //Login = findViewBy(R.id.Login);
         //administrateurApi = retrofitService.getRetrofit().create(AdministrateurApi.class);

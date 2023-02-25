@@ -11,7 +11,7 @@ public class MainActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.information_chauffeur);
+        setContentView(R.layout.chauffeur_page_information);
 
 
     }

@@ -9,6 +9,6 @@ public class MainActivity5 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_paiement);
+        setContentView(R.layout.client_page_paiement);
     }
 }
