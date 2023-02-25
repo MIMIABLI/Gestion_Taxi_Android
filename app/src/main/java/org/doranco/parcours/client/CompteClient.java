@@ -19,7 +19,10 @@ import org.doranco.gesttion_reserv.R;
 import org.doranco.models.Client;
 import org.doranco.models.Reservation;
 import org.doranco.retrofit.RetrofitService;
+import org.doranco.retrofit.controller.ControllerClient;
 import org.doranco.retrofit.interfacesapi.ClientApi;
+
+import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,16 +30,16 @@ import retrofit2.Response;
 
 public class CompteClient extends AppCompatActivity {
 
-    private final String SHARED_PREF_USER = "SHARED_PREF_USER";
-    private final String SHARED_PREF_USER_INFO_NAME = "SHARED_PREF_USER_INFO_NAME";
+    /*private final String SHARED_PREF_USER = "SHARED_PREF_USER";
+    private final String SHARED_PREF_USER_INFO_NAME = "SHARED_PREF_USER_INFO_NAME";*/
     private SharedPreferences sharedPreferences;
 
     TextView nomClient, menuMonCompte, menuSeDéconnecter;
     Button btnReserver, btnConsulterMesReservation;
     RetrofitService retrofitService = new RetrofitService();
     ClientApi clientApi;
+    //ControllerClient controllerClient = new ControllerClient();
     Client client = new Client();
-    long numId = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +54,16 @@ public class CompteClient extends AppCompatActivity {
         menuMonCompte = findViewById(R.id.btnMonCompteClient);
         menuSeDéconnecter = findViewById(R.id.seDeconnecterCompteClient);
 
-        getClientDatas();
+//        try {
+//           //client = controllerClient.getClient("test", getApplicationContext());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+        client.setNom(getSharedPreferences(ESharedDatasRefs.USER_SHARED_DATAS.name(), MODE_PRIVATE)
+                .getString(ESharedDatasRefs.USER_SHARED_NAME.name(), ""));
+
+        nomClient.setText(client.getNom());
+
         faireUneReservation();
         consulterMesReservations();
         mesParametresDeCompte();
@@ -61,42 +73,14 @@ public class CompteClient extends AppCompatActivity {
 
     }
 
-
-    private void getClientDatas() {
-        Call<Client> clientCall = clientApi.getClientByLogin("test");
-        clientCall.enqueue(new Callback<Client>() {
-            @Override
-            public void onResponse(Call<Client> call, Response<Client> response) {
-                System.out.println(client = response.body());
-                nomClient.setText("Bonjour " + (client.getNom()));
-                sharedPreferences = getSharedPreferences(SHARED_PREF_USER, MODE_PRIVATE);
-                sharedPreferences.edit()
-                        .putString(SHARED_PREF_USER_INFO_NAME, client.getLogin())
-                        .apply();
-
-            }
-
-            @Override
-            public void onFailure(Call<Client> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Impossible de récupérer les données du client", Toast.LENGTH_SHORT);
-            }
-        });
-    }
-
     private void faireUneReservation() {
         btnReserver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Reservation resa = new Reservation();
-                String loginCLient = getSharedPreferences(SHARED_PREF_USER, MODE_PRIVATE)
-                        .getString(SHARED_PREF_USER_INFO_NAME, null);
-
-                if (loginCLient != null) {
-                    clientApi.getClientByLogin(loginCLient);
-//                    resa.setClient();
-                }
+               Reservation resa = new Reservation();
 
                 Intent faireUneReservation = new Intent(getApplicationContext(), PageReservation.class);
+                faireUneReservation.putExtra("reservation", resa);
                 startActivity(faireUneReservation);
                 finish();
             }
