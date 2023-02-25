@@ -21,8 +21,9 @@ public class PageReservation extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_page_reservation);
+        setContentView(R.layout.page_reservation);
 
+        creerReservation = findViewById(R.id.reserverBtnPageReservation);
         //etClient FindById(R.id.Client);
         reservationApi = retrofitService.getRetrofit().create(ReservationApi.class);
 
