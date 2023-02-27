@@ -6,15 +6,19 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
+import org.doranco.models.Reservation;
 import org.doranco.models.Trajet;
 import org.doranco.retrofit.RetrofitService;
+import org.doranco.retrofit.interfacesapi.ReservationApi;
 import org.doranco.retrofit.interfacesapi.TrajetApi;
 
 import java.util.List;
 
 public class PageTrajet extends AppCompatActivity {
     private RetrofitService retrofitService = new RetrofitService();
+    private ReservationApi reservationApi;
     private TrajetApi trajetApi;
+    Reservation reservation;
     private Button creerTrajet;
     private EditText etLieuDepart, etLieuArrivee, etDureeTrajet, etPrix, etStatut;
     private List<Trajet> trajetList;
@@ -26,6 +30,7 @@ public class PageTrajet extends AppCompatActivity {
 
         //etLieuDepart = FindById(R.Id.LieuDepart;
         trajetApi = retrofitService.getRetrofit().create(TrajetApi.class);
+        reservation = (Reservation) getIntent().getSerializableExtra("reservation");
 
         creerTrajet.setOnClickListener(view ->{
             String lieuDepat = String.valueOf(etLieuDepart.getText());
@@ -41,6 +46,7 @@ public class PageTrajet extends AppCompatActivity {
             //trajet.setStatut(statut);
 
             trajetApi.saveTrajet(trajet);
+            reservationApi.saveReservation(reservation);
         });
 
     }

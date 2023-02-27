@@ -23,6 +23,8 @@ public interface ClientApi {
 
     @GET("/client/findByLogin/{login}")
     Call<Client> getClientByLogin(@Path("login") String login);
+//    @GET("/client/findByLoginWithoutCall/{login}")
+//    Client getCLientByLoginWithoutCall(@Path("login") String login);
 
     @PUT("/client/update")
     Call<List<Client>> updateClient(@Body Client Client);

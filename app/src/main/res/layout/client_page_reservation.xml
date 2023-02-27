@@ -15,7 +15,7 @@
         android:layout_marginTop="100dp"/>
 
     <EditText
-        android:id="@+id/choisirDate"
+        android:id="@+id/choisirDateDepart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Date de départ"
@@ -35,7 +35,7 @@
         android:hint="Lieu de départ"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:layout_below="@+id/choisirDate"/>
+        android:layout_below="@+id/choisirDateDepart"/>
 
     <EditText
         android:id="@+id/entrerDestination"

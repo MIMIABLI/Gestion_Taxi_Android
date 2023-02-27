@@ -54,4 +54,8 @@ public class ControllerClient {
         });
     }
 
+    public Client getClientByLog(String login) {
+        return (Client) clientApi.getClientByLogin(login);
+    }
+
 }
