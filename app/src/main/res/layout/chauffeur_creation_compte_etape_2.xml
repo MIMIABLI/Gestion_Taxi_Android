@@ -1,9 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="org.doranco.parcours.admin.CreationCompteChauffeurEtape2">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<!--
+    photo
+    type de vehicule
+    couleur du véhicule
+    immatriculation
+    Secteur
+    Prix-->
+
+    <TextView
+            android:id="@+id/creerCompteChauffeurTitre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/creerSonCompteChauffeurTitre"
+            android:layout_centerHorizontal="true"
+            android:textSize="30dp"
+            android:textAlignment="center"
+            android:layout_marginTop="50dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Importer la photo du chauffeur"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:id="@+id/importerPhotoTexte"
+        android:layout_below="@id/creerCompteChauffeurTitre"/>
+
+    <Button
+        android:id="@+id/importerPhotoBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload image"
+        android:background="@color/blue"
+        android:padding="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/importerPhotoTexte"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Marque et série du véhicule"
+        android:ems="12"
+        android:id="@+id/marqueEtSerieDuVehicule"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/importerPhotoBtn"
+        android:layout_marginTop="30dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Couleur du véhicule"
+        android:ems="12"
+        android:id="@+id/couleurDuVehicule"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/marqueEtSerieDuVehicule"
+        android:layout_marginTop="30dp"/>
+
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Immatriculation du véhicule"
+            android:ems="12"
+            android:id="@+id/immatriculationDuVehicule"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/couleurDuVehicule"
+            android:layout_marginTop="30dp"/>
+
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Secteur du chauffeur"
+            android:ems="12"
+            android:id="@+id/secteurDuCHauffeur"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/immatriculationDuVehicule"
+            android:layout_marginTop="30dp"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Créer le compte"
+            android:id="@+id/creerCompteBtn"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginRight="75dp"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Retour"
+            android:id="@+id/retourEtapeCreerCompteChauffeur"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="90dp"/>
+
+
+
+</RelativeLayout>
