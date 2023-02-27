@@ -32,6 +32,8 @@ public class PageTrajet extends AppCompatActivity {
         trajetApi = retrofitService.getRetrofit().create(TrajetApi.class);
         reservation = (Reservation) getIntent().getSerializableExtra("reservation");
 
+        /*creerTrajet = findViewById(R.id.)
+
         creerTrajet.setOnClickListener(view ->{
             String lieuDepat = String.valueOf(etLieuDepart.getText());
             String lieuArrive = String.valueOf(etLieuArrivee.getText());
@@ -47,7 +49,7 @@ public class PageTrajet extends AppCompatActivity {
 
             trajetApi.saveTrajet(trajet);
             reservationApi.saveReservation(reservation);
-        });
+        });*/
 
     }
 }

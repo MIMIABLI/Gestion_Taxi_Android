@@ -54,9 +54,9 @@ public class PageReservation extends AppCompatActivity {
 
         creerReservation.setOnClickListener(view -> {
 
-            Date heureArrive = (Date) resaHeureArrivee.getText();
+            String heureArrive = String.valueOf(resaHeureArrivee.getText());
             String statutTrajet = StatutTrajet.EN_ATTENTE.name();
-            Date dateDeDepart = (Date) resaDateDepart.getText();
+            String dateDeDepart = String.valueOf(resaDateDepart.getText());
             String lieuDeDepart = String.valueOf(resaLieuDepart);
             String lieuDarrivee = String.valueOf(resaLieuArrivee);
 
@@ -65,12 +65,15 @@ public class PageReservation extends AppCompatActivity {
             trajet.setLieuDArrive(lieuDarrivee);
             trajet.setReservation(resa);
 
-            client = controllerClient.getClientByLog(ESharedDatasRefs.USER_SHARED_LOGIN.name());
+            System.out.println(heureArrive);
+            System.out.println(dateDeDepart);
+
+            //client = controllerClient.getClientByLog(ESharedDatasRefs.USER_SHARED_LOGIN.name());
 
             resa.setClient(client);
-            resa.setHeureArrive(heureArrive);
+            //resa.setHeureArrive(heureArrive);
             resa.setStatut(statutTrajet);
-            resa.setDate(dateDeDepart);
+            //resa.setDate(dateDeDepart);
 
             Intent pageChoixDuChauffeur = new Intent(getApplicationContext(), PageTrajet.class);
             pageChoixDuChauffeur.putExtra("reservation", resa);
