@@ -31,7 +31,7 @@
                     android:value=""/>
         </activity>
         <activity
-                android:name=".MaListeDeReservations"
+                android:name="org.doranco.parcours.chauffeurs.MaListeDeReservations"
                 android:exported="false">
             <meta-data
                     android:name="android.app.lib_name"
@@ -55,10 +55,10 @@
                 android:name=".CreationCompteAdministrateur"
                 android:exported="false"/>
         <activity
-                android:name=".PageReservation"
+                android:name="org.doranco.parcours.client.PageReservation"
                 android:exported="false"/>
         <activity
-                android:name=".PageTrajet"
+                android:name="org.doranco.parcours.client.PageTrajet"
                 android:exported="false"/>
         <activity
                 android:name=".CreationCompteChauffeur"
@@ -77,7 +77,7 @@
                 android:name="org.doranco.parcours.client.CompteClient"
                 android:exported="false"/>
         <activity
-                android:name=".ListChauffeurReservation"
+                android:name="org.doranco.parcours.client.ListChauffeurReservation"
                 android:exported="false"/>
         <activity
                 android:name="org.doranco.parcours.client.ChoisirChauffeur"

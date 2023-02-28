@@ -1,4 +1,4 @@
-package org.doranco.gesttion_reserv;
+package org.doranco.parcours.client;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,16 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import org.doranco.gesttion_reserv.R;
 import org.doranco.models.Client;
 import org.doranco.models.Reservation;
 import org.doranco.models.StatutTrajet;
 import org.doranco.models.Trajet;
-import org.doranco.parcours.client.ESharedDatasRefs;
 import org.doranco.retrofit.controller.ControllerClient;
 import org.doranco.retrofit.interfacesapi.ReservationApi;
 import org.doranco.retrofit.RetrofitService;
 
-import java.util.Date;
 import java.util.List;
 
 public class PageReservation extends AppCompatActivity {

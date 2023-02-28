@@ -1,4 +1,4 @@
-package org.doranco.gesttion_reserv;
+package org.doranco.parcours.client;
 
 
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.doranco.gesttion_reserv.R;
 import org.doranco.models.Chauffeur;
 import org.doranco.models.MyAdapter;
 

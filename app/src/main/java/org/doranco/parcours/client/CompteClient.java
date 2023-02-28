@@ -7,26 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.doranco.gesttion_reserv.MaListeDeReservations;
 import org.doranco.gesttion_reserv.MonCompteParametres;
 import org.doranco.gesttion_reserv.PageConnexion;
-import org.doranco.gesttion_reserv.PageReservation;
 import org.doranco.gesttion_reserv.R;
 import org.doranco.models.Client;
 import org.doranco.models.Reservation;
+import org.doranco.parcours.chauffeurs.MaListeDeReservations;
 import org.doranco.retrofit.RetrofitService;
-import org.doranco.retrofit.controller.ControllerClient;
 import org.doranco.retrofit.interfacesapi.ClientApi;
-
-import java.io.IOException;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class CompteClient extends AppCompatActivity {
 

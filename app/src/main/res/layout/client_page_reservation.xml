@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListChauffeurReservation">
+    tools:context="org.doranco.parcours.client.ListChauffeurReservation">
 
     <TextView
         android:id="@+id/pageReservationTitre"
