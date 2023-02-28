@@ -1,5 +1,7 @@
 package org.doranco.parcours.admin;
 
+import android.content.Intent;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,6 +39,18 @@ public class MonCompteAdmin extends AppCompatActivity {
          dateDuJourParSeconde =  nowTimeTask.getNowTime();
          date.setText(dateDuJourParSeconde);
 
+        ajouterUnChauffeurOnClick();
+    }
 
+    private void ajouterUnChauffeurOnClick() {
+
+        ajouterChauffeurs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ajouterUnChauffeurActivity = new Intent(getApplicationContext(), CreationCompteChauffeur.class);
+                startActivity(ajouterUnChauffeurActivity);
+                finish();
+            }
+        });
     }
 }
