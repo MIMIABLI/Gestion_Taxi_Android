@@ -1,5 +1,6 @@
 package org.doranco.parcours.admin;
 
+import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -7,42 +8,43 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import org.doranco.gesttion_reserv.R;
-import org.doranco.parcours.client.ChoisirChauffeur;
 import org.doranco.models.Chauffeur;
-import org.doranco.retrofit.interfacesapi.ChauffeurApi;
-import org.doranco.retrofit.RetrofitService;
-
-import java.util.List;
 
 public class CreationCompteChauffeur extends AppCompatActivity {
-    private RetrofitService retrofitService = new RetrofitService();
-    private ChauffeurApi chauffeurApi;
-    private Button creerCompte;
-    private EditText etNom, etPrenom, etDeconnexion, etMotdepasse, etDate, etDemandedereservation, etVoirmescourse;
-    private List<ChoisirChauffeur> reservationList;
+    private Button creerCompteChauffeurValidationEtape1;
+    private EditText nomChauffeur, prenomChauffeur, mailChauffeur, telephoneChauffeur;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chauffeur_creation_compte);
-        //etnom = findViewById(R.Id.nom);
-        chauffeurApi = retrofitService.getRetrofit().create(ChauffeurApi.class);
-        creerCompte.setOnClickListener(view -> {
-            String Nom = String.valueOf(etNom.getText());
-            String Prenom = String.valueOf(etPrenom.getText());
-            //String  = String.valueOf(et.getText());
-            String Motdepasse= String.valueOf(etMotdepasse.getText());
-            String Date = String.valueOf(etDate.getText());
-           //List <Demandedereservation> = List.(etDemandedereservation.getText());
-            //String Voirmacourse = String.valueOf(etVoirmescourse.getText());
+
+        creerCompteChauffeurValidationEtape1 = findViewById(R.id.continuerCreationCompteChauffeur);
+        nomChauffeur = findViewById(R.id.entrezNomChauffeur);
+        prenomChauffeur = findViewById(R.id.entrezPrenomChauffeur);
+        mailChauffeur = findViewById(R.id.entrezMailChauffeur);
+        telephoneChauffeur = findViewById(R.id.entrezTelephoneChauffeur);
+
+        onclickbuttonsuivant();
+    }
+
+    private void onclickbuttonsuivant() {
+        creerCompteChauffeurValidationEtape1.setOnClickListener(view -> {
+            String nom = String.valueOf(nomChauffeur.getText());
+            String prenom = String.valueOf(prenomChauffeur.getText());
+            String mail = String.valueOf(mailChauffeur.getText());
+            String tel = String.valueOf(telephoneChauffeur.getText());
 
             Chauffeur chauffeur = new Chauffeur();
-           /* chauffeur.setNom(nom);
+            chauffeur.setNom(nom);
             chauffeur.setPrenom(prenom);
-            chauffeur.setCouleurDuVehicule(CouleurDuVehicule);
-            chauffeur.setImmatriculationDuVehicule(ImmatriculationDuVehicule);*/
+            chauffeur.setEmail(mail);
+            chauffeur.setTelephone(tel);
 
-            chauffeurApi.saveChauffeur(chauffeur);
+            Intent creerCompteChauffeurEtape2 = new Intent(getApplicationContext(), CreationCompteChauffeurEtape2.class);
+            creerCompteChauffeurEtape2.putExtra("chauffeur", chauffeur);
+            startActivity(creerCompteChauffeurEtape2);
+            finish();
 
         });
     }

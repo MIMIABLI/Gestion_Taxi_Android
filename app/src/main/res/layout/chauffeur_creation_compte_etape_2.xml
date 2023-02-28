@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="org.doranco.parcours.admin.CreationCompteChauffeurEtape2">
-
-<!--
-    photo
-    type de vehicule
-    couleur du véhicule
-    immatriculation
-    Secteur
-    Prix-->
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="org.doranco.parcours.admin.CreationCompteChauffeurEtape2">
 
     <TextView
             android:id="@+id/creerCompteChauffeurTitre"
@@ -26,44 +18,44 @@
             android:layout_marginTop="50dp"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Importer la photo du chauffeur"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:id="@+id/importerPhotoTexte"
-        android:layout_below="@id/creerCompteChauffeurTitre"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Importer la photo du chauffeur"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:id="@+id/importerPhotoTexte"
+            android:layout_below="@id/creerCompteChauffeurTitre"/>
 
     <Button
-        android:id="@+id/importerPhotoBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Upload image"
-        android:background="@color/blue"
-        android:padding="5dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/importerPhotoTexte"
-        android:layout_marginTop="10dp"/>
+            android:id="@+id/importerPhotoBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload image"
+            android:background="@color/blue"
+            android:padding="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/importerPhotoTexte"
+            android:layout_marginTop="10dp"/>
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Marque et série du véhicule"
-        android:ems="12"
-        android:id="@+id/marqueEtSerieDuVehicule"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/importerPhotoBtn"
-        android:layout_marginTop="30dp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Marque et série du véhicule"
+            android:ems="12"
+            android:id="@+id/marqueEtSerieDuVehicule"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/importerPhotoBtn"
+            android:layout_marginTop="30dp"/>
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Couleur du véhicule"
-        android:ems="12"
-        android:id="@+id/couleurDuVehicule"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/marqueEtSerieDuVehicule"
-        android:layout_marginTop="30dp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Couleur du véhicule"
+            android:ems="12"
+            android:id="@+id/couleurDuVehicule"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/marqueEtSerieDuVehicule"
+            android:layout_marginTop="30dp"/>
 
     <EditText
             android:layout_width="wrap_content"
@@ -104,7 +96,6 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="30dp"
             android:layout_marginLeft="90dp"/>
-
 
 
 </RelativeLayout>
