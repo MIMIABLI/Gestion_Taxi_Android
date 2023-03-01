@@ -14,12 +14,12 @@ public class MyClientStream {
     public MyClientStream() {
     }
 
-    public Observable<Client> streamObservableClient(String login) {
+    /*public Observable<Client> streamObservableClient(String login) {
         RetrofitService retrofitService = new RetrofitService();
         ClientApi clientApi = retrofitService.getRetrofit().create(ClientApi.class);
         return clientApi.getClientByLogin(login)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .timeout(10, TimeUnit.SECONDS);
-    }
+    }*/
 }

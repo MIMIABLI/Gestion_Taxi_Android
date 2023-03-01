@@ -68,7 +68,7 @@ public class PageConnexion extends AppCompatActivity  {
             public void  onClick(View view) {
                 String loginEntree = String.valueOf(login.getText());
 
-               client = myClientStream.streamObservableClient(loginEntree).blockingFirst();
+               //client = myClientStream.streamObservableClient(loginEntree).blockingFirst();
 
 //                if (loginEntree != null &&  isClientExists) {
 
