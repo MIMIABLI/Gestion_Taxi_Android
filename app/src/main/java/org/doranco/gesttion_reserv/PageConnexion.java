@@ -22,6 +22,8 @@ import retrofit2.Call;
 import retrofit2.Response;
 
 import java.io.IOException;
+import java.lang.ref.WeakReference;
+import java.util.concurrent.ExecutionException;
 
 public class PageConnexion extends AppCompatActivity implements MyAsyncTask.Listeners  {
 
@@ -35,7 +37,7 @@ public class PageConnexion extends AppCompatActivity implements MyAsyncTask.List
     private ClientApi clientApi;
     private Client client;
     private MyAsyncTask myAsyncTask;
-    private ProgressBar progressBar;
+    private WeakReference<ProgressBar> progressBarWeakReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +49,7 @@ public class PageConnexion extends AppCompatActivity implements MyAsyncTask.List
         this.password = findViewById(R.id.passwordPageConnexion);
 
         clientApi = retrofitService.getRetrofit().create(ClientApi.class);
-
-        controllerClient = new ControllerClient(getApplicationContext());
+        progressBarWeakReference = new WeakReference<>(new ProgressBar(getApplicationContext()));
 
         connexionMonCompte();
         creationMonCompte();
@@ -59,20 +60,19 @@ public class PageConnexion extends AppCompatActivity implements MyAsyncTask.List
         buttonLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void  onClick(View view) {
-
                 String loginEntree = String.valueOf(login.getText());
 
-                /*try {
-                    controllerClient.getClientDatas(loginEntree);
-
-                    System.out.println(loginDataBaseClient);
-
-
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }*/
 
                     startAsyncTask(loginEntree);
+
+                try {
+                    Client client1 = startAsyncTaskGetCLient(loginEntree);
+                    System.out.println(client1.getTelephone());
+                } catch (ExecutionException e) {
+                    throw new RuntimeException(e);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
 
 
 //                if (loginEntree != null &&  isClientExists) {
@@ -100,10 +100,12 @@ public class PageConnexion extends AppCompatActivity implements MyAsyncTask.List
 
 
         private void startAsyncTask(String login) {
-            new MyAsyncTask(this, login, controllerClient).execute();
+            new MyAsyncTask(this, login).execute();
         }
 
-
+    private Client startAsyncTaskGetCLient(String login) throws ExecutionException, InterruptedException {
+        return new MyAsyncTask(this, login).execute().get();
+    }
 
         @Override
         public void onPreExecute() {
@@ -116,17 +118,17 @@ public class PageConnexion extends AppCompatActivity implements MyAsyncTask.List
         }
 
         @Override
-        public void onPostExecute(Call<Client> success) {
+        public void onPostExecute(Client success) {
             //this.updateUIAfterTask(success);
 
         }
 
-        /*public void updateUIBeforeTask(){
-            this.progressBar.setVisibility(View.VISIBLE);
+       /* public void updateUIBeforeTask(){
+            this.progressBarWeakReference.get().setVisibility(View.VISIBLE);
         }
 
-        public void updateUIAfterTask(Call<Client> success){
-            this.progressBar.setVisibility(View.GONE);
-            Toast.makeText(this, "Task is finally finished at : "+success+" !", Toast.LENGTH_SHORT).show();
+        public void updateUIAfterTask(Client success){
+            this.progressBarWeakReference.get().setVisibility(View.GONE);
+            Toast.makeText(this, "Task is finally executed : "+success+" !", Toast.LENGTH_SHORT).show();
         }*/
 }

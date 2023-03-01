@@ -30,7 +30,7 @@ public class ControllerClient {
         clientApi = retrofitService.getRetrofit().create(ClientApi.class);
     }
 
-    public Call<Client> getClientDatas(String login) throws IOException {
+    public void getClientDatas(String login) throws IOException {
 
         Call<Client> clientCall = clientApi.getClientByLogin(login);
         clientCall.enqueue(new Callback<Client>() {
@@ -59,7 +59,6 @@ public class ControllerClient {
                 setClientLogin("");
             }
         });
-        return clientCall;
     }
 
     public String getClientLogin() {
