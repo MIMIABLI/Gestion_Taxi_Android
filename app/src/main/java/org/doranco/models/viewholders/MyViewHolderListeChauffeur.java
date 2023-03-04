@@ -1,4 +1,4 @@
-package org.doranco.models;
+package org.doranco.models.viewholders;
 
 import android.view.View;
 import android.widget.Button;
@@ -8,13 +8,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import org.doranco.gesttion_reserv.R;
 
-public class MyViewHolder extends RecyclerView.ViewHolder {
+public class MyViewHolderListeChauffeur extends RecyclerView.ViewHolder {
 
     ImageView imageChauffeur;
     TextView nom, vehicule, note, prix;
     Button button;
 
-    public MyViewHolder(@NonNull View itemView) {
+    public MyViewHolderListeChauffeur(@NonNull View itemView) {
         super(itemView);
 
         imageChauffeur = itemView.findViewById(R.id.imageviewtest);

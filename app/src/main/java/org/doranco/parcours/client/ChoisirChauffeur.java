@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import org.doranco.gesttion_reserv.R;
 import org.doranco.models.Chauffeur;
-import org.doranco.models.MyAdapter;
+import org.doranco.models.viewholders.MyAdapterListeChauffeur;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +52,6 @@ public class ChoisirChauffeur extends AppCompatActivity {
         chauffeursList.add(chauffeur3);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new MyAdapter(getApplicationContext(), chauffeursList));
+        recyclerView.setAdapter(new MyAdapterListeChauffeur(getApplicationContext(), chauffeursList));
     }
 }

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_marginTop="5dp">
+
+    <LinearLayout
+            android:id="@+id/marginLayout"
+            android:layout_width="30dp"
+            android:layout_height="54dp"
+            android:layout_margin="10dp"
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:background="@color/blue"/>
+
+    <TextView
+            android:id="@+id/nomPrenomClient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nom/Prénom"
+            android:textSize="20dp"
+            android:layout_toRightOf="@id/marginLayout"/>
+
+    <TextView
+            android:id="@+id/dateDuDepart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:layout_marginRight="10dp"
+            android:textSize="18dp"
+            android:layout_below="@id/nomPrenomClient"
+            android:layout_toRightOf="@id/marginLayout"/>
+
+    <TextView
+            android:id="@+id/heureDeDepart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Heure"
+            android:textSize="18dp"
+            android:layout_toRightOf="@id/dateDuDepart"
+            android:layout_below="@id/nomPrenomClient"/>
+
+    <TextView
+            android:id="@+id/lieuDeDepart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Départ"
+            android:layout_below="@id/dateDuDepart"
+            android:layout_toRightOf="@id/marginLayout"
+            android:layout_marginEnd="10dp"/>
+
+    <TextView
+            android:id="@+id/lieuDarrivee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Arrivée"
+            android:layout_below="@id/dateDuDepart"
+            android:layout_toRightOf="@id/lieuDeDepart"/>
+
+    <Switch
+            android:id="@+id/switchValidation"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:text="Accepté"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#3F51B5"
+            android:layout_below="@id/lieuDarrivee"
+            android:layout_marginTop="5dp"/>
+
+</RelativeLayout>

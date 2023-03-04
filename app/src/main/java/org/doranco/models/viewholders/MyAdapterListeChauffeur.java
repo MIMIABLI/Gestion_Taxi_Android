@@ -1,4 +1,4 @@
-package org.doranco.models;
+package org.doranco.models.viewholders;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,27 +9,28 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import org.doranco.gesttion_reserv.R;
+import org.doranco.models.Chauffeur;
 
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
+public class MyAdapterListeChauffeur extends RecyclerView.Adapter<MyViewHolderListeChauffeur> {
 
     Context context;
     List<Chauffeur> chauffeurList;
 
-    public MyAdapter(Context context, List<Chauffeur> chauffeurList) {
+    public MyAdapterListeChauffeur(Context context, List<Chauffeur> chauffeurList) {
         this.context = context;
         this.chauffeurList = chauffeurList;
     }
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.viewholder_liste_chauffeur, parent, false));
+    public MyViewHolderListeChauffeur onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new MyViewHolderListeChauffeur(LayoutInflater.from(context).inflate(R.layout.viewholder_liste_chauffeur, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolderListeChauffeur holder, int position) {
         String nom = chauffeurList.get(position).getNom();
         String prenom = chauffeurList.get(position).getPrenom();
 

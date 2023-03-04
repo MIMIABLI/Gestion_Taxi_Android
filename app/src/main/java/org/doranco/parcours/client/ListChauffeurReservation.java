@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.doranco.gesttion_reserv.R;
 import org.doranco.models.Chauffeur;
-import org.doranco.models.MyAdapter;
+import org.doranco.models.viewholders.MyAdapterListeChauffeur;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +63,6 @@ public class ListChauffeurReservation extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.listChauffeur);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new MyAdapter(getApplicationContext(), chauffeurList));
+        recyclerView.setAdapter(new MyAdapterListeChauffeur(getApplicationContext(), chauffeurList));
     }
 }
