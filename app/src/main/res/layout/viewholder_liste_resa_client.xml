@@ -60,12 +60,22 @@
 
     <Switch
             android:id="@+id/switchValidation"
-            android:layout_width="100dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
+            android:layout_marginTop="7dp"
             android:layout_marginRight="30dp"
-            android:text="Accepté"/>
+            android:text="Accepter"/>
+
+    <Switch
+            android:id="@+id/switchRefus"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/switchValidation"
+            android:text="Refuser"/>
 
     <LinearLayout
             android:layout_width="match_parent"
