@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.doranco.parcours.client.ListChauffeurReservation">
+
+    <TextView
+        android:id="@+id/pageReservationTitre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/titrePageReservationClient"
+        android:layout_marginTop="100dp"/>
+
+    <EditText
+        android:id="@+id/choisirDateDepart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Date de départ"
+        android:inputType="datetime"
+        android:ems="10"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/pageReservationTitre"/>
+
+    <EditText
+        android:id="@+id/entrerLieuDepart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:hint="Lieu de départ"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/choisirDateDepart"/>
+
+    <EditText
+        android:id="@+id/entrerDestination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Destination"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/entrerLieuDepart"/>
+
+
+    <EditText
+        android:id="@+id/choisirHeureArrivee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="time"
+        android:hint="Heure d'arrivee"
+        android:layout_below="@id/entrerDestination"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"/>
+
+
+    <Button
+        android:id="@+id/btnAnnulerReservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Annuler"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="643dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="50dp"/>
+
+    <Button
+        android:id="@+id/reserverBtnPageReservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Réserver"
+        tools:layout_editor_absoluteX="229dp"
+        tools:layout_editor_absoluteY="643dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="50dp"/>
+
+</RelativeLayout>

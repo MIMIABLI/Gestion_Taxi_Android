@@ -12,14 +12,14 @@ import org.doranco.models.MyAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Reservation extends AppCompatActivity {
+public class ChoisirChauffeur extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private List<Chauffeur> chauffeursList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_trajet);
+        setContentView(R.layout.client_page_trajet);
 
         recyclerView = findViewById(R.id.listChauffeur);
 

@@ -1,4 +1,4 @@
-package org.doranco.gesttion_reserv;
+package org.doranco.parcours.client;
 
 
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.doranco.gesttion_reserv.R;
 import org.doranco.models.Chauffeur;
 import org.doranco.models.MyAdapter;
 
@@ -20,7 +21,7 @@ public class ListChauffeurReservation extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_trajet);
+        setContentView(R.layout.client_page_trajet);
 
         Chauffeur chauffeur1 = new Chauffeur();
         chauffeur1.setNom("Riri");
