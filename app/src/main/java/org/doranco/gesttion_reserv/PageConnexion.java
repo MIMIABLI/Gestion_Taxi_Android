@@ -1,31 +1,29 @@
 package org.doranco.gesttion_reserv;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import android.widget.ProgressBar;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.doranco.models.Client;
+import org.doranco.models.UserType;
+import org.doranco.parcours.admin.MonCompteAdmin;
+import org.doranco.parcours.chauffeurs.MonCompteChauffeur;
 import org.doranco.parcours.client.CompteClient;
 import org.doranco.parcours.client.CreationCompteClient;
 import org.doranco.retrofit.RetrofitService;
+import org.doranco.retrofit.auth.*;
 import org.doranco.retrofit.controller.ControllerClient;
-import org.doranco.retrofit.controller.MyAsyncTask;
 import org.doranco.retrofit.interfacesapi.ClientApi;
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
 
-import java.io.IOException;
-import java.lang.ref.WeakReference;
-import java.util.concurrent.ExecutionException;
-
-public class PageConnexion extends AppCompatActivity implements MyAsyncTask.Listeners  {
+public class PageConnexion extends AppCompatActivity  {
 
     private Button buttonLogin, buttonSignUp ;
     private EditText login, password;
@@ -34,10 +32,12 @@ public class PageConnexion extends AppCompatActivity implements MyAsyncTask.List
     private boolean isClientExists, isChauffeurExists, isAdminExists;
     private ControllerClient controllerClient;
     private RetrofitService retrofitService = new RetrofitService();
+    private RetrofitAuthenticationService retrofitAuthenticationService;
+    private AuthenticationRequest authenticationRequest = new AuthenticationRequest();
     private ClientApi clientApi;
     private Client client;
-    private MyAsyncTask myAsyncTask;
-    private WeakReference<ProgressBar> progressBarWeakReference;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +46,10 @@ public class PageConnexion extends AppCompatActivity implements MyAsyncTask.List
         this.buttonLogin = (Button) findViewById(R.id.btnLogin);
         this.buttonSignUp = (Button) findViewById(R.id.btnSignUp);
         login = findViewById(R.id.loginPageConnexion);
-        this.password = findViewById(R.id.passwordPageConnexion);
+        password = findViewById(R.id.passwordPageConnexion);
 
         clientApi = retrofitService.getRetrofit().create(ClientApi.class);
-        progressBarWeakReference = new WeakReference<>(new ProgressBar(getApplicationContext()));
+        retrofitAuthenticationService = retrofitService.getRetrofit().create(RetrofitAuthenticationService.class);
 
         connexionMonCompte();
         creationMonCompte();
@@ -61,28 +61,51 @@ public class PageConnexion extends AppCompatActivity implements MyAsyncTask.List
             @Override
             public void  onClick(View view) {
                 String loginEntree = String.valueOf(login.getText());
+                String passwordEntree = String.valueOf(password.getText());
+
+                if (!loginEntree.equals("") && !passwordEntree.equals("")) {
+
+                authenticationRequest.setLogin(loginEntree);
+                authenticationRequest.setPassword(passwordEntree);
 
 
-                    startAsyncTask(loginEntree);
+                    retrofitAuthenticationService.authenticationResponseCall(authenticationRequest).enqueue(new Callback<AuthenticationResponse>() {
+                        @Override
+                        public void onResponse(Call<AuthenticationResponse> call, Response<AuthenticationResponse> response) {
 
-                try {
-                    Client client1 = startAsyncTaskGetCLient(loginEntree);
-                    System.out.println(client1.getTelephone());
-                } catch (ExecutionException e) {
-                    throw new RuntimeException(e);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
+                            if (response.code() == ResponseCode.OK.getReponseCode()) {
+
+                                AuthenticationResponse authenticationResponse = response.body();
+                                String userType = String.valueOf(authenticationResponse.getUserType());
+
+                                if (userType.equals(UserType.CLIENT.toString())) {
+                                    Intent otherActivity = new Intent(getApplicationContext(), CompteClient.class);
+                                    startActivity(otherActivity);
+                                    finish();
+                                } else if (userType.equals(UserType.CHAUFFEUR.toString())) {
+                                    Intent otherActivity = new Intent(getApplicationContext(), MonCompteChauffeur.class);
+                                    startActivity(otherActivity);
+                                    finish();
+                                } else if (userType.equals(UserType.ADMIN.toString())) {
+                                    Intent otherActivity = new Intent(getApplicationContext(), MonCompteAdmin.class);
+                                    startActivity(otherActivity);
+                                    finish();
+                                }
+
+                            } else {
+                                Toast.makeText(PageConnexion.this, "Identifiants incorrects", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<AuthenticationResponse> call, Throwable t) {
+                            Toast.makeText(PageConnexion.this, "Connexion au serveur impossible", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                } else {
+                    Toast.makeText(PageConnexion.this, "Veuillez renseigner des identifiants corrects", Toast.LENGTH_SHORT).show();
                 }
-
-
-//                if (loginEntree != null &&  isClientExists) {
-
-                    Intent otherActivity = new Intent(getApplicationContext(), CompteClient.class);
-                    startActivity(otherActivity);
-                    finish();
-//                } else {
-//                   Toast.makeText(PageConnexion.this, "Problème de connexion", Toast.LENGTH_SHORT).show();
-//                }
             }
         });
     }
@@ -99,36 +122,5 @@ public class PageConnexion extends AppCompatActivity implements MyAsyncTask.List
     }
 
 
-        private void startAsyncTask(String login) {
-            new MyAsyncTask(this, login).execute();
-        }
 
-    private Client startAsyncTaskGetCLient(String login) throws ExecutionException, InterruptedException {
-        return new MyAsyncTask(this, login).execute().get();
-    }
-
-        @Override
-        public void onPreExecute() {
-            //this.updateUIBeforeTask();
-        }
-
-        @Override
-        public void doInBackground() {
-
-        }
-
-        @Override
-        public void onPostExecute(Client success) {
-            //this.updateUIAfterTask(success);
-
-        }
-
-       /* public void updateUIBeforeTask(){
-            this.progressBarWeakReference.get().setVisibility(View.VISIBLE);
-        }
-
-        public void updateUIAfterTask(Client success){
-            this.progressBarWeakReference.get().setVisibility(View.GONE);
-            Toast.makeText(this, "Task is finally executed : "+success+" !", Toast.LENGTH_SHORT).show();
-        }*/
 }
