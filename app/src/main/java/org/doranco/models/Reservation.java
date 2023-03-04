@@ -25,8 +25,8 @@ public class Reservation implements Serializable {
     @SerializedName("heureArrive")
     private Date heureArrive;
 
-    @SerializedName("statut")
-    private String statut;
+    @SerializedName("statutResa")
+    private StatutResa statutResa;
 
     @SerializedName("trajet")
     private Trajet trajet;
@@ -82,12 +82,12 @@ public class Reservation implements Serializable {
         this.heureArrive = heureArrive;
     }
 
-    public String getStatut() {
-        return statut;
+    public StatutResa getStatut() {
+        return statutResa;
     }
 
-    public void setStatut(String statut) {
-        this.statut = statut;
+    public void setStatut(StatutResa statut) {
+        this.statutResa = statut;
     }
 
     public Trajet getTrajet() {

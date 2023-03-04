@@ -1,7 +1,5 @@
 package org.doranco.models;
 
-import android.media.Image;
-import android.widget.ImageView;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -58,9 +56,9 @@ public class Chauffeur implements Serializable {
     @Expose
     private Double note;
 
-    @SerializedName("positionGPS")
+    @SerializedName("secteur")
     @Expose
-    private String positionGPS;
+    private String secteur;
 
     @SerializedName("prix")
     @Expose
@@ -178,11 +176,11 @@ public class Chauffeur implements Serializable {
         this.note = note;
     }
 
-    public String getPositionGPS() {
-        return positionGPS;
+    public String getSecteur() {
+        return secteur;
     }
 
-    public void setPositionGPS(String positionGPS) {
-        this.positionGPS = positionGPS;
+    public void setSecteur(String secteur) {
+        this.secteur = secteur;
     }
 }

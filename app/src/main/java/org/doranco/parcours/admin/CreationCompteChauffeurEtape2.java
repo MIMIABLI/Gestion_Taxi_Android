@@ -55,7 +55,7 @@ public class CreationCompteChauffeurEtape2 extends AppCompatActivity {
                 chauffeur.setTypeDeVehicules(marqueVehicule);
                 chauffeur.setCouleurDuVehicule(couleurVehicule);
                 chauffeur.setImmatriculationDuVehicule(immatriculation);
-                chauffeur.setPositionGPS(secteur);
+                chauffeur.setSecteur(secteur);
 
                 if (chauffeur != null) {
                     chauffeurApi.saveChauffeur(chauffeur);

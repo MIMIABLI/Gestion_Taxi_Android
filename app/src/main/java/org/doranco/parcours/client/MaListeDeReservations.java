@@ -1,4 +1,4 @@
-package org.doranco.parcours.chauffeurs;
+package org.doranco.parcours.client;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,6 @@ public class MaListeDeReservations extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ma_liste_de_reservations);
+        setContentView(R.layout.client_page_ma_liste_de_resa);
     }
 }

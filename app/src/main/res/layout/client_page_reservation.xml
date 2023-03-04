@@ -15,6 +15,16 @@
         android:layout_marginTop="100dp"/>
 
     <EditText
+            android:id="@+id/choisirSecteur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Département de départ"
+            android:ems="10"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:layout_below="@id/pageReservationTitre"/>
+
+    <EditText
         android:id="@+id/choisirDateDepart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,8 +32,8 @@
         android:inputType="datetime"
         android:ems="10"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:layout_below="@id/pageReservationTitre"/>
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/choisirSecteur"/>
 
     <EditText
         android:id="@+id/entrerLieuDepart"

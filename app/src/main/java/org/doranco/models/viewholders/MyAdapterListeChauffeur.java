@@ -11,12 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.doranco.gesttion_reserv.R;
 import org.doranco.models.Chauffeur;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyAdapterListeChauffeur extends RecyclerView.Adapter<MyViewHolderListeChauffeur> {
 
     Context context;
-    List<Chauffeur> chauffeurList;
+    List<Chauffeur> chauffeurList = new ArrayList<>();
 
     public MyAdapterListeChauffeur(Context context, List<Chauffeur> chauffeurList) {
         this.context = context;

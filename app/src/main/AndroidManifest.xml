@@ -17,7 +17,21 @@
             android:usesCleartextTraffic="true"
             tools:targetApi="31">
         <activity
-                android:name="org.doranco.parcours.chauffeurs.MonCompteChauffeur"
+                android:name=".VoirMaListeDeResa"
+                android:exported="false">
+            <meta-data
+                    android:name="android.app.lib_name"
+                    android:value=""/>
+        </activity>
+        <activity
+                android:name=".MaGestionDeDemandesDeResa"
+                android:exported="false">
+            <meta-data
+                    android:name="android.app.lib_name"
+                    android:value=""/>
+        </activity>
+        <activity
+                android:name=".MonCompteChauffeur"
                 android:exported="false">
             <meta-data
                     android:name="android.app.lib_name"

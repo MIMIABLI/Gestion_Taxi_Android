@@ -7,10 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import org.doranco.gesttion_reserv.R;
-import org.doranco.models.Client;
-import org.doranco.models.Reservation;
-import org.doranco.models.StatutTrajet;
-import org.doranco.models.Trajet;
+import org.doranco.models.*;
 import org.doranco.retrofit.controller.ControllerClient;
 import org.doranco.retrofit.interfacesapi.ReservationApi;
 import org.doranco.retrofit.RetrofitService;
@@ -25,16 +22,16 @@ public class PageReservation extends AppCompatActivity {
     Client client;
 
     private Button creerReservation, annulerReservation;
-    private EditText resaDateDepart, resaLieuDepart, resaLieuArrivee, resaHeureArrivee;
+    private EditText resaSecteurDepart, resaDateDepart, resaLieuDepart, resaLieuArrivee, resaHeureArrivee;
 
     private Reservation reservation;
-    private List<Reservation>reservationList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.client_page_reservation);
 
+        resaSecteurDepart = findViewById(R.id.choisirSecteur);
         resaDateDepart = findViewById(R.id.choisirDateDepart);
         resaHeureArrivee = findViewById(R.id.choisirHeureArrivee);
         resaLieuDepart = findViewById(R.id.entrerLieuDepart);
@@ -53,6 +50,7 @@ public class PageReservation extends AppCompatActivity {
 
         creerReservation.setOnClickListener(view -> {
 
+            String secteur = String.valueOf(resaSecteurDepart.getText());
             String heureArrive = String.valueOf(resaHeureArrivee.getText());
             String statutTrajet = StatutTrajet.EN_ATTENTE.name();
             String dateDeDepart = String.valueOf(resaDateDepart.getText());
@@ -63,19 +61,16 @@ public class PageReservation extends AppCompatActivity {
             trajet.setLieuDeDepart(lieuDeDepart);
             trajet.setLieuDArrive(lieuDarrivee);
             trajet.setReservation(resa);
-
-            System.out.println(heureArrive);
-            System.out.println(dateDeDepart);
+            trajet.setSecteur(secteur);
 
             //client = controllerClient.getClientByLog(ESharedDatasRefs.USER_SHARED_LOGIN.name());
 
             resa.setClient(client);
-            //resa.setHeureArrive(heureArrive);
-            resa.setStatut(statutTrajet);
-            //resa.setDate(dateDeDepart);
+            resa.setStatut(StatutResa.EN_ATTENTE);
 
-            Intent pageChoixDuChauffeur = new Intent(getApplicationContext(), PageTrajet.class);
+            Intent pageChoixDuChauffeur = new Intent(getApplicationContext(), ListChauffeurReservation.class);
             pageChoixDuChauffeur.putExtra("reservation", resa);
+            pageChoixDuChauffeur.putExtra("trajet", trajet);
             startActivity(pageChoixDuChauffeur);
             finish();
         });

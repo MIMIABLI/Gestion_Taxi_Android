@@ -18,6 +18,9 @@ public interface TrajetApi {
     @GET("/trajet/all")
     Call<List<Trajet>> getAllTrajet();
 
+    @GET("/trajet/allbystatut/{statut}")
+    Call<List<Trajet>> getAllTrajetByStatutAndByChauffeur(@Path("statut") String statut);
+
     @POST("/trajet/add")
     Call<Trajet> saveTrajet(@Body Trajet Trajet);
 

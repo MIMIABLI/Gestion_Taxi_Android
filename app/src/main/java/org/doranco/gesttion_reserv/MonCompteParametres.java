@@ -9,6 +9,6 @@ public class MonCompteParametres extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mon_compte_parametres);
+        setContentView(R.layout.commons_mes_parametres);
     }
 }
