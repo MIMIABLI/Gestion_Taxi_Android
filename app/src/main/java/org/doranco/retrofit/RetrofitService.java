@@ -3,6 +3,7 @@ package org.doranco.retrofit;
 import com.google.gson.Gson;
 
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitService {
@@ -15,8 +16,9 @@ public class RetrofitService {
 
     private void initializeRetrofit(){
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://localhost:8080")
+                .baseUrl("http://192.168.1.48:8080")
                 .addConverterFactory(GsonConverterFactory.create(new Gson()))
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
 
     }

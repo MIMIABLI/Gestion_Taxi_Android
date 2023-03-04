@@ -1,6 +1,6 @@
 package org.doranco.models;
 
-public enum SatutTrajet {
+public enum StatutTrajet {
 
     EN_ATTENTE("en attente du chauffeur"),
     ENCOURS("en cours"),
@@ -10,7 +10,7 @@ public enum SatutTrajet {
 
     public String etat;
 
-    SatutTrajet(String etat) {
+    StatutTrajet(String etat) {
         this.etat = etat;
     }
 }

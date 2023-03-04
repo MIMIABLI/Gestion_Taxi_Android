@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/nomAdmin"
+            android:text=""
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"/>
+
+    <Button
+            android:id="@+id/btnConsulterChauffeursAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="Consulter mes chauffeurs"
+            android:layout_marginBottom="300dp"
+            tools:layout_editor_absoluteX="87dp"
+            tools:layout_editor_absoluteY="401dp" />
+
+    <Button
+            android:id="@+id/btnAjouterChauffeur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ajouter un chauffeur"
+            tools:layout_editor_absoluteX="150dp"
+            tools:layout_editor_absoluteY="330dp"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/btnConsulterChauffeursAdmin"
+            android:layout_marginBottom="30dp"/>
+
+    <TextView
+            android:id="@+id/seDeconnecterCompteAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Se Déconnecter"
+            tools:layout_editor_absoluteX="296dp"
+            tools:layout_editor_absoluteY="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"/>
+
+    <TextView
+            android:id="@+id/dateCompteAdmin"
+            android:layout_width="133dp"
+            android:layout_height="26dp"
+            android:text=""
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"/>
+
+    <TextView
+            android:id="@+id/btnMonCompteAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mon compte"
+            tools:layout_editor_absoluteX="203dp"
+            tools:layout_editor_absoluteY="20dp"
+            android:layout_toLeftOf="@id/seDeconnecterCompteAdmin"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"/>
+
+</RelativeLayout>

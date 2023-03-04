@@ -1,14 +1,14 @@
 package org.doranco.gesttion_reserv;
 
-
-import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity3 extends AppCompatActivity {
+import android.os.Bundle;
+
+public class MonCompteParametres extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_reservation);
+        setContentView(R.layout.activity_mon_compte_parametres);
     }
 }

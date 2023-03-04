@@ -2,4 +2,30 @@
     <string name="app_name">Mobil_APP</string>
     <string name="welcome_mag">Bienvenue sur mon application</string>
     <string name="points_mag">points :0</string>
+
+    //Page Réservation compte client
+    <string name="titrePageReservationClient">Ma Réservation</string>
+
+    //Créer compte Client
+    <string name="creerSonCompteClientTitre">Créez votre compte</string>
+    <string name="creerSonCompteBouton">Créez mon compte</string>
+    <string name="entrezNom">nom</string>
+    <string name="entrezPrenom">prénom</string>
+    <string name="entrezLogin">login</string>
+    <string name="entrezMdp">mot de passe</string>
+    <string name="confirmezMdp">Confirmer mot de passe</string>
+    <string name="entrezMail">mail</string>
+    <string name="entrezTel">n° de téléphone</string>
+
+    //Créer compte Chauffeur
+    <string name="creerSonCompteChauffeurTitre">Créez un nouveau compte Chauffeur</string>
+    <string name="entrerImmatriculation">immatriculation</string>
+    <string name="entrerTypeVehicule">marque et série du véhicule</string>
+    <string name="entrerPermis">permis de conduire</string>
+    <string name="entrerCI">pièce d\'identité</string>
+    <string name="entrerPhoto">photo</string>
+
+    //Messages
+    <string name="addUserSuccess">Client ajouté avec succès !</string>
+    <string name="addUserFailure">Erreur durant la création du compte</string>
 </resources>

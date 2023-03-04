@@ -2,48 +2,84 @@ package org.doranco.models;
 
 import android.media.Image;
 import android.widget.ImageView;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-public class Chauffeur {
+import java.io.Serializable;
+import java.util.List;
 
+public class Chauffeur implements Serializable {
+
+    @SerializedName("id")
+    @Expose
     private Long id;
 
+    @SerializedName("nom")
+    @Expose
     private String nom;
 
+    @SerializedName("prenom")
+    @Expose
     private String prenom;
 
+    @SerializedName("login")
+    @Expose
     private String login;
 
+    @SerializedName("password")
+    @Expose
     private String password;
 
+    @SerializedName("email")
+    @Expose
     private String email;
 
+    @SerializedName("telephone")
+    @Expose
     private String telephone;
 
+    @SerializedName("photo")
+    @Expose
     private int photos;
 
+    @SerializedName("typeDeVehicule")
+    @Expose
     private String typeDeVehicules;
 
+    @SerializedName("couleurDuVehicule")
+    @Expose
     private String couleurDuVehicule;
 
+    @SerializedName("immatriculation")
+    @Expose
     private String immatriculationDuVehicule;
 
+    @SerializedName("note")
+    @Expose
     private Double note;
 
+    @SerializedName("positionGPS")
+    @Expose
     private String positionGPS;
 
-    private Double Prix;
-    //private List<Reservation> listReservation;
+    @SerializedName("prix")
+    @Expose
+    private Double prix;
+
+    @SerializedName("listReservation")
+    @Expose
+    private List<Reservation> listReservation;
 
 
     public Chauffeur() {
     }
 
     public Double getPrix() {
-        return Prix;
+        return prix;
     }
 
     public void setPrix(Double prix) {
-        Prix = prix;
+        prix = prix;
     }
 
     public Long getId() {

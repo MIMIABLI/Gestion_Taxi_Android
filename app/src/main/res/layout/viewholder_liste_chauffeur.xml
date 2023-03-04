@@ -73,5 +73,4 @@
         android:textSize="10dp"
         android:id="@+id/btn_reserver"/>
 
-
 </RelativeLayout>
