@@ -1,32 +1,27 @@
 package org.doranco.gesttion_reserv;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import android.widget.ProgressBar;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-import io.reactivex.disposables.Disposable;
-import io.reactivex.observers.DisposableObserver;
 import org.doranco.models.Client;
+import org.doranco.models.UserType;
+import org.doranco.parcours.admin.MonCompteAdmin;
+import org.doranco.parcours.chauffeurs.MonCompteChauffeur;
 import org.doranco.parcours.client.CompteClient;
 import org.doranco.parcours.client.CreationCompteClient;
 import org.doranco.retrofit.RetrofitService;
+import org.doranco.retrofit.auth.*;
 import org.doranco.retrofit.controller.ControllerClient;
-import org.doranco.retrofit.controller.MyAsyncTask;
-import org.doranco.retrofit.controller.MyClientStream;
 import org.doranco.retrofit.interfacesapi.ClientApi;
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
-
-import java.io.IOException;
-import java.lang.ref.WeakReference;
-import java.util.concurrent.ExecutionException;
 
 public class PageConnexion extends AppCompatActivity  {
 
@@ -37,13 +32,11 @@ public class PageConnexion extends AppCompatActivity  {
     private boolean isClientExists, isChauffeurExists, isAdminExists;
     private ControllerClient controllerClient;
     private RetrofitService retrofitService = new RetrofitService();
+    private RetrofitAuthenticationService retrofitAuthenticationService;
+    private AuthenticationRequest authenticationRequest = new AuthenticationRequest();
     private ClientApi clientApi;
     private Client client;
-   /* private MyAsyncTask myAsyncTask;
-    private WeakReference<ProgressBar> progressBarWeakReference;*/
-    MyClientStream myClientStream = new MyClientStream();
-    Disposable disposable;
-    DisposableObserver<Client> clientDisposableObserver;
+
 
 
     @Override
@@ -53,9 +46,10 @@ public class PageConnexion extends AppCompatActivity  {
         this.buttonLogin = (Button) findViewById(R.id.btnLogin);
         this.buttonSignUp = (Button) findViewById(R.id.btnSignUp);
         login = findViewById(R.id.loginPageConnexion);
-        this.password = findViewById(R.id.passwordPageConnexion);
+        password = findViewById(R.id.passwordPageConnexion);
 
         clientApi = retrofitService.getRetrofit().create(ClientApi.class);
+        retrofitAuthenticationService = retrofitService.getRetrofit().create(RetrofitAuthenticationService.class);
 
         connexionMonCompte();
         creationMonCompte();
@@ -67,17 +61,51 @@ public class PageConnexion extends AppCompatActivity  {
             @Override
             public void  onClick(View view) {
                 String loginEntree = String.valueOf(login.getText());
+                String passwordEntree = String.valueOf(password.getText());
 
-               //client = myClientStream.streamObservableClient(loginEntree).blockingFirst();
+                if (!loginEntree.equals("") && !passwordEntree.equals("")) {
 
-//                if (loginEntree != null &&  isClientExists) {
+                authenticationRequest.setLogin(loginEntree);
+                authenticationRequest.setPassword(passwordEntree);
 
-                    Intent otherActivity = new Intent(getApplicationContext(), CompteClient.class);
-                    startActivity(otherActivity);
-                    finish();
-//                } else {
-//                   Toast.makeText(PageConnexion.this, "Problème de connexion", Toast.LENGTH_SHORT).show();
-//                }
+
+                    retrofitAuthenticationService.authenticationResponseCall(authenticationRequest).enqueue(new Callback<AuthenticationResponse>() {
+                        @Override
+                        public void onResponse(Call<AuthenticationResponse> call, Response<AuthenticationResponse> response) {
+
+                            if (response.code() == ResponseCode.OK.getReponseCode()) {
+
+                                AuthenticationResponse authenticationResponse = response.body();
+                                String userType = String.valueOf(authenticationResponse.getUserType());
+
+                                if (userType.equals(UserType.CLIENT.toString())) {
+                                    Intent otherActivity = new Intent(getApplicationContext(), CompteClient.class);
+                                    startActivity(otherActivity);
+                                    finish();
+                                } else if (userType.equals(UserType.CHAUFFEUR.toString())) {
+                                    Intent otherActivity = new Intent(getApplicationContext(), MonCompteChauffeur.class);
+                                    startActivity(otherActivity);
+                                    finish();
+                                } else if (userType.equals(UserType.ADMIN.toString())) {
+                                    Intent otherActivity = new Intent(getApplicationContext(), MonCompteAdmin.class);
+                                    startActivity(otherActivity);
+                                    finish();
+                                }
+
+                            } else {
+                                Toast.makeText(PageConnexion.this, "Identifiants incorrects", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<AuthenticationResponse> call, Throwable t) {
+                            Toast.makeText(PageConnexion.this, "Connexion au serveur impossible", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                } else {
+                    Toast.makeText(PageConnexion.this, "Veuillez renseigner des identifiants corrects", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
