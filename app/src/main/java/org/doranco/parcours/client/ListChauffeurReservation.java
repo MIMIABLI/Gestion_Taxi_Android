@@ -2,6 +2,7 @@ package org.doranco.parcours.client;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import org.doranco.models.Trajet;
 import org.doranco.models.viewholders.MyAdapterListeChauffeur;
 import org.doranco.retrofit.RetrofitService;
 import org.doranco.retrofit.interfacesapi.ChauffeurApi;
+import org.doranco.utils.GetToken;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -28,7 +30,9 @@ public class ListChauffeurReservation extends AppCompatActivity {
     RetrofitService retrofitService;
     ChauffeurApi chauffeurApi;
     List<Chauffeur> chauffeurList = new ArrayList<>();
+    MyAdapterListeChauffeur myAdapterListeChauffeur;
     SharedPreferences sharedPreferences;
+    GetToken getToken;
     Reservation reservation;
     String token;
     Trajet trajet;
@@ -38,25 +42,26 @@ public class ListChauffeurReservation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.client_page_trajet);
-        sharedPreferences = getApplicationContext().getSharedPreferences(ESharedDatasRefs.USER_SHARED_DATAS.name(), MODE_PRIVATE);
-        sharedPreferences.getString("token", "");
-
-
-        token = (String) sharedPreferences.getAll().get("token");
+        getToken = new GetToken(getApplicationContext());
+        token = getToken.getToken();
         retrofitService = new RetrofitService(token);
         context = getApplicationContext();
         reservation = (Reservation) getIntent().getSerializableExtra("reservation");
         trajet = (Trajet) getIntent().getSerializableExtra("trajet");
 
         recyclerView = findViewById(R.id.listChauffeur);
+
+
         chauffeurApi = retrofitService.getRetrofit().create(ChauffeurApi.class);
-        chauffeurApi.getAllChauffeurBySecteur("69").enqueue(new Callback<List<Chauffeur>>() {
+
+        chauffeurApi.getAllChauffeurBySecteur(trajet.getSecteur()).enqueue(new Callback<List<Chauffeur>>() {
             @Override
             public void onResponse(Call<List<Chauffeur>> call, Response<List<Chauffeur>> response) {
                 chauffeurList = response.body();
-
+                myAdapterListeChauffeur = new MyAdapterListeChauffeur(getApplicationContext(), chauffeurList, token, trajet, reservation);
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
-                recyclerView.setAdapter(new MyAdapterListeChauffeur(getApplicationContext(), chauffeurList));
+                recyclerView.setAdapter(myAdapterListeChauffeur);
+
             }
 
             @Override

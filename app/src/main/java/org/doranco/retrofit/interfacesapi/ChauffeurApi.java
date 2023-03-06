@@ -23,6 +23,9 @@ public interface ChauffeurApi {
     @GET("/chauffeur/find/{id}")
     Call<List<Chauffeur>> getChauffeurById(@Path("id") Long id);
 
+    @GET("/chauffeur/findbylogin/{login}")
+    Call<Chauffeur> getChauffeurByLogin(@Path("login") String login);
+
     @PUT("/chauffeur/update")
     Call<List<Chauffeur>> updateChauffeur(@Body Chauffeur Chauffeur);
 

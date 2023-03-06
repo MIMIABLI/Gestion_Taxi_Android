@@ -12,6 +12,9 @@ import org.doranco.retrofit.controller.ControllerClient;
 import org.doranco.retrofit.interfacesapi.ReservationApi;
 import org.doranco.retrofit.RetrofitService;
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class PageReservation extends AppCompatActivity {
@@ -52,21 +55,29 @@ public class PageReservation extends AppCompatActivity {
 
             String secteur = String.valueOf(resaSecteurDepart.getText());
             String heureArrive = String.valueOf(resaHeureArrivee.getText());
-            String statutTrajet = StatutTrajet.EN_ATTENTE.name();
-            String dateDeDepart = String.valueOf(resaDateDepart.getText());
+            StatutTrajet statutTrajet = StatutTrajet.EN_ATTENTE;
+            //String dateDeDepart = String.valueOf(resaDateDepart.getText());
+            /*SimpleDateFormat simpleDateSQLFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String formatSQLDate = simpleDateSQLFormat.format(dateDeDepart);
+            Date dateDepartSQL = Date.valueOf(formatSQLDate);*/
             String lieuDeDepart = String.valueOf(resaLieuDepart);
             String lieuDarrivee = String.valueOf(resaLieuArrivee);
 
             Trajet trajet = new Trajet();
             trajet.setLieuDeDepart(lieuDeDepart);
             trajet.setLieuDArrive(lieuDarrivee);
+            trajet.setStatut(statutTrajet);
             trajet.setReservation(resa);
             trajet.setSecteur(secteur);
+            trajet.setReservation(reservation);
 
             //client = controllerClient.getClientByLog(ESharedDatasRefs.USER_SHARED_LOGIN.name());
 
             resa.setClient(client);
             resa.setStatut(StatutResa.EN_ATTENTE);
+            /*resa.setDate(dateDepartSQL);
+            resa.setHeureArrive(Date.valueOf(heureArrive));*/
+            reservation.setTrajet(trajet);
 
             Intent pageChoixDuChauffeur = new Intent(getApplicationContext(), ListChauffeurReservation.class);
             pageChoixDuChauffeur.putExtra("reservation", resa);

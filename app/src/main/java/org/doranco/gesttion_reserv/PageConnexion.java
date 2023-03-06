@@ -88,8 +88,7 @@ public class PageConnexion extends AppCompatActivity  {
 
                                 String userType = String.valueOf(authenticationResponse.getUserType());
 
-                                    sharedPreferences.edit().putString(ESharedDatasRefs.USER_SHARED_TOKEN.name(), token).commit();
-                                    System.out.println("token new: " + sharedPreferences.getString(ESharedDatasRefs.USER_SHARED_TOKEN.name(), ""));
+                                sharedPreferences.edit().putString(ESharedDatasRefs.USER_SHARED_TOKEN.name(), token).apply();
 
                                 if (userType.equals(UserType.CLIENT.toString())) {
                                     Intent otherActivity = new Intent(getApplicationContext(), CompteClient.class);
