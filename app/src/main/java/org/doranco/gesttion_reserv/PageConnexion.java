@@ -1,7 +1,9 @@
 package org.doranco.gesttion_reserv;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.MemoryFile;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +17,7 @@ import org.doranco.parcours.admin.MonCompteAdmin;
 import org.doranco.parcours.chauffeurs.MonCompteChauffeur;
 import org.doranco.parcours.client.CompteClient;
 import org.doranco.parcours.client.CreationCompteClient;
+import org.doranco.parcours.client.ESharedDatasRefs;
 import org.doranco.retrofit.RetrofitService;
 import org.doranco.retrofit.auth.*;
 import org.doranco.retrofit.controller.ControllerClient;
@@ -23,17 +26,21 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import java.io.IOException;
+
 public class PageConnexion extends AppCompatActivity  {
 
     private Button buttonLogin, buttonSignUp ;
     private EditText login, password;
     private String loginDataBaseClient, loginDataBaseChauffeur, loginDataBaseAdmin, loginDonneChauffeur, loginDonneAdmin;
-    //private String loginEntree;
     private boolean isClientExists, isChauffeurExists, isAdminExists;
+    SharedPreferences sharedPreferences;
     private ControllerClient controllerClient;
     private RetrofitService retrofitService = new RetrofitService();
     private RetrofitAuthenticationService retrofitAuthenticationService;
     private AuthenticationRequest authenticationRequest = new AuthenticationRequest();
+    private AuthenticationResponse authenticationResponse;
+    private String token;
     private ClientApi clientApi;
     private Client client;
 
@@ -53,6 +60,7 @@ public class PageConnexion extends AppCompatActivity  {
 
         connexionMonCompte();
         creationMonCompte();
+        sharedPreferences = getApplicationContext().getSharedPreferences(ESharedDatasRefs.USER_SHARED_DATAS.name(), MODE_PRIVATE);
 
     }
 
@@ -75,8 +83,13 @@ public class PageConnexion extends AppCompatActivity  {
 
                             if (response.code() == ResponseCode.OK.getReponseCode()) {
 
-                                AuthenticationResponse authenticationResponse = response.body();
+                                authenticationResponse = response.body();
+                                token = authenticationResponse.getToken();
+
                                 String userType = String.valueOf(authenticationResponse.getUserType());
+
+                                    sharedPreferences.edit().putString(ESharedDatasRefs.USER_SHARED_TOKEN.name(), token).commit();
+                                    System.out.println("token new: " + sharedPreferences.getString(ESharedDatasRefs.USER_SHARED_TOKEN.name(), ""));
 
                                 if (userType.equals(UserType.CLIENT.toString())) {
                                     Intent otherActivity = new Intent(getApplicationContext(), CompteClient.class);

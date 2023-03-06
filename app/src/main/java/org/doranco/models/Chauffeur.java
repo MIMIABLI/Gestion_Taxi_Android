@@ -40,7 +40,7 @@ public class Chauffeur implements Serializable {
     @Expose
     private int photos;
 
-    @SerializedName("typeDeVehicule")
+    @SerializedName("typeDeVehicules")
     @Expose
     private String typeDeVehicules;
 

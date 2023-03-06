@@ -2,8 +2,11 @@ package org.doranco.models.viewholders;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,8 +19,8 @@ import java.util.List;
 
 public class MyAdapterListeChauffeur extends RecyclerView.Adapter<MyViewHolderListeChauffeur> {
 
-    Context context;
-    List<Chauffeur> chauffeurList = new ArrayList<>();
+    private Context context;
+    private List<Chauffeur> chauffeurList;
 
     public MyAdapterListeChauffeur(Context context, List<Chauffeur> chauffeurList) {
         this.context = context;
@@ -34,18 +37,26 @@ public class MyAdapterListeChauffeur extends RecyclerView.Adapter<MyViewHolderLi
     public void onBindViewHolder(@NonNull MyViewHolderListeChauffeur holder, int position) {
         String nom = chauffeurList.get(position).getNom();
         String prenom = chauffeurList.get(position).getPrenom();
+        String nomPrenom = prenom + " " + nom;
+
 
         holder.imageChauffeur.setImageResource(chauffeurList.get(position).getPhotos());
-        holder.nom.setText(nom + " " + prenom);
+        holder.nom.setText(nomPrenom);
         holder.vehicule.setText(chauffeurList.get(position).getTypeDeVehicules());
         holder.note.setText(String.valueOf(chauffeurList.get(position).getNote()) +"/5");
         holder.prix.setText(String.valueOf(chauffeurList.get(position).getPrix()) +"€");
+        holder.prix.setText(String.valueOf(chauffeurList.get(position).getPrix()) +"€");
+        holder.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Course Réservée avec " + nom, Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
     @Override
     public int getItemCount() {
-
         return chauffeurList.size();
     }
 }

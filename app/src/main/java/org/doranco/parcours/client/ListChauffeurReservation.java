@@ -2,6 +2,7 @@ package org.doranco.parcours.client;
 
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,10 +25,12 @@ import java.util.List;
 public class ListChauffeurReservation extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    RetrofitService retrofitService = new RetrofitService();
+    RetrofitService retrofitService;
     ChauffeurApi chauffeurApi;
     List<Chauffeur> chauffeurList = new ArrayList<>();
+    SharedPreferences sharedPreferences;
     Reservation reservation;
+    String token;
     Trajet trajet;
     Context context;
 
@@ -35,6 +38,12 @@ public class ListChauffeurReservation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.client_page_trajet);
+        sharedPreferences = getApplicationContext().getSharedPreferences(ESharedDatasRefs.USER_SHARED_DATAS.name(), MODE_PRIVATE);
+        sharedPreferences.getString("token", "");
+
+
+        token = (String) sharedPreferences.getAll().get("token");
+        retrofitService = new RetrofitService(token);
         context = getApplicationContext();
         reservation = (Reservation) getIntent().getSerializableExtra("reservation");
         trajet = (Trajet) getIntent().getSerializableExtra("trajet");
