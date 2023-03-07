@@ -9,63 +9,48 @@ import java.util.List;
 public class Chauffeur implements Serializable {
 
     @SerializedName("id")
-    @Expose
     private Long id;
 
     @SerializedName("nom")
-    @Expose
     private String nom;
 
     @SerializedName("prenom")
-    @Expose
     private String prenom;
 
     @SerializedName("login")
-    @Expose
     private String login;
 
     @SerializedName("password")
-    @Expose
     private String password;
 
     @SerializedName("email")
-    @Expose
     private String email;
 
     @SerializedName("telephone")
-    @Expose
     private String telephone;
 
-    @SerializedName("photo")
-    @Expose
+    @SerializedName("photos")
     private int photos;
 
     @SerializedName("typeDeVehicules")
-    @Expose
     private String typeDeVehicules;
 
     @SerializedName("couleurDuVehicule")
-    @Expose
     private String couleurDuVehicule;
 
-    @SerializedName("immatriculation")
-    @Expose
+    @SerializedName("immatriculationDuVehicule")
     private String immatriculationDuVehicule;
 
     @SerializedName("note")
-    @Expose
     private Double note;
 
     @SerializedName("secteur")
-    @Expose
     private String secteur;
 
     @SerializedName("prix")
-    @Expose
     private Double prix;
 
     @SerializedName("listReservation")
-    @Expose
     private List<Reservation> listReservation;
 
 

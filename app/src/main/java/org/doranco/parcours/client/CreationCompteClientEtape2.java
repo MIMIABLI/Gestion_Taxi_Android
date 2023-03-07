@@ -10,6 +10,10 @@ import android.widget.Toast;
 
 import org.doranco.gesttion_reserv.R;
 import org.doranco.models.Client;
+import org.doranco.retrofit.auth.AuthenticationResponse;
+import org.doranco.retrofit.auth.RegisterRequest;
+import org.doranco.retrofit.auth.RetrofitAuthenticationService;
+import org.doranco.retrofit.auth.UserType;
 import org.doranco.retrofit.interfacesapi.ClientApi;
 import org.doranco.retrofit.RetrofitService;
 
@@ -20,11 +24,12 @@ import retrofit2.Response;
 public class CreationCompteClientEtape2 extends AppCompatActivity {
 
     RetrofitService retrofitService = new RetrofitService();
-    ClientApi clientApi;
+    RetrofitAuthenticationService authenticationService;
     EditText login, password, confirmationPassword;
     Button creerMonCompte;
 
     Client clientSuite = new Client();
+    RegisterRequest registerClient = new RegisterRequest();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +41,7 @@ public class CreationCompteClientEtape2 extends AppCompatActivity {
         confirmationPassword = findViewById(R.id.entrezMotDePasseConfirmation);
         creerMonCompte = findViewById(R.id.boutonCreationCompte);
 
-        clientApi = retrofitService.getRetrofit().create(ClientApi.class);
+        authenticationService = retrofitService.getRetrofit().create(RetrofitAuthenticationService.class);
 
         clientSuite = (Client) getIntent().getSerializableExtra("client");
 
@@ -51,33 +56,38 @@ public class CreationCompteClientEtape2 extends AppCompatActivity {
             String mdp = String.valueOf(password.getText());
             String confMdp = String.valueOf(confirmationPassword.getText());
 
-//            if(mdp == confMdp) {
-//                clientSuite.setPassword(mdp);
-//            } else {
-//                clientSuite.setPassword("mot de passe incorrect");
-//            }
+            registerClient.setNom(clientSuite.getNom());
+            registerClient.setPrenom(clientSuite.getPrenom());
+            registerClient.setLogin(cliLog);
 
-            clientSuite.setPassword(mdp);
-            clientSuite.setLogin(cliLog);
+            registerClient.setTelephone(clientSuite.getTelephone());
+            registerClient.setEmail(clientSuite.getEmail());
+            registerClient.setUserType(UserType.CLIENT);
 
-            saveClientInDatabase(clientSuite);
+            if(mdp.equals(confMdp)) {
+                registerClient.setPassword(mdp);
+            } else {
+                Toast.makeText(this, "mot de passe incorrect.", Toast.LENGTH_SHORT).show();
+            }
+
+            saveClientInDatabase(registerClient);
 
         });
     }
 
-    private void saveClientInDatabase(Client client) {
-        clientApi.saveClient(client)
-                .enqueue(new Callback<Client>() {
+    private void saveClientInDatabase(RegisterRequest client) {
+        authenticationService.registerUser(client)
+                .enqueue(new Callback<AuthenticationResponse>() {
                     @Override
-                    public void onResponse(Call<Client> call, Response<Client> response) {
+                    public void onResponse(Call<AuthenticationResponse> call, Response<AuthenticationResponse> response) {
                         Toast.makeText(CreationCompteClientEtape2.this, R.string.addUserSuccess, Toast.LENGTH_SHORT).show();
                         Intent compteClientActivity = new Intent(getApplicationContext(), CompteClient.class);
                         startActivity(compteClientActivity);
                         finish();
                     }
                     @Override
-                    public void onFailure(Call<Client> call, Throwable t) {
-                        Toast.makeText(CreationCompteClientEtape2.this, R.string.addUserFailure, Toast.LENGTH_SHORT).show();
+                    public void onFailure(Call<AuthenticationResponse> call, Throwable t) {
+            Toast.makeText(CreationCompteClientEtape2.this, R.string.addUserFailure, Toast.LENGTH_SHORT).show();
                     }
                 });
     }

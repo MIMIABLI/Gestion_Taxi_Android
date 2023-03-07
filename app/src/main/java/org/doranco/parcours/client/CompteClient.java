@@ -23,15 +23,12 @@ import java.util.Date;
 
 public class CompteClient extends AppCompatActivity {
 
-    /*private final String SHARED_PREF_USER = "SHARED_PREF_USER";
-    private final String SHARED_PREF_USER_INFO_NAME = "SHARED_PREF_USER_INFO_NAME";*/
     private SharedPreferences sharedPreferences;
 
     TextView date, menuMonCompte, menuSeDeconnecter;
     Button btnReserver, btnConsulterMesReservation;
     RetrofitService retrofitService = new RetrofitService();
     ClientApi clientApi;
-    //ControllerClient controllerClient = new ControllerClient();
     Client client = new Client();
 
     @Override

@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import org.doranco.gesttion_reserv.R;
+import org.doranco.utils.GetTime;
 import org.doranco.utils.NowTimeTask;
 
 import java.sql.Time;
@@ -22,7 +23,6 @@ public class MonCompteAdmin extends AppCompatActivity {
 
     Button consulterListeChauffeurs, ajouterChauffeurs;
     TextView date, monCompte, seDeconnecter;
-    NowTimeTask nowTimeTask = new NowTimeTask();
     String dateDuJourParSeconde;
 
     @Override
@@ -35,9 +35,7 @@ public class MonCompteAdmin extends AppCompatActivity {
         seDeconnecter = findViewById(R.id.seDeconnecterCompteAdmin);
         consulterListeChauffeurs = findViewById(R.id.btnConsulterChauffeursAdmin);
         ajouterChauffeurs = findViewById(R.id.btnAjouterChauffeur);
-
-         dateDuJourParSeconde =  nowTimeTask.getNowTime();
-         date.setText(dateDuJourParSeconde);
+        date.setText(GetTime.getTodayDateAndHour(new Date()));
 
         ajouterUnChauffeurOnClick();
     }
