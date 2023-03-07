@@ -19,6 +19,7 @@ import org.doranco.models.Trajet;
 import org.doranco.parcours.client.MonPaiement;
 import org.doranco.retrofit.RetrofitService;
 import org.doranco.retrofit.interfacesapi.ChauffeurApi;
+import org.jetbrains.annotations.NotNull;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -67,11 +68,13 @@ public class MyAdapterListeChauffeur extends RecyclerView.Adapter<MyViewHolderLi
         holder.prix.setText(String.valueOf(chauffeurList.get(position).getPrix()) +"€");
         holder.prix.setText(String.valueOf(chauffeurList.get(position).getPrix()) +"€");
 
+        String chauffeurLogin = chauffeurList.get(position).getLogin();
+
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                chauffeurApi.getChauffeurByLogin(chauffeurList.get(position).getLogin()).enqueue(new Callback<Chauffeur>() {
+                chauffeurApi.getChauffeurByLogin(chauffeurLogin).enqueue(new Callback<Chauffeur>() {
                     @Override
                     public void onResponse(Call<Chauffeur> call, Response<Chauffeur> response) {
                         reservation.setChauffeur(response.body());
@@ -87,7 +90,6 @@ public class MyAdapterListeChauffeur extends RecyclerView.Adapter<MyViewHolderLi
 
                     @Override
                     public void onFailure(Call<Chauffeur> call, Throwable t) {
-
                     }
                 });
             }

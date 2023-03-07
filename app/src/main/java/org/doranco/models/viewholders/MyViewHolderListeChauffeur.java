@@ -29,6 +29,5 @@ public class MyViewHolderListeChauffeur extends RecyclerView.ViewHolder implemen
 
     @Override
     public void onClick(View v) {
-        //if (this.button)
     }
 }

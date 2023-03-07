@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,7 +32,6 @@ public class ListChauffeurReservation extends AppCompatActivity {
     ChauffeurApi chauffeurApi;
     List<Chauffeur> chauffeurList = new ArrayList<>();
     MyAdapterListeChauffeur myAdapterListeChauffeur;
-    SharedPreferences sharedPreferences;
     GetToken getToken;
     Reservation reservation;
     String token;
@@ -69,6 +69,10 @@ public class ListChauffeurReservation extends AppCompatActivity {
 
             }
         });
+
+        if (chauffeurList.isEmpty()) {
+            Toast.makeText(context, "Pas de chauffeurs enregistrés dans ce département", Toast.LENGTH_LONG).show();
+        }
 
 
     }
