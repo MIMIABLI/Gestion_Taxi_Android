@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 public class MyViewHolderListeResaClient extends RecyclerView.ViewHolder {
 
     TextView nomPrenomClient, dateResa, heureResa, lieuDepart, lieuArrivee;
-    Switch valider, refuser;
+    Switch validerSwitch, refuserSwitch;
 
     public MyViewHolderListeResaClient(@NonNull @NotNull View itemView) {
         super(itemView);
@@ -22,7 +22,7 @@ public class MyViewHolderListeResaClient extends RecyclerView.ViewHolder {
         heureResa = itemView.findViewById(R.id.heureDeDepart);
         lieuDepart = itemView.findViewById(R.id.lieuDeDepart);
         lieuArrivee = itemView.findViewById(R.id.lieuDarrivee);
-        valider = itemView.findViewById(R.id.switchValidation);
-        refuser = itemView.findViewById(R.id.switchRefus);
+        validerSwitch = itemView.findViewById(R.id.switchValidation);
+        refuserSwitch = itemView.findViewById(R.id.switchRefus);
     }
 }

@@ -18,8 +18,11 @@ public interface ReservationApi {
     @GET("/reservation/all")
     Call<List<Reservation>> getAllReservation();
 
-    @GET("reservation/allbychauffeur/{id}")
-    Call<List<Reservation>> getAllResaervationsByChauffeur(@Path("id") Long id);
+    @GET("reservation/allbychauffeur/{login}")
+    Call<List<Reservation>> getAllReservationsByChauffeur(@Path("login") String login);
+
+    @GET("reservation/allacceptedbychauffeur/{login}")
+    Call<List<Reservation>> getAllReservationsAcceptedByChauffeur(@Path("login") String login);
 
     @POST("/reservation/add")
     Call<Reservation> saveReservation(@Body Reservation reservation);

@@ -90,6 +90,7 @@ public class PageConnexion extends AppCompatActivity  {
 
                                 sharedPreferences.edit().putString(ESharedDatasRefs.USER_SHARED_TOKEN.name(), token).apply();
                                 sharedPreferences.edit().putString(ESharedDatasRefs.USER_SHARED_ID.name(), String.valueOf(response.body().getId())).apply();
+                                sharedPreferences.edit().putString(ESharedDatasRefs.USER_SHARED_LOGIN.name(), loginEntree);
 
                                 if (userType.equals(UserType.CLIENT.toString())) {
                                     Intent otherActivity = new Intent(getApplicationContext(), CompteClient.class);
