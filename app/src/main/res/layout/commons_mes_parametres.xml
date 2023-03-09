@@ -11,7 +11,8 @@
             android:ems="10"
             android:layout_centerHorizontal="true"
             android:layout_margin="30dp"
-            android:hint="modifier mon mail"/>
+            android:hint="modifier mon mail"
+            android:inputType="textWebEmailAddress"/>
 
     <EditText
             android:id="@+id/confNouveauMail"
@@ -21,7 +22,8 @@
             android:layout_centerHorizontal="true"
             android:layout_margin="30dp"
             android:layout_below="@+id/mofifierMonMail"
-            android:hint="confirmer nouveau mail"/>
+            android:hint="confirmer nouveau mail"
+            android:inputType="textWebEmailAddress"/>
 
     <EditText
             android:id="@+id/nouveauTel"
@@ -29,9 +31,10 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:layout_centerHorizontal="true"
-            android:layout_margin="30dp"
             android:layout_below="@+id/confNouveauMail"
-            android:hint="modifier n° de tél"/>
+            android:inputType="phone"
+            android:hint="modifier n° de tél" android:layout_marginTop="30dp" android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp" android:layout_marginBottom="30dp"/>
 
     <Button
         android:id="@+id/btnValiderModifs"

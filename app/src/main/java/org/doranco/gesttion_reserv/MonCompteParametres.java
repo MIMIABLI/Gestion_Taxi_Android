@@ -58,40 +58,46 @@ public class MonCompteParametres extends AppCompatActivity {
         clientApi = retrofitService.getRetrofit().create(ClientApi.class);
         login = sharedPreferences.getString(ESharedDatasRefs.USER_SHARED_LOGIN.name(), "");
 
+        if (!nouveauMail.equals("") && confMail.equals(nouveauMail)) {
+            validerModif.setOnClickListener(v -> {
+                clientApi.getClientByLogin(login).enqueue(new Callback<Client>() {
+                    @Override
+                    public void onResponse(Call<Client> call, Response<Client> response) {
+                        client = response.body();
+                        Client updateClientDatas = client;
+                        updateClientDatas.setEmail(nouveauMail);
 
-        validerModif.setOnClickListener(v -> {
-            clientApi.getClientByLogin(login).enqueue(new Callback<Client>() {
-                @Override
-                public void onResponse(Call<Client> call, Response<Client> response) {
-                    client = response.body();
-                    Client updateClientDatas = client;
-                    updateClientDatas.setEmail(nouveauMail);
-                    updateClientDatas.setTelephone(nouveautelStrg);
+                        if (!nouveautelStrg.equals("") && nouveautelStrg.length() == 10) {
+                            updateClientDatas.setTelephone(nouveautelStrg);
+                        }
 
-                    clientApi.updateClient(updateClientDatas).enqueue(new Callback<List<Client>>() {
-                        @Override
-                        public void onResponse(Call<List<Client>> call, Response<List<Client>> response) {
-                            if (response.code() == ResponseCode.OK.getReponseCode()) {
-                                Toast.makeText(MonCompteParametres.this, "Modifications réussies !", Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(MonCompteParametres.this, "Echec de la mofication, veuillez réessayer", Toast.LENGTH_SHORT).show();
+                        clientApi.updateClient(updateClientDatas).enqueue(new Callback<List<Client>>() {
+                            @Override
+                            public void onResponse(Call<List<Client>> call, Response<List<Client>> response) {
+                                if (response.code() == ResponseCode.OK.getReponseCode()) {
+                                    Toast.makeText(MonCompteParametres.this, "Modifications réussies !", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(MonCompteParametres.this, "Echec de la mofication, veuillez réessayer", Toast.LENGTH_SHORT).show();
+                                }
                             }
-                        }
 
-                        @Override
-                        public void onFailure(Call<List<Client>> call, Throwable t) {
-                            Toast.makeText(MonCompteParametres.this, "Echec de la modification des données", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                            @Override
+                            public void onFailure(Call<List<Client>> call, Throwable t) {
+                                Toast.makeText(MonCompteParametres.this, "Echec de la modification des données", Toast.LENGTH_SHORT).show();
+                            }
+                        });
 
-                }
+                    }
 
-                @Override
-                public void onFailure(Call<Client> call, Throwable t) {
+                    @Override
+                    public void onFailure(Call<Client> call, Throwable t) {
 
-                }
+                    }
+                });
             });
-        });
+        } else {
+            Toast.makeText(this, "Les mails ne correspondent pas", Toast.LENGTH_SHORT).show();
+        }
 
         retourMonCompte();
 
