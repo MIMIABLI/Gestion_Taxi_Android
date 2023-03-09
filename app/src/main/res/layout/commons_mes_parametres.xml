@@ -1,6 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="match_parent">
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+            android:id="@+id/mofifierMonMail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="30dp"
+            android:hint="modifier mon mail"/>
+
+    <EditText
+            android:id="@+id/confNouveauMail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="30dp"
+            android:layout_below="@+id/mofifierMonMail"
+            android:hint="confirmer nouveau mail"/>
+
+    <EditText
+            android:id="@+id/nouveauTel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="30dp"
+            android:layout_below="@+id/confNouveauMail"
+            android:hint="modifier n° de tél"/>
+
+    <Button
+        android:id="@+id/btnValiderModifs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nouveauTel"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:text="Valider"/>
+
+    <Button
+            android:id="@+id/btnRetourDeMesParams"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/nouveauTel"
+            android:layout_marginLeft="30dp"
+            android:text="@string/btnRetour"/>
+
+
+</RelativeLayout>
