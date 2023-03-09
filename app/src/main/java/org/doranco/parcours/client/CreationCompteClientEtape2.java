@@ -64,13 +64,14 @@ public class CreationCompteClientEtape2 extends AppCompatActivity {
             registerClient.setEmail(clientSuite.getEmail());
             registerClient.setUserType(UserType.CLIENT);
 
-            if(mdp.equals(confMdp)) {
+            if(confMdp.equals(mdp) && !mdp.equals("")) {
                 registerClient.setPassword(mdp);
+                saveClientInDatabase(registerClient);
             } else {
                 Toast.makeText(this, "mot de passe incorrect.", Toast.LENGTH_SHORT).show();
             }
 
-            saveClientInDatabase(registerClient);
+
 
         });
     }
