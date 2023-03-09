@@ -21,6 +21,9 @@ public interface ReservationApi {
     @GET("reservation/allbychauffeur/{login}")
     Call<List<Reservation>> getAllReservationsByChauffeur(@Path("login") String login);
 
+    @GET("reservation/allbyclient/{login}")
+    Call<List<Reservation>> getAllReservationsByClient(@Path("login") String login);
+
     @GET("reservation/allacceptedbychauffeur/{login}")
     Call<List<Reservation>> getAllReservationsAcceptedByChauffeur(@Path("login") String login);
 

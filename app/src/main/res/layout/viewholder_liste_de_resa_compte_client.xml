@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+            android:id="@+id/dateResaClient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/heureResaClient"
+              android:layout_below="@id/dateResaClient"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/lieuDeDepartResaClient"
+              android:layout_below="@id/heureResaClient"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/lieuDarriveeResaClient"
+              android:layout_below="@id/lieuDeDepartResaClient"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/nomPrenomChauffeurResaClient"
+              android:layout_below="@id/lieuDarriveeResaClient"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/statutResaClient"
+              android:textSize="20dp"
+              android:layout_alignParentRight="true"
+              android:layout_marginRight="20dp"
+              android:layout_centerVertical="true"/>
+
+</RelativeLayout>
