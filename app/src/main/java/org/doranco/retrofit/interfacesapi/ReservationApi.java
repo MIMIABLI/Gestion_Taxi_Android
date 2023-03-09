@@ -18,6 +18,9 @@ public interface ReservationApi {
     @GET("/reservation/all")
     Call<List<Reservation>> getAllReservation();
 
+    @GET("reservation/allbychauffeur/{id}")
+    Call<List<Reservation>> getAllResaervationsByChauffeur(@Path("id") Long id);
+
     @POST("/reservation/add")
     Call<Reservation> saveReservation(@Body Reservation reservation);
 

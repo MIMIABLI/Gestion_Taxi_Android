@@ -41,6 +41,7 @@ public class MonCompteAdmin extends AppCompatActivity {
         date.setText(GetTime.getTodayDateAndHour(new Date()));
 
         ajouterUnChauffeurOnClick();
+        consulterListDesChauffeursInscrits();
         mesParametresDeCompte();
         meDeconnecter();
     }
