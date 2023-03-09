@@ -40,13 +40,20 @@ public class MyAdapterClientMesReservations extends RecyclerView.Adapter<MyViewH
     public void onBindViewHolder(@NonNull MyViewHolderClientMesReservations holder, int position) {
         String nomChauffeur = String.valueOf(reservationList.get(position).getChauffeur().getNom());
         String prenomChauffeur = String.valueOf(reservationList.get(position).getChauffeur().getPrenom());
-        String nomPrenomChauffeir = "Chauffeur: " + prenomChauffeur + " " + nomChauffeur;
+        String nomPrenomChauffeur = "Chauffeur: " + prenomChauffeur + " " + nomChauffeur;
 
         String statutResa = reservationList.get(position).getStatut().name();
         String dateResa = "Date départ: " + String.valueOf(reservationList.get(position).getDate());
         String departResa = "Lieu départ: " + String.valueOf(reservationList.get(position).getTrajet().getLieuDeDepart());
         String arriveeResa = "Lieu d'arrivée: " + String.valueOf(reservationList.get(position).getTrajet().getLieuDArrive());
         String heureResa = "Heure départ: " +String.valueOf(reservationList.get(position).getHeureDepart());
+
+        holder.chauffeurResa.setText(nomPrenomChauffeur);
+        holder.dateResa.setText(dateResa);
+        holder.statutResa.setText(statutResa);
+        holder.departResa.setText(departResa);
+        holder.arriveeResa.setText(arriveeResa);
+        holder.heureResa.setText(heureResa);
 
 
     }
