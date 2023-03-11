@@ -1,5 +1,7 @@
 package org.doranco.parcours.client;
 
+import android.util.Patterns;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,6 +16,7 @@ public class CreationCompteClient extends AppCompatActivity {
 
     private Button creerCompteEtape1;
     private EditText etNom, etPrenom, etMail, etTelephone;
+    private boolean isInfoValide;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,15 +46,27 @@ public class CreationCompteClient extends AppCompatActivity {
             client.setEmail(mail);
             client.setTelephone(telephone);
 
-            Intent creerCompteEtape2 = new Intent(getApplicationContext(), CreationCompteClientEtape2.class);
+            infosRemplies(client.getNom(), client.getPrenom(), client.getEmail(), client.getTelephone());
 
-            if (client != null) {
+
+            if (isInfoValide) {
+                Intent creerCompteEtape2 = new Intent(getApplicationContext(), CreationCompteClientEtape2.class);
                 creerCompteEtape2.putExtra("client", client);
+                startActivity(creerCompteEtape2);
+                finish();
             }
 
-            startActivity(creerCompteEtape2);
-            finish();
 
         });
+    }
+
+    private boolean infosRemplies(String nom, String prenom, String mail, String tel) {
+        if (nom.isEmpty() || prenom.isEmpty() || mail.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(mail).matches() || tel.isEmpty() || !Patterns.PHONE.matcher(tel).matches()) {
+            isInfoValide = false;
+            Toast.makeText(this, "Informations manquantes ou incorrectes.", Toast.LENGTH_SHORT).show();
+        } else {
+            isInfoValide = true;
+        }
+        return isInfoValide;
     }
 }

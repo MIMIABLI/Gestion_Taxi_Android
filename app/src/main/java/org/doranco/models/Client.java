@@ -29,6 +29,8 @@ public class Client implements Serializable {
     @SerializedName("telephone")
     private String telephone;
 
+    private Role role;
+
     private List<Reservation> listReservation;
 
     public Client() {

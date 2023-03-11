@@ -7,19 +7,19 @@ import java.io.Serializable;
 public class Trajet implements Serializable {
 
 
-    @SerializedName("id")
+    @SerializedName("trajet_id")
     private Long id;
     @SerializedName("secteur")
     private String secteur;
-    @SerializedName("depart")
+    @SerializedName("lieuDeDepart")
     private String lieuDeDepart;
-    @SerializedName("arrivee")
+    @SerializedName("lieuDarrive")
     private String lieuDArrive;
     @SerializedName("duree")
     private String dureeTrajet;
     @SerializedName("prix")
     private Double prix;
-    @SerializedName("statutTrajet")
+    @SerializedName("statut")
     private Enum statut;
     @SerializedName("reservation")
     private Reservation reservation;

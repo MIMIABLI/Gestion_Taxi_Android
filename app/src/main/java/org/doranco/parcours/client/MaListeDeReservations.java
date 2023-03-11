@@ -47,7 +47,7 @@ public class MaListeDeReservations extends AppCompatActivity {
         retrofitService = new RetrofitService(token);
         reservationApi = retrofitService.getRetrofit().create(ReservationApi.class);
         recyclerView = findViewById(R.id.recyclerviewMesReservations);
-
+        sharedPreferences = getApplicationContext().getSharedPreferences(ESharedDatasRefs.USER_SHARED_DATAS.name(), MODE_PRIVATE);
         loginCLient = sharedPreferences.getString(ESharedDatasRefs.USER_SHARED_LOGIN.name(), "");
 
                 reservationApi.getAllReservationsByClient(loginCLient).enqueue(new Callback<List<Reservation>>() {

@@ -60,7 +60,7 @@ public class PageConnexion extends AppCompatActivity  {
 
         connexionMonCompte();
         creationMonCompte();
-        sharedPreferences = getApplicationContext().getSharedPreferences(ESharedDatasRefs.USER_SHARED_DATAS.name(), MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences(ESharedDatasRefs.USER_SHARED_DATAS.name(), MODE_PRIVATE);
 
     }
 
@@ -90,7 +90,7 @@ public class PageConnexion extends AppCompatActivity  {
 
                                 sharedPreferences.edit().putString(ESharedDatasRefs.USER_SHARED_TOKEN.name(), token).apply();
                                 sharedPreferences.edit().putString(ESharedDatasRefs.USER_SHARED_ID.name(), String.valueOf(response.body().getId())).apply();
-                                sharedPreferences.edit().putString(ESharedDatasRefs.USER_SHARED_LOGIN.name(), loginEntree);
+                                sharedPreferences.edit().putString(ESharedDatasRefs.USER_SHARED_LOGIN.name(), loginEntree).apply();
 
                                 if (userType.equals(UserType.CLIENT.toString())) {
                                     Intent otherActivity = new Intent(getApplicationContext(), CompteClient.class);

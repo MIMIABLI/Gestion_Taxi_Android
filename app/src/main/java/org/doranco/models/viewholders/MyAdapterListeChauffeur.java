@@ -1,7 +1,6 @@
 package org.doranco.models.viewholders;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,6 @@ import org.doranco.gesttion_reserv.R;
 import org.doranco.models.Chauffeur;
 import org.doranco.models.Reservation;
 import org.doranco.models.Trajet;
-import org.doranco.parcours.client.MonPaiement;
 import org.doranco.retrofit.RetrofitService;
 import org.doranco.retrofit.interfacesapi.ChauffeurApi;
 import retrofit2.Call;
@@ -28,20 +26,15 @@ public class MyAdapterListeChauffeur extends RecyclerView.Adapter<MyViewHolderLi
 
     private Context context;
     private List<Chauffeur> chauffeurList;
-    private Trajet trajet;
-    private Reservation reservation;
-    private String trajetExtra = "trajet";
-    private String resaExtra = "reservation";
+    IChangeActivity changeActivity;
     RetrofitService retrofitService;
     ChauffeurApi chauffeurApi;
 
-    public MyAdapterListeChauffeur(Context context, List<Chauffeur> chauffeurList, String token, Trajet trajet, Reservation reservation) {
+    public MyAdapterListeChauffeur(Context context, List<Chauffeur> chauffeurList, String token, IChangeActivity changeActivity) {
         this.context = context;
         this.chauffeurList = chauffeurList;
-        this.trajet = trajet;
-        this.reservation = reservation;
-        retrofitService = new RetrofitService(token);
-        chauffeurApi = retrofitService.getRetrofit().create(ChauffeurApi.class);
+        this.changeActivity = changeActivity;
+        this.retrofitService = new RetrofitService(token);
     }
 
     @NonNull
@@ -63,6 +56,7 @@ public class MyAdapterListeChauffeur extends RecyclerView.Adapter<MyViewHolderLi
         holder.prix.setText(String.valueOf(chauffeurList.get(position).getPrix()) +"€");
 
         String chauffeurLogin = chauffeurList.get(position).getLogin();
+        chauffeurApi = retrofitService.getRetrofit().create(ChauffeurApi.class);
 
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,15 +65,9 @@ public class MyAdapterListeChauffeur extends RecyclerView.Adapter<MyViewHolderLi
                 chauffeurApi.getChauffeurByLogin(chauffeurLogin).enqueue(new Callback<Chauffeur>() {
                     @Override
                     public void onResponse(Call<Chauffeur> call, Response<Chauffeur> response) {
-                        reservation.setChauffeur(response.body());
-
+                        Chauffeur chauffeur = response.body();
                         Toast.makeText(context, "Course Réservée avec " + nom, Toast.LENGTH_SHORT).show();
-                        Intent paiement = new Intent(v.getContext(), MonPaiement.class);
-                        paiement.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        paiement.putExtra(trajetExtra, trajet);
-                        paiement.putExtra(resaExtra, reservation);
-                        v.getContext().startActivity(paiement);
-
+                        changeActivity.changeActivity(chauffeur);
                     }
 
                     @Override
@@ -94,4 +82,11 @@ public class MyAdapterListeChauffeur extends RecyclerView.Adapter<MyViewHolderLi
     public int getItemCount() {
         return chauffeurList.size();
     }
+
+    public interface IChangeActivity {
+        void changeActivity(Chauffeur chauffeur);
+    }
+
+
+
 }

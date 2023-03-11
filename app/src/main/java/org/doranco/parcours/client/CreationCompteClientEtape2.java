@@ -66,7 +66,7 @@ public class CreationCompteClientEtape2 extends AppCompatActivity {
 
             if(confMdp.equals(mdp) && !mdp.equals("")) {
                 registerClient.setPassword(mdp);
-                saveClientInDatabase(registerClient);
+                saveClientInDatabase(registerClient, cliLog);
             } else {
                 Toast.makeText(this, "mot de passe incorrect.", Toast.LENGTH_SHORT).show();
             }
@@ -76,20 +76,26 @@ public class CreationCompteClientEtape2 extends AppCompatActivity {
         });
     }
 
-    private void saveClientInDatabase(RegisterRequest client) {
-        authenticationService.registerUser(client)
-                .enqueue(new Callback<AuthenticationResponse>() {
-                    @Override
-                    public void onResponse(Call<AuthenticationResponse> call, Response<AuthenticationResponse> response) {
-                        Toast.makeText(CreationCompteClientEtape2.this, R.string.addUserSuccess, Toast.LENGTH_SHORT).show();
-                        Intent compteClientActivity = new Intent(getApplicationContext(), CompteClient.class);
-                        startActivity(compteClientActivity);
-                        finish();
-                    }
-                    @Override
-                    public void onFailure(Call<AuthenticationResponse> call, Throwable t) {
-            Toast.makeText(CreationCompteClientEtape2.this, R.string.addUserFailure, Toast.LENGTH_SHORT).show();
-                    }
-                });
+    private void saveClientInDatabase(RegisterRequest client, String login) {
+        if(!login.isEmpty()) {
+
+            authenticationService.registerUser(client)
+                    .enqueue(new Callback<AuthenticationResponse>() {
+                        @Override
+                        public void onResponse(Call<AuthenticationResponse> call, Response<AuthenticationResponse> response) {
+                            Toast.makeText(CreationCompteClientEtape2.this, R.string.addUserSuccess, Toast.LENGTH_SHORT).show();
+                            Intent compteClientActivity = new Intent(getApplicationContext(), CompteClient.class);
+                            startActivity(compteClientActivity);
+                            finish();
+                        }
+
+                        @Override
+                        public void onFailure(Call<AuthenticationResponse> call, Throwable t) {
+                            Toast.makeText(CreationCompteClientEtape2.this, R.string.addUserFailure, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        } else {
+            Toast.makeText(this, "Veuillez renseigner le login", Toast.LENGTH_SHORT).show();
+        }
     }
 }

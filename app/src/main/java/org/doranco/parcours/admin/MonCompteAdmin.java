@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import org.doranco.gesttion_reserv.MonCompteParametres;
@@ -73,9 +74,10 @@ public class MonCompteAdmin extends AppCompatActivity {
         menuMonCompte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mesParametres = new Intent(getApplicationContext(), MonCompteParametres.class);
+                /*Intent mesParametres = new Intent(getApplicationContext(), MonCompteParametres.class);
                 startActivity(mesParametres);
-                finish();
+                finish();*/
+                Toast.makeText(MonCompteAdmin.this, "En cours de développement", Toast.LENGTH_SHORT).show();
             }
         });
     }

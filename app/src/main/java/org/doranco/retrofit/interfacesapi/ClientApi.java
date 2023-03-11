@@ -44,7 +44,7 @@ public interface ClientApi {
     Call<Client> getClientByLogin(@Path("login") String login);
 
     @PUT("/client/update")
-    Call<List<Client>> updateClient(@Body Client Client);
+    Call<Client> updateClient(@Body Client Client);
 
     @DELETE("/client/delete/{id}")
     Call<List<Client>> delete(@Path("id") long id);
