@@ -50,8 +50,6 @@ public class PageReservation extends AppCompatActivity {
         setContentView(R.layout.client_page_reservation);
 
         resaSecteurDepart = findViewById(R.id.choisirSecteur);
-//        resaDateDepart = findViewById(R.id.choisirDateDepart);
-//        resaHeureArrivee = findViewById(R.id.choisirHeureArrivee);
         dateDepart = findViewById(R.id.datePicker);
         heureArrivee = findViewById(R.id.timePicker);
         resaLieuDepart = findViewById(R.id.entrerLieuDepart);
@@ -80,9 +78,7 @@ public class PageReservation extends AppCompatActivity {
         creerReservation.setOnClickListener(view -> {
 
             String secteur = String.valueOf(resaSecteurDepart.getText());
-//            String heureArrive = String.valueOf(resaHeureArrivee.getText());
             StatutTrajet statutTrajet = StatutTrajet.EN_ATTENTE;
-//            String dateDeDepart = String.valueOf(resaDateDepart.getText());
             int day = dateDepart.getDayOfMonth();
             int month = dateDepart.getMonth();
             int year = dateDepart.getYear();
@@ -93,9 +89,8 @@ public class PageReservation extends AppCompatActivity {
             String heureDArrive = hour + ":" + min;
 
             SimpleDateFormat hdeureFormatter = new SimpleDateFormat("HH:mm");
+
             try {
-//                SimpleDateFormat dateOk = new SimpleDateFormat("yyyy-MM-dd");
-//                Date dateOKForSQL = dateOk.;
                 resa.setDate(date);
                 Date heure = hdeureFormatter.parse(heureDArrive);
                 resa.setHeureArrive(heure);
@@ -112,28 +107,11 @@ public class PageReservation extends AppCompatActivity {
             trajet.setStatut(statutTrajet);
             trajet.setSecteur(secteur);
 
-            trajetApi.saveTrajet(trajet).enqueue(new Callback<Trajet>() {
-                @Override
-                public void onResponse(Call<Trajet> call, Response<Trajet> response) {      resa.setClient(client);
-                    resa.setStatut(StatutResa.EN_ATTENTE);
-                    reservation.setTrajet(trajet);
-                    if(isInfosOk(secteur, resa.getDate(), resa.getHeureArrive(), lieuDeDepart, lieuDarrivee)) {
-                        Intent pageChoixDuChauffeur = new Intent(getApplicationContext(), ListChauffeurReservation.class);
-                        pageChoixDuChauffeur.putExtra("reservation", resa);
-                        pageChoixDuChauffeur.putExtra("trajet", trajet);
-                        startActivity(pageChoixDuChauffeur);
-                        finish();
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Champs incorrects ou manquants", Toast.LENGTH_SHORT).show();
-                    }
-                    Toast.makeText(PageReservation.this, "Trajet saved", Toast.LENGTH_SHORT).show();
-                }
-
-                @Override
-                public void onFailure(Call<Trajet> call, Throwable t) {
-
-                }
-            });
+            if(isInfosOk(secteur, resa.getDate(), resa.getHeureArrive(), lieuDeDepart, lieuDarrivee)) {
+                saveTrajet(trajet, resa);
+            } else {
+                Toast.makeText(getApplicationContext(), "Champs incorrects ou manquants", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 
@@ -162,4 +140,27 @@ public class PageReservation extends AppCompatActivity {
         return client;
     }
 
+    private void saveTrajet(Trajet trajet, Reservation resa) {
+        trajetApi.saveTrajet(trajet).enqueue(new Callback<Trajet>() {
+            @Override
+            public void onResponse(Call<Trajet> call, Response<Trajet> response) {
+                resa.setClient(client);
+                resa.setStatut(StatutResa.EN_ATTENTE);
+                resa.setTrajet(trajet);
+
+                Intent pageChoixDuChauffeur = new Intent(getApplicationContext(), ListChauffeurReservation.class);
+                pageChoixDuChauffeur.putExtra("reservation", resa);
+                pageChoixDuChauffeur.putExtra("trajet", trajet);
+                startActivity(pageChoixDuChauffeur);
+                finish();
+
+                Toast.makeText(PageReservation.this, "Trajet saved", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<Trajet> call, Throwable t) {
+
+            }
+        });
+    }
 }
