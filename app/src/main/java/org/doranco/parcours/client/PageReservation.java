@@ -42,7 +42,7 @@ public class PageReservation extends AppCompatActivity {
     private DatePicker dateDepart;
     private TimePicker heureArrivee;
 
-    private Reservation reservation;
+    private Reservation reservation = new Reservation();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +56,6 @@ public class PageReservation extends AppCompatActivity {
         resaLieuArrivee = findViewById(R.id.entrerDestination);
         creerReservation = findViewById(R.id.reserverBtnPageReservation);
         annulerReservation = findViewById(R.id.btnAnnulerReservation);
-
-        reservation = (Reservation) getIntent().getSerializableExtra("reservation");
 
         getToken = new GetToken(getApplicationContext());
         token = getToken.getToken();
@@ -79,36 +77,48 @@ public class PageReservation extends AppCompatActivity {
 
             String secteur = String.valueOf(resaSecteurDepart.getText());
             StatutTrajet statutTrajet = StatutTrajet.EN_ATTENTE;
+            String lieuDeDepart = String.valueOf(resaLieuDepart.getText());
+            String lieuDarrivee = String.valueOf(resaLieuArrivee.getText());
             int day = dateDepart.getDayOfMonth();
             int month = dateDepart.getMonth();
             int year = dateDepart.getYear();
-            Date date = new Date(year, month, day);
+            String dateDeDepartStrg = year + "-" + month + "-" + day;
 
             int hour = heureArrivee.getHour();
             int min = heureArrivee.getMinute();
             String heureDArrive = hour + ":" + min;
 
             SimpleDateFormat hdeureFormatter = new SimpleDateFormat("HH:mm");
+            SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy-MM-dd");
+
+
 
             try {
-                resa.setDate(date);
+
+                Date dateSql = dateFormater.parse(dateDeDepartStrg);
+                resa.setDate(dateSql);
+                System.out.println("date format date: " + dateSql);
                 Date heure = hdeureFormatter.parse(heureDArrive);
                 resa.setHeureArrive(heure);
+                System.out.println("heure arrivée format date: " + resa.getHeureArrive());
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-
-            String lieuDeDepart = String.valueOf(resaLieuDepart.getText());
-            String lieuDarrivee = String.valueOf(resaLieuArrivee.getText());
 
             Trajet trajet = new Trajet();
             trajet.setLieuDeDepart(lieuDeDepart);
             trajet.setLieuDArrive(lieuDarrivee);
             trajet.setStatut(statutTrajet);
             trajet.setSecteur(secteur);
+            System.out.println("arrivée: " + lieuDarrivee);
 
-            if(isInfosOk(secteur, resa.getDate(), resa.getHeureArrive(), lieuDeDepart, lieuDarrivee)) {
+            if(isInfosOk(secteur, resa.getDate(), resa.getHeureArrive(), trajet.getLieuDeDepart(), trajet.getLieuDArrive())) {
                 saveTrajet(trajet, resa);
+                Intent pageChoixDuChauffeur = new Intent(getApplicationContext(), ListChauffeurReservation.class);
+                pageChoixDuChauffeur.putExtra("reservation", resa);
+                pageChoixDuChauffeur.putExtra("trajet", trajet);
+                startActivity(pageChoixDuChauffeur);
+                finish();
             } else {
                 Toast.makeText(getApplicationContext(), "Champs incorrects ou manquants", Toast.LENGTH_SHORT).show();
             }
@@ -147,13 +157,6 @@ public class PageReservation extends AppCompatActivity {
                 resa.setClient(client);
                 resa.setStatut(StatutResa.EN_ATTENTE);
                 resa.setTrajet(trajet);
-
-                Intent pageChoixDuChauffeur = new Intent(getApplicationContext(), ListChauffeurReservation.class);
-                pageChoixDuChauffeur.putExtra("reservation", resa);
-                pageChoixDuChauffeur.putExtra("trajet", trajet);
-                startActivity(pageChoixDuChauffeur);
-                finish();
-
                 Toast.makeText(PageReservation.this, "Trajet saved", Toast.LENGTH_SHORT).show();
             }
 

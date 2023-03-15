@@ -7,27 +7,32 @@
     <TextView
             android:id="@+id/dateResaClient"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"/>
 
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:id="@+id/heureResaClient"
-              android:layout_below="@id/dateResaClient"/>
+              android:layout_below="@id/dateResaClient"
+        android:textColor="@color/black"/>
 
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:id="@+id/lieuDeDepartResaClient"
-              android:layout_below="@id/heureResaClient"/>
+              android:layout_below="@id/heureResaClient"
+        android:textColor="@color/black"/>
 
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:id="@+id/lieuDarriveeResaClient"
-              android:layout_below="@id/lieuDeDepartResaClient"/>
+              android:layout_below="@id/lieuDeDepartResaClient"
+        android:textColor="@color/black"/>
 
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:id="@+id/nomPrenomChauffeurResaClient"
-              android:layout_below="@id/lieuDarriveeResaClient"/>
+              android:layout_below="@id/lieuDarriveeResaClient"
+        android:textColor="@color/black"/>
 
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
@@ -35,6 +40,7 @@
               android:textSize="20dp"
               android:layout_alignParentRight="true"
               android:layout_marginRight="20dp"
-              android:layout_centerVertical="true"/>
+              android:layout_centerVertical="true"
+        android:textColor="@color/black"/>
 
 </RelativeLayout>

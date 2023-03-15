@@ -13,7 +13,7 @@ public class Trajet implements Serializable {
     private String secteur;
     @SerializedName("lieuDeDepart")
     private String lieuDeDepart;
-    @SerializedName("lieuDarrive")
+    @SerializedName("lieuDArrive")
     private String lieuDArrive;
     @SerializedName("duree")
     private String dureeTrajet;

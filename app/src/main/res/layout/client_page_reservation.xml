@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="@string/titrePageReservationClient"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="50dp"/>
 
     <EditText
             android:id="@+id/choisirSecteur"
@@ -43,7 +43,7 @@
         android:text=""
         android:hint="Lieu de départ"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:layout_below="@+id/datePicker"/>
 
     <EditText
@@ -53,7 +53,7 @@
         android:ems="10"
         android:hint="Destination"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:layout_below="@+id/entrerLieuDepart"/>
 
 <!--

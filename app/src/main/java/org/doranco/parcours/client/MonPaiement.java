@@ -43,7 +43,7 @@ public class MonPaiement extends AppCompatActivity {
 
         reservation = (Reservation) getIntent().getSerializableExtra("reservation");
 //        trajet = (Trajet) getIntent().getSerializableExtra("trajet");
-        System.out.println("CHauffeur:" + reservation.getChauffeur().getNom());
+        System.out.println("Chauffeur:" + reservation.getChauffeur().getNom());
 
         valider.setOnClickListener( v -> {
             reservationApi.saveReservation(reservation).enqueue(new Callback<Reservation>() {
@@ -63,57 +63,6 @@ public class MonPaiement extends AppCompatActivity {
 
     }
 
- /*   private void validerAction() {
-        try {
-            reservation.setTrajet(trajet);
-            trajet.setReservation(reservation);
-            reservationApi.saveReservation(reservation).enqueue(new Callback<Reservation>() {
-                @Override
-                public void onResponse(Call<Reservation> call, Response<Reservation> response) {
-                    Toast.makeText(MonPaiement.this, "Résa validée", Toast.LENGTH_SHORT).show();
-                }
-
-                @Override
-                public void onFailure(Call<Reservation> call, Throwable t) {
-
-                }
-            });
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        messageButtonResaEtRetourPageMonCompte("Validé ! ");
-    }
-    
-    private void validerResa() {
-        reservationApi.saveReservation(reservation).enqueue(new Callback<Reservation>() {
-            @Override
-            public void onResponse(Call<Reservation> call, Response<Reservation> response) {
-                Toast.makeText(MonPaiement.this, "Résa validée", Toast.LENGTH_SHORT).show();
-                System.out.println("Réservation enregistrée");
-            }
-
-            @Override
-            public void onFailure(Call<Reservation> call, Throwable t) {
-
-            }
-        });
-
-    }
-
-    private void validerTrajet() {
-        trajetApi.saveTrajet(trajet).enqueue(new Callback<Trajet>() {
-            @Override
-            public void onResponse(Call<Trajet> call, Response<Trajet> response) {
-                System.out.println("Trajet enregistré.");
-            }
-
-            @Override
-            public void onFailure(Call<Trajet> call, Throwable t) {
-
-            }
-        });
-    }
-    */
     private void annulerResa() {
         annuler.setOnClickListener(new View.OnClickListener() {
             @Override

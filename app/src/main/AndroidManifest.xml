@@ -93,9 +93,6 @@
                 android:name="org.doranco.parcours.client.PageReservation"
                 android:exported="false"/>
         <activity
-                android:name="org.doranco.parcours.client.PageTrajet"
-                android:exported="false"/>
-        <activity
                 android:name="org.doranco.parcours.admin.CreationCompteChauffeur"
                 android:exported="false"/>
         <activity
