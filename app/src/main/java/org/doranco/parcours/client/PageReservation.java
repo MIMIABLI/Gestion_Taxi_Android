@@ -112,8 +112,12 @@ public class PageReservation extends AppCompatActivity {
             trajet.setSecteur(secteur);
             System.out.println("arrivée: " + lieuDarrivee);
 
+            resa.setClient(getCLient(login));
+            resa.setStatut(StatutResa.EN_ATTENTE);
+
             if(isInfosOk(secteur, resa.getDate(), resa.getHeureArrive(), trajet.getLieuDeDepart(), trajet.getLieuDArrive())) {
                 saveTrajet(trajet, resa);
+                resa.setTrajet(trajet);
                 Intent pageChoixDuChauffeur = new Intent(getApplicationContext(), ListChauffeurReservation.class);
                 pageChoixDuChauffeur.putExtra("reservation", resa);
                 pageChoixDuChauffeur.putExtra("trajet", trajet);
@@ -154,9 +158,6 @@ public class PageReservation extends AppCompatActivity {
         trajetApi.saveTrajet(trajet).enqueue(new Callback<Trajet>() {
             @Override
             public void onResponse(Call<Trajet> call, Response<Trajet> response) {
-                resa.setClient(client);
-                resa.setStatut(StatutResa.EN_ATTENTE);
-                resa.setTrajet(trajet);
                 Toast.makeText(PageReservation.this, "Trajet saved", Toast.LENGTH_SHORT).show();
             }
 
