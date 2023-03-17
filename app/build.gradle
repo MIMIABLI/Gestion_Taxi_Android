@@ -48,5 +48,9 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.1.7'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
 
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-android
+    implementation 'org.slf4j:slf4j-android:1.7.36'
+
+
 
 }

@@ -17,13 +17,13 @@ public class Reservation implements Serializable {
     private Chauffeur chauffeur;
 
     @SerializedName("date")
-    private Date date;
+    private String date;
 
     @SerializedName("heureDepart")
-    private Date heureDepart;
+    private String heureDepart;
 
     @SerializedName("heureArrive")
-    private Date heureArrive;
+    private String heureArrive;
 
     @SerializedName("statutResa")
     private StatutResa statutResa;
@@ -58,27 +58,27 @@ public class Reservation implements Serializable {
         this.chauffeur = chauffeur;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public Date getHeureDepart() {
+    public String getHeureDepart() {
         return heureDepart;
     }
 
-    public void setHeureDepart(Date heureDepart) {
+    public void setHeureDepart(String heureDepart) {
         this.heureDepart = heureDepart;
     }
 
-    public Date getHeureArrive() {
+    public String getHeureArrive() {
         return heureArrive;
     }
 
-    public void setHeureArrive(Date heureArrive) {
+    public void setHeureArrive(String heureArrive) {
         this.heureArrive = heureArrive;
     }
 

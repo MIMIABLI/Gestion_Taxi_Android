@@ -29,12 +29,14 @@ public class MyAdapterListeChauffeur extends RecyclerView.Adapter<MyViewHolderLi
     IChangeActivity changeActivity;
     RetrofitService retrofitService;
     ChauffeurApi chauffeurApi;
+    Reservation reservation;
 
-    public MyAdapterListeChauffeur(Context context, List<Chauffeur> chauffeurList, String token, IChangeActivity changeActivity) {
+    public MyAdapterListeChauffeur(Context context, List<Chauffeur> chauffeurList, String token, IChangeActivity changeActivity, Reservation reservation) {
         this.context = context;
         this.chauffeurList = chauffeurList;
         this.changeActivity = changeActivity;
         this.retrofitService = new RetrofitService(token);
+        this.reservation = reservation;
     }
 
     @NonNull
@@ -67,7 +69,7 @@ public class MyAdapterListeChauffeur extends RecyclerView.Adapter<MyViewHolderLi
                     public void onResponse(Call<Chauffeur> call, Response<Chauffeur> response) {
                         Chauffeur chauffeur = response.body();
                         Toast.makeText(context, "Course Réservée avec " + nom, Toast.LENGTH_SHORT).show();
-                        changeActivity.changeActivity(chauffeur);
+                        changeActivity.changeActivity(chauffeur, reservation);
                     }
 
                     @Override
@@ -84,7 +86,7 @@ public class MyAdapterListeChauffeur extends RecyclerView.Adapter<MyViewHolderLi
     }
 
     public interface IChangeActivity {
-        void changeActivity(Chauffeur chauffeur);
+        void changeActivity(Chauffeur chauffeur, Reservation reservation);
     }
 
 

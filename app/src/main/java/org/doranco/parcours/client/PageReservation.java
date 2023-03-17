@@ -6,25 +6,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import org.apache.commons.lang3.time.DateUtils;
 import org.doranco.gesttion_reserv.R;
 import org.doranco.models.*;
-import org.doranco.retrofit.controller.ControllerClient;
-import org.doranco.retrofit.interfacesapi.ClientApi;
-import org.doranco.retrofit.interfacesapi.ReservationApi;
 import org.doranco.retrofit.RetrofitService;
 import org.doranco.retrofit.interfacesapi.TrajetApi;
 import org.doranco.utils.GetToken;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
-import java.util.List;
-import java.util.zip.DataFormatException;
 
 public class PageReservation extends AppCompatActivity {
 
@@ -32,17 +23,14 @@ public class PageReservation extends AppCompatActivity {
     private GetToken getToken;
     private String token;
     private TrajetApi trajetApi;
-    Client client;
-    private ClientApi clientApi;
-    private SharedPreferences sharedPreferences;
-    private String login;
+
 
     private Button creerReservation, annulerReservation;
-    private EditText resaSecteurDepart, resaDateDepart, resaLieuDepart, resaLieuArrivee, resaHeureArrivee;
+    private EditText resaSecteurDepart, resaLieuDepart, resaLieuArrivee;
     private DatePicker dateDepart;
     private TimePicker heureArrivee;
 
-    private Reservation reservation = new Reservation();
+    private Reservation reservation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,20 +49,29 @@ public class PageReservation extends AppCompatActivity {
         token = getToken.getToken();
         retrofitService = new RetrofitService(token);
         trajetApi = retrofitService.getRetrofit().create(TrajetApi.class);
-        clientApi = retrofitService.getRetrofit().create(ClientApi.class);
 
-        sharedPreferences = getSharedPreferences(ESharedDatasRefs.USER_SHARED_DATAS.name(), MODE_PRIVATE);
-        login = sharedPreferences.getString(ESharedDatasRefs.USER_SHARED_LOGIN.name(), "");
 
-        getCLient(login);
-        creerReservationEtAllerVersPageChoixDuChauffeur(reservation);
+        creerReservationEtAllerVersPageChoixDuChauffeur();
+        retourAccueilMonCompte();
 
     }
 
-    private void creerReservationEtAllerVersPageChoixDuChauffeur(Reservation resa) {
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        reservation = new Reservation();
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    private void creerReservationEtAllerVersPageChoixDuChauffeur() {
 
         creerReservation.setOnClickListener(view -> {
-
+            Reservation resa = new Reservation();
             String secteur = String.valueOf(resaSecteurDepart.getText());
             StatutTrajet statutTrajet = StatutTrajet.EN_ATTENTE;
             String lieuDeDepart = String.valueOf(resaLieuDepart.getText());
@@ -82,24 +79,22 @@ public class PageReservation extends AppCompatActivity {
             int day = dateDepart.getDayOfMonth();
             int month = dateDepart.getMonth();
             int year = dateDepart.getYear();
-            String dateDeDepartStrg = year + "-" + month + "-" + day;
+            Date date = new Date(day, month, year);
 
             int hour = heureArrivee.getHour();
             int min = heureArrivee.getMinute();
             String heureDArrive = hour + ":" + min;
 
-            SimpleDateFormat hdeureFormatter = new SimpleDateFormat("HH:mm");
-            SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat dateFormater = new SimpleDateFormat("dd-MM-yyyy");
 
 
 
             try {
 
-                Date dateSql = dateFormater.parse(dateDeDepartStrg);
+                String dateSql = dateFormater.format(date);
                 resa.setDate(dateSql);
                 System.out.println("date format date: " + dateSql);
-                Date heure = hdeureFormatter.parse(heureDArrive);
-                resa.setHeureArrive(heure);
+                resa.setHeureArrive(heureDArrive);
                 System.out.println("heure arrivée format date: " + resa.getHeureArrive());
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -112,7 +107,6 @@ public class PageReservation extends AppCompatActivity {
             trajet.setSecteur(secteur);
             System.out.println("arrivée: " + lieuDarrivee);
 
-            resa.setClient(getCLient(login));
             resa.setStatut(StatutResa.EN_ATTENTE);
 
             if(isInfosOk(secteur, resa.getDate(), resa.getHeureArrive(), trajet.getLieuDeDepart(), trajet.getLieuDArrive())) {
@@ -129,29 +123,12 @@ public class PageReservation extends AppCompatActivity {
         });
     }
 
-    private boolean isInfosOk(String secteur, Date date, Date heure, String depart, String arrivee) {
+    private boolean isInfosOk(String secteur, String date, String heure, String depart, String arrivee) {
         boolean isOk = false;
-        if (!secteur.isEmpty() && date != null && heure != null && !depart.isEmpty() && !arrivee.isEmpty()) {
+        if (!secteur.isEmpty() && !date.isEmpty() && !heure.isEmpty() && !depart.isEmpty() && !arrivee.isEmpty()) {
             isOk = true;
         }
         return isOk;
-    }
-
-    private Client getCLient(String login) {
-
-        clientApi.getClientByLogin(login).enqueue(new Callback<Client>() {
-            @Override
-            public void onResponse(Call<Client> call, Response<Client> response) {
-                client = response.body();
-            }
-
-            @Override
-            public void onFailure(Call<Client> call, Throwable t) {
-
-            }
-        });
-
-        return client;
     }
 
     private void saveTrajet(Trajet trajet, Reservation resa) {
@@ -167,4 +144,13 @@ public class PageReservation extends AppCompatActivity {
             }
         });
     }
+
+    private void retourAccueilMonCompte() {
+        annulerReservation.setOnClickListener(v ->  {
+            Intent retourMonCompte = new Intent(getApplicationContext(), CompteClient.class);
+            startActivity(retourMonCompte);
+            finish();
+        });
+    }
+
 }

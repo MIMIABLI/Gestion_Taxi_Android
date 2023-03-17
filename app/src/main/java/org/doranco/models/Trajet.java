@@ -1,5 +1,6 @@
 package org.doranco.models;
 
+import androidx.annotation.InspectableProperty;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
@@ -20,7 +21,7 @@ public class Trajet implements Serializable {
     @SerializedName("prix")
     private Double prix;
     @SerializedName("statut")
-    private Enum statut;
+    private StatutTrajet statut;
     @SerializedName("reservation")
     private Reservation reservation;
 
@@ -71,7 +72,7 @@ public class Trajet implements Serializable {
         return statut;
     }
 
-    public void setStatut(Enum statut) {
+    public void setStatut(StatutTrajet statut) {
         this.statut = statut;
     }
 

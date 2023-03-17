@@ -37,7 +37,7 @@ public class MyAdapterClientMesReservations extends RecyclerView.Adapter<MyViewH
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolderClientMesReservations holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull MyViewHolderClientMesReservations holder, int position) {
         String nomChauffeur = String.valueOf(reservationList.get(position).getChauffeur().getNom());
         String prenomChauffeur = String.valueOf(reservationList.get(position).getChauffeur().getPrenom());
         String nomPrenomChauffeur = "Chauffeur: " + prenomChauffeur + " " + nomChauffeur;

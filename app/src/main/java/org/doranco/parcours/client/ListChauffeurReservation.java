@@ -16,6 +16,7 @@ import org.doranco.models.Trajet;
 import org.doranco.models.viewholders.MyAdapterListeChauffeur;
 import org.doranco.retrofit.RetrofitService;
 import org.doranco.retrofit.interfacesapi.ChauffeurApi;
+import org.doranco.retrofit.interfacesapi.ReservationApi;
 import org.doranco.retrofit.interfacesapi.TrajetApi;
 import org.doranco.utils.GetToken;
 import retrofit2.Call;
@@ -64,7 +65,7 @@ public class ListChauffeurReservation extends AppCompatActivity implements MyAda
                 if (chauffeurList.isEmpty()) {
                     Toast.makeText(context, "Pas de chauffeurs enregistrés dans ce département", Toast.LENGTH_LONG).show();
                 } else {
-                    myAdapterListeChauffeur = new MyAdapterListeChauffeur(getApplicationContext(), chauffeurList, token, changeActivity);
+                    myAdapterListeChauffeur = new MyAdapterListeChauffeur(getApplicationContext(), chauffeurList, token, changeActivity, reservation);
                     recyclerView.setLayoutManager(new LinearLayoutManager(context));
                     recyclerView.setAdapter(myAdapterListeChauffeur);
                 }
@@ -78,12 +79,11 @@ public class ListChauffeurReservation extends AppCompatActivity implements MyAda
     }
 
     @Override
-    public void changeActivity(Chauffeur chauffeur) {
-        Reservation resaExtra = reservation;
-        resaExtra.setChauffeur(chauffeur);
+    public void changeActivity(Chauffeur chauffeur, Reservation resa) {
+        resa.setChauffeur(chauffeur);
 
         Intent paiement = new Intent(getApplicationContext(), MonPaiement.class);
-        paiement.putExtra("reservation", reservation);
+        paiement.putExtra("reservation", resa);
         startActivity(paiement);
         finish();
     }

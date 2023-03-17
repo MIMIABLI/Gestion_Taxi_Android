@@ -8,7 +8,7 @@ import java.util.List;
 public class Client implements Serializable {
 
 
-    @SerializedName("idClient")
+    @SerializedName("id")
     private Long id;
 
     @SerializedName("nom")
@@ -29,11 +29,14 @@ public class Client implements Serializable {
     @SerializedName("telephone")
     private String telephone;
 
+    @SerializedName("role")
     private Role role;
 
+    @SerializedName("listReservation")
     private List<Reservation> listReservation;
 
     public Client() {
+        this.role = Role.USER;
     }
 
     public Long getId() {
@@ -98,5 +101,13 @@ public class Client implements Serializable {
 
     public void setListReservation(List<Reservation> listReservation) {
         this.listReservation = listReservation;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    private void setRole(Role role) {
+        this.role = role;
     }
 }

@@ -50,11 +50,15 @@ public class Chauffeur implements Serializable {
     @SerializedName("prix")
     private Double prix;
 
+   @SerializedName("role")
+    private Role role;
+
     @SerializedName("listReservation")
     private List<Reservation> listReservation;
 
 
     public Chauffeur() {
+        this.role = Role.USER;
     }
 
     public Double getPrix() {
@@ -167,5 +171,21 @@ public class Chauffeur implements Serializable {
 
     public void setSecteur(String secteur) {
         this.secteur = secteur;
+    }
+
+    public List<Reservation> getListReservation() {
+        return listReservation;
+    }
+
+    public void setListReservation(List<Reservation> listReservation) {
+        this.listReservation = listReservation;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
