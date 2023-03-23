@@ -8,11 +8,11 @@
     <LinearLayout
             android:id="@+id/marginLayout"
             android:layout_width="30dp"
-            android:layout_height="54dp"
-            android:layout_margin="10dp"
+            android:layout_height="75dp"
             android:layout_centerVertical="true"
             android:orientation="vertical"
-            android:background="@color/blue"/>
+            android:background="@color/blue" android:layout_marginTop="10dp" android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp" android:layout_marginBottom="10dp"/>
 
     <TextView
             android:id="@+id/nomPrenomClient"
@@ -32,20 +32,20 @@
             android:layout_toRightOf="@id/marginLayout"/>
 
     <TextView
-            android:id="@+id/heureDeDepart"
+            android:id="@+id/heureDArrivee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Heure"
             android:textSize="18dp"
-            android:layout_toRightOf="@id/dateDuDepart"
-            android:layout_below="@id/nomPrenomClient"/>
+            android:layout_toRightOf="@id/marginLayout"
+            android:layout_below="@id/dateDuDepart"/>
 
     <TextView
             android:id="@+id/lieuDeDepart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Départ"
-            android:layout_below="@id/dateDuDepart"
+            android:layout_below="@id/heureDArrivee"
             android:layout_toRightOf="@id/marginLayout"
             android:layout_marginEnd="10dp"/>
 
@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Arrivée"
-            android:layout_below="@id/dateDuDepart"
+            android:layout_below="@id/heureDArrivee"
             android:layout_toRightOf="@id/lieuDeDepart"/>
 
     <TextView
@@ -62,7 +62,7 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginRight="5dp"
             android:textSize="17dp"
             android:text="Accepter"/>
@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="5dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="25dp"
             android:textSize="17dp"
             android:layout_below="@id/switchValidation"
             android:text="Refuser"/>

@@ -37,15 +37,15 @@ public class MyAdapterListeResaClient extends RecyclerView.Adapter<MyViewHolderL
         String nom = resaList.get(position).getClient().getPrenom();
         String prenom = resaList.get(position).getClient().getNom();
         String dateResa = String.valueOf(resaList.get(position).getDate());
-        String heureDepart = String.valueOf(resaList.get(position).getHeureDepart());
+        String heureArrivee = String.valueOf(resaList.get(position).getHeureArrive());
         String lieuDepart = resaList.get(position).getTrajet().getLieuDeDepart();
         String lieuArrivee = resaList.get(position).getTrajet().getLieuDArrive();
 
         holder.nomPrenomClient.setText(nom + " " + prenom);
         holder.dateResa.setText(dateResa);
-        holder.heureResa.setText(heureDepart);
-        holder.lieuDepart.setText(lieuDepart);
-        holder.lieuArrivee.setText(lieuArrivee);
+        holder.heureResa.setText("heure arrivée: " + heureArrivee);
+        holder.lieuDepart.setText("Dep: " + lieuDepart);
+        holder.lieuArrivee.setText("Dest: " + lieuArrivee);
 
         holder.validerBtn.setOnClickListener(v -> {
                 holder.validerBtn.setText("Validée !");

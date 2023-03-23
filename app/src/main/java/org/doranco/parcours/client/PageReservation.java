@@ -1,19 +1,21 @@
 package org.doranco.parcours.client;
 
-import android.content.SharedPreferences;
-import android.widget.*;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.*;
+import androidx.appcompat.app.AppCompatActivity;
 import org.doranco.gesttion_reserv.R;
-import org.doranco.models.*;
+import org.doranco.models.Reservation;
+import org.doranco.models.StatutResa;
+import org.doranco.models.StatutTrajet;
+import org.doranco.models.Trajet;
 import org.doranco.retrofit.RetrofitService;
 import org.doranco.retrofit.interfacesapi.TrajetApi;
 import org.doranco.utils.GetToken;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -44,6 +46,8 @@ public class PageReservation extends AppCompatActivity {
         resaLieuArrivee = findViewById(R.id.entrerDestination);
         creerReservation = findViewById(R.id.reserverBtnPageReservation);
         annulerReservation = findViewById(R.id.btnAnnulerReservation);
+
+        dateDepart.setMinDate(new Date().getTime());
 
         getToken = new GetToken(getApplicationContext());
         token = getToken.getToken();
@@ -76,24 +80,17 @@ public class PageReservation extends AppCompatActivity {
             StatutTrajet statutTrajet = StatutTrajet.EN_ATTENTE;
             String lieuDeDepart = String.valueOf(resaLieuDepart.getText());
             String lieuDarrivee = String.valueOf(resaLieuArrivee.getText());
+
             int day = dateDepart.getDayOfMonth();
             int month = dateDepart.getMonth();
             int year = dateDepart.getYear();
-            Date date = new Date(day, month, year);
-
+            String date = day +"-"+(month + 1) +"-"+year;
             int hour = heureArrivee.getHour();
             int min = heureArrivee.getMinute();
             String heureDArrive = hour + ":" + min;
 
-            SimpleDateFormat dateFormater = new SimpleDateFormat("dd-MM-yyyy");
-
-
-
             try {
-
-                String dateSql = dateFormater.format(date);
-                resa.setDate(dateSql);
-                System.out.println("date format date: " + dateSql);
+                resa.setDate(date);
                 resa.setHeureArrive(heureDArrive);
                 System.out.println("heure arrivée format date: " + resa.getHeureArrive());
             } catch (Exception e) {
@@ -109,7 +106,7 @@ public class PageReservation extends AppCompatActivity {
 
             resa.setStatut(StatutResa.EN_ATTENTE);
 
-            if(isInfosOk(secteur, resa.getDate(), resa.getHeureArrive(), trajet.getLieuDeDepart(), trajet.getLieuDArrive())) {
+            if (isInfosOk(secteur, resa.getDate(), resa.getHeureArrive(), trajet.getLieuDeDepart(), trajet.getLieuDArrive())) {
                 saveTrajet(trajet, resa);
                 resa.setTrajet(trajet);
                 Intent pageChoixDuChauffeur = new Intent(getApplicationContext(), ListChauffeurReservation.class);
@@ -146,7 +143,7 @@ public class PageReservation extends AppCompatActivity {
     }
 
     private void retourAccueilMonCompte() {
-        annulerReservation.setOnClickListener(v ->  {
+        annulerReservation.setOnClickListener(v -> {
             Intent retourMonCompte = new Intent(getApplicationContext(), CompteClient.class);
             startActivity(retourMonCompte);
             finish();

@@ -7,10 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import org.doranco.gesttion_reserv.R;
 import org.doranco.models.Chauffeur;
 import org.doranco.models.Reservation;
+import org.doranco.models.StatutResa;
 import org.doranco.parcours.client.MonPaiement;
 import org.jetbrains.annotations.NotNull;
 import retrofit2.Call;
@@ -54,10 +56,23 @@ public class MyAdapterClientMesReservations extends RecyclerView.Adapter<MyViewH
 
         holder.chauffeurResa.setText(nomPrenomChauffeur);
         holder.dateResa.setText(dateResa);
-        holder.statutResa.setText(statutResa);
         holder.departResa.setText(departResa);
         holder.arriveeResa.setText(arriveeResa);
         holder.heureResa.setText(heureResa);
+        holder.statutResa.setText(statutResa);
+
+        switch (reservationList.get(position).getStatut()) {
+
+            case EN_ATTENTE:
+                holder.statutResa.setTextColor(ContextCompat.getColor(context, R.color.yellow));
+                break;
+            case VALIDEE:
+                holder.statutResa.setTextColor(ContextCompat.getColor(context, R.color.green));
+                break;
+            case REFUSEE:
+                holder.statutResa.setTextColor(ContextCompat.getColor(context, R.color.red));
+                break;
+        }
 
 
     }

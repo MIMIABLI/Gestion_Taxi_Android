@@ -38,8 +38,8 @@ public class MyAdapterListeCoursesChauffeur extends RecyclerView.Adapter<MyViewH
         holder.nomPrenomClient.setText(nom + " " + prenom);
         holder.dateResa.setText(dateResa);
         holder.telClient.setText(telClientStr);
-        holder.lieuDepart.setText(lieuDepart);
-        holder.lieuArrivee.setText(lieuArrivee);
+        holder.lieuDepart.setText("Depart: " + lieuDepart);
+        holder.lieuArrivee.setText("Arrivée: " + lieuArrivee);
 
     }
 

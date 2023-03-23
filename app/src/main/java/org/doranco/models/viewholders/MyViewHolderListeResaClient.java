@@ -19,7 +19,7 @@ public class MyViewHolderListeResaClient extends RecyclerView.ViewHolder {
 
         nomPrenomClient = itemView.findViewById(R.id.nomPrenomClient);
         dateResa = itemView.findViewById(R.id.dateDuDepart);
-        heureResa = itemView.findViewById(R.id.heureDeDepart);
+        heureResa = itemView.findViewById(R.id.heureDArrivee);
         lieuDepart = itemView.findViewById(R.id.lieuDeDepart);
         lieuArrivee = itemView.findViewById(R.id.lieuDarrivee);
         validerBtn = itemView.findViewById(R.id.switchValidation);

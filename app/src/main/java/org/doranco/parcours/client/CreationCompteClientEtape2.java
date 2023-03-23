@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.doranco.gesttion_reserv.PageConnexion;
 import org.doranco.gesttion_reserv.R;
 import org.doranco.models.Client;
 import org.doranco.retrofit.auth.AuthenticationResponse;
@@ -64,11 +65,11 @@ public class CreationCompteClientEtape2 extends AppCompatActivity {
             registerClient.setEmail(clientSuite.getEmail());
             registerClient.setUserType(UserType.CLIENT);
 
-            if(confMdp.equals(mdp) && !mdp.equals("")) {
+            if(mdp.length() >= 8 && confMdp.equals(mdp) && !mdp.equals("")) {
                 registerClient.setPassword(mdp);
                 saveClientInDatabase(registerClient, cliLog);
             } else {
-                Toast.makeText(this, "mot de passe incorrect.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "mot de passe incorrect ou inférieur à 8 caractères.", Toast.LENGTH_SHORT).show();
             }
 
 
@@ -84,8 +85,8 @@ public class CreationCompteClientEtape2 extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<AuthenticationResponse> call, Response<AuthenticationResponse> response) {
                             Toast.makeText(CreationCompteClientEtape2.this, R.string.addUserSuccess, Toast.LENGTH_SHORT).show();
-                            Intent compteClientActivity = new Intent(getApplicationContext(), CompteClient.class);
-                            startActivity(compteClientActivity);
+                            Intent pageAccueilRetour = new Intent(getApplicationContext(), PageConnexion.class);
+                            startActivity(pageAccueilRetour);
                             finish();
                         }
 
