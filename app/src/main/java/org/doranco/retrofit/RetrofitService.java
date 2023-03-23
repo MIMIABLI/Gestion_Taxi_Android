@@ -1,7 +1,5 @@
 package org.doranco.retrofit;
 
-import com.google.gson.Gson;
-
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -27,7 +25,7 @@ public class RetrofitService {
     private void initializeRetrofit(){
         retrofit = new Retrofit.Builder()
                 .baseUrl("http://192.168.1.48:8080")
-                .addConverterFactory(GsonConverterFactory.create(new Gson()))
+                .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
 
@@ -37,7 +35,7 @@ public class RetrofitService {
         retrofit = new Retrofit.Builder()
                 .baseUrl("http://192.168.1.48:8080")
                 .client(setBearerAuth(token))
-                .addConverterFactory(GsonConverterFactory.create(new Gson()))
+                .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
 

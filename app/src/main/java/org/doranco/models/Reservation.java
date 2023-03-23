@@ -1,5 +1,7 @@
 package org.doranco.models;
 
+//import com.google.gson.annotations.SerializedName;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
@@ -7,28 +9,28 @@ import java.util.Date;
 
 public class Reservation implements Serializable {
 
-    @SerializedName("id")
+    @SerializedName("idReservation")
     private Long id;
 
-    @SerializedName("client")
+//    @SerializedName("client")
     private Client client;
 
-    @SerializedName("chauffeur")
+//    @SerializedName("chauffeur")
     private Chauffeur chauffeur;
 
-    @SerializedName("date")
+//    @SerializedName("date")
     private String date;
 
-    @SerializedName("heureDepart")
+//    @SerializedName("heureDepart")
     private String heureDepart;
 
-    @SerializedName("heureArrive")
+//    @SerializedName("heureArrive")
     private String heureArrive;
 
-    @SerializedName("statutResa")
+//    @SerializedName("statutResa")
     private StatutResa statutResa;
 
-    @SerializedName("trajet")
+//    @SerializedName("trajet")
     private Trajet trajet;
 
     public Reservation() {

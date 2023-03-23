@@ -18,7 +18,6 @@
             android:id="@+id/nomPrenomClient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nom/Prénom"
             android:textSize="20dp"
             android:layout_toRightOf="@id/marginLayout"/>
 
@@ -58,22 +57,24 @@
             android:layout_below="@id/dateDuDepart"
             android:layout_toRightOf="@id/lieuDeDepart"/>
 
-    <Switch
+    <TextView
             android:id="@+id/switchValidation"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="7dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:textSize="17dp"
             android:text="Accepter"/>
 
-    <Switch
+    <TextView
             android:id="@+id/switchRefus"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="15dp"
+            android:textSize="17dp"
             android:layout_below="@id/switchValidation"
             android:text="Refuser"/>
 

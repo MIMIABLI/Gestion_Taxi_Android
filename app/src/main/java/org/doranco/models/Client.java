@@ -8,31 +8,31 @@ import java.util.List;
 public class Client implements Serializable {
 
 
-    @SerializedName("id")
+    @SerializedName("idClient")
     private Long id;
 
-    @SerializedName("nom")
+    //    @SerializedName("nom")
     private String nom;
 
-    @SerializedName("prenom")
+    //    @SerializedName("prenom")
     private String prenom;
 
-    @SerializedName("login")
+    //    @SerializedName("login")
     private String login;
 
-    @SerializedName("password")
+    //    @SerializedName("password")
     private String password;
 
-    @SerializedName("email")
+    //    @SerializedName("email")
     private String email;
 
-    @SerializedName("telephone")
+    //    @SerializedName("telephone")
     private String telephone;
 
-    @SerializedName("role")
+    //    @SerializedName("role")
     private Role role;
 
-    @SerializedName("listReservation")
+    //    @SerializedName("listReservation")
     private List<Reservation> listReservation;
 
     public Client() {

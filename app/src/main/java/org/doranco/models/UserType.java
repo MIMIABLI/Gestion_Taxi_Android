@@ -1,16 +1,16 @@
 package org.doranco.models;
 
-import com.google.gson.annotations.SerializedName;
+//import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
 public enum UserType implements Serializable {
 
-    @SerializedName("CLIENT")
+//    @SerializedName("CLIENT")
     CLIENT("CLIENT"),
-    @SerializedName("CHAUFFEUR")
+//    @SerializedName("CHAUFFEUR")
     CHAUFFEUR("CHAUFFEUR"),
-    @SerializedName("ADMIN")
+//    @SerializedName("ADMIN")
     ADMIN("ADMIN");
 
     private String userTypeString;

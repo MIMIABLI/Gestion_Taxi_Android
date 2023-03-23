@@ -1,6 +1,8 @@
 package org.doranco.models;
 
-import com.google.gson.annotations.Expose;
+//import com.google.gson.annotations.Expose;
+//import com.google.gson.annotations.SerializedName;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
@@ -8,52 +10,52 @@ import java.util.List;
 
 public class Chauffeur implements Serializable {
 
-    @SerializedName("id")
+    @SerializedName("idChauffeur")
     private Long id;
 
-    @SerializedName("nom")
+//    @SerializedName("nom")
     private String nom;
 
-    @SerializedName("prenom")
+//    @SerializedName("prenom")
     private String prenom;
 
-    @SerializedName("login")
+//    @SerializedName("login")
     private String login;
 
-    @SerializedName("password")
+//    @SerializedName("password")
     private String password;
 
-    @SerializedName("email")
+//    @SerializedName("email")
     private String email;
 
-    @SerializedName("telephone")
+//    @SerializedName("telephone")
     private String telephone;
 
-    @SerializedName("photos")
+//    @SerializedName("photos")
     private int photos;
 
-    @SerializedName("typeDeVehicules")
+//    @SerializedName("typeDeVehicules")
     private String typeDeVehicules;
 
-    @SerializedName("couleurDuVehicule")
+//    @SerializedName("couleurDuVehicule")
     private String couleurDuVehicule;
 
-    @SerializedName("immatriculationDuVehicule")
+//    @SerializedName("immatriculationDuVehicule")
     private String immatriculationDuVehicule;
 
-    @SerializedName("note")
+//    @SerializedName("note")
     private Double note;
 
-    @SerializedName("secteur")
+//    @SerializedName("secteur")
     private String secteur;
 
-    @SerializedName("prix")
+//    @SerializedName("prix")
     private Double prix;
 
-   @SerializedName("role")
+//   @SerializedName("role")
     private Role role;
 
-    @SerializedName("listReservation")
+//    @SerializedName("listReservation")
     private List<Reservation> listReservation;
 
 

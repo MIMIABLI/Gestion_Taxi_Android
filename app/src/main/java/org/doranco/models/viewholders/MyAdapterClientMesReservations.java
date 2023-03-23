@@ -32,7 +32,6 @@ public class MyAdapterClientMesReservations extends RecyclerView.Adapter<MyViewH
     @NonNull
     @Override
     public MyViewHolderClientMesReservations onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         return new MyViewHolderClientMesReservations(LayoutInflater.from(context).inflate(R.layout.viewholder_liste_de_resa_compte_client, parent, false));
     }
 
@@ -46,7 +45,12 @@ public class MyAdapterClientMesReservations extends RecyclerView.Adapter<MyViewH
         String dateResa = "Date départ: " + String.valueOf(reservationList.get(position).getDate());
         String departResa = "Lieu départ: " + String.valueOf(reservationList.get(position).getTrajet().getLieuDeDepart());
         String arriveeResa = "Lieu d'arrivée: " + String.valueOf(reservationList.get(position).getTrajet().getLieuDArrive());
-        String heureResa = "Heure départ: " +String.valueOf(reservationList.get(position).getHeureDepart());
+        String heureResa;
+        if(reservationList.get(position).getHeureDepart() != null) {
+            heureResa = "Heure départ: " + String.valueOf(reservationList.get(position).getHeureDepart());
+        } else {
+            heureResa = "Heure départ: en attente";
+        }
 
         holder.chauffeurResa.setText(nomPrenomChauffeur);
         holder.dateResa.setText(dateResa);

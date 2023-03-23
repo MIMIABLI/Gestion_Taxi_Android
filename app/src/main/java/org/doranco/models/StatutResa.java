@@ -1,16 +1,16 @@
 package org.doranco.models;
 
-import com.google.gson.annotations.SerializedName;
+//import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
 public enum StatutResa implements Serializable {
 
-    @SerializedName("VALIDEE")
+//    @SerializedName("VALIDEE")
     VALIDEE("VALIDEE"),
-    @SerializedName("REFUSEE")
+//    @SerializedName("REFUSEE")
     REFUSEE("REFUSEE"),
-    @SerializedName("EN_ATTENTE")
+//    @SerializedName("EN_ATTENTE")
     EN_ATTENTE("EN_ATTENTE");
 
     private String statutResaString;

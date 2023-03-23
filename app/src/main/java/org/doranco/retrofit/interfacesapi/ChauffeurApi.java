@@ -5,12 +5,7 @@ import org.doranco.models.Chauffeur;
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.DELETE;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.PUT;
-import retrofit2.http.Path;
+import retrofit2.http.*;
 
 public interface ChauffeurApi {
 
@@ -23,6 +18,7 @@ public interface ChauffeurApi {
     @GET("/chauffeur/find/{id}")
     Call<List<Chauffeur>> getChauffeurById(@Path("id") Long id);
 
+    @Headers({"Content-Type: application/json"})
     @GET("/chauffeur/findbylogin/{login}")
     Call<Chauffeur> getChauffeurByLogin(@Path("login") String login);
 

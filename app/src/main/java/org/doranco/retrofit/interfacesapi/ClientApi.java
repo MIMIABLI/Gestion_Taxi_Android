@@ -4,12 +4,8 @@ import io.reactivex.Observable;
 import org.doranco.models.Client;
 import java.util.List;
 import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.DELETE;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.PUT;
-import retrofit2.http.Path;
+import retrofit2.Response;
+import retrofit2.http.*;
 
 public interface ClientApi {
 
@@ -40,6 +36,7 @@ public interface ClientApi {
     @GET("/client/find/{id}")
     Call<Client> getClientById(@Path("id") Long id);
 
+    @Headers({"Accept: application/json"})
     @GET("/client/findByLogin/{login}")
     Call<Client> getClientByLogin(@Path("login") String login);
 

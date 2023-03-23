@@ -31,13 +31,13 @@ public class MyAdapterListeCoursesChauffeur extends RecyclerView.Adapter<MyViewH
         String nom = resaList.get(position).getClient().getPrenom();
         String prenom = resaList.get(position).getClient().getNom();
         String dateResa = String.valueOf(resaList.get(position).getDate());
-        String heureDepart = String.valueOf(resaList.get(position).getHeureDepart());
+        String telClientStr = String.valueOf(resaList.get(position).getClient().getTelephone());
         String lieuDepart = resaList.get(position).getTrajet().getLieuDeDepart();
         String lieuArrivee = resaList.get(position).getTrajet().getLieuDArrive();
 
         holder.nomPrenomClient.setText(nom + " " + prenom);
         holder.dateResa.setText(dateResa);
-        holder.heureResa.setText(heureDepart);
+        holder.telClient.setText(telClientStr);
         holder.lieuDepart.setText(lieuDepart);
         holder.lieuArrivee.setText(lieuArrivee);
 

@@ -1,13 +1,10 @@
 package org.doranco.models.viewholders;
 
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import org.doranco.gesttion_reserv.R;
-import org.jetbrains.annotations.NotNull;
 
 public class MyViewHolderClientMesReservations extends RecyclerView.ViewHolder {
 

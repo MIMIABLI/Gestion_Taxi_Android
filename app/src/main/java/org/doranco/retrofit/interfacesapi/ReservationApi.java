@@ -6,24 +6,23 @@ import org.doranco.models.Reservation;
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.DELETE;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.PUT;
-import retrofit2.http.Path;
+import retrofit2.http.*;
 
 public interface ReservationApi {
 
+    @Headers({"Accept: application/json"})
     @GET("/reservation/all")
     Call<List<Reservation>> getAllReservation();
 
+    @Headers({"Accept: application/json"})
     @GET("reservation/allbychauffeur/{login}")
     Call<List<Reservation>> getAllReservationsByChauffeur(@Path("login") String login);
 
+    @Headers({"Content-Type: application/json"})
     @GET("reservation/allbyclient/{login}")
     Call<List<Reservation>> getAllReservationsByClient(@Path("login") String login);
 
+    @Headers({"Accept: application/json"})
     @GET("reservation/allacceptedbychauffeur/{login}")
     Call<List<Reservation>> getAllReservationsAcceptedByChauffeur(@Path("login") String login);
 

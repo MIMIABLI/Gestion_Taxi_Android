@@ -92,6 +92,13 @@ public class MaGestionDeDemandesDeResa extends AppCompatActivity {
             updatedReservationsListe = myAdapterListeResaClient.getUpdateStatusResa();
 
             for(int i = 0; i < updatedReservationsListe.size(); i++) {
+                Reservation updateReservation = updatedReservationsListe.get(i);
+
+                System.out.println("Reservation updated id: " + updateReservation.getId() +
+                        "Reservation Client: " + updateReservation.getClient().getPrenom() +
+                        "Reservation Statut: " + updateReservation.getStatut());
+
+
                 reservationApi.saveReservation(updatedReservationsListe.get(i)).enqueue(new Callback<Reservation>() {
                     @Override
                     public void onResponse(Call<Reservation> call, Response<Reservation> response) {

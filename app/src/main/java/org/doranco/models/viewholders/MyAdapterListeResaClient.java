@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Switch;
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import org.doranco.gesttion_reserv.R;
 import org.doranco.models.Reservation;
@@ -18,7 +20,6 @@ public class MyAdapterListeResaClient extends RecyclerView.Adapter<MyViewHolderL
 
     Context context;
     List<Reservation> resaList;
-    Switch valider, refuser;
 
     public MyAdapterListeResaClient(Context context, List<Reservation> resaList) {
         this.context = context;
@@ -45,27 +46,21 @@ public class MyAdapterListeResaClient extends RecyclerView.Adapter<MyViewHolderL
         holder.heureResa.setText(heureDepart);
         holder.lieuDepart.setText(lieuDepart);
         holder.lieuArrivee.setText(lieuArrivee);
-        valider = holder.validerSwitch;
-        refuser = holder.refuserSwitch;
-        valider.setChecked(false);
-        refuser.setChecked(false);
 
-        valider.setOnClickListener(v -> {
-            if(!valider.isChecked() && refuser.isChecked() || valider.isChecked() && !refuser.isChecked()) {
-                valider.setChecked(true);
-                valider.setText("VALIDEE !");
-                refuser.setChecked(false);
+        holder.validerBtn.setOnClickListener(v -> {
+                holder.validerBtn.setText("Validée !");
+                holder.validerBtn.setTextColor(ContextCompat.getColor(context, R.color.green));
+                holder.refuserBtn.setText("Refuser");
+                holder.refuserBtn.setTextColor(ContextCompat.getColor(context, R.color.black));
                 resaList.get(position).setStatut(StatutResa.VALIDEE);
-            }
         });
 
-        refuser.setOnClickListener(v -> {
-            if(valider.isChecked() && !refuser.isChecked() || !valider.isChecked() && !refuser.isChecked()) {
-                valider.setChecked(false);
-                refuser.setChecked(true);
-                refuser.setText("REFUSEE !");
+        holder.refuserBtn.setOnClickListener(v -> {
+            holder.refuserBtn.setText("Refusée !");
+            holder.refuserBtn.setTextColor(ContextCompat.getColor(context, R.color.red));
+            holder.validerBtn.setText("Accepter");
+            holder.validerBtn.setTextColor(ContextCompat.getColor(context, R.color.black));
                 resaList.get(position).setStatut(StatutResa.REFUSEE);
-            }
         });
 
     }

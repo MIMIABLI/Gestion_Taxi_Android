@@ -1,6 +1,7 @@
 package org.doranco.models;
 
-import androidx.annotation.InspectableProperty;
+//import com.google.gson.annotations.SerializedName;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
@@ -8,32 +9,32 @@ import java.io.Serializable;
 public class Trajet implements Serializable {
 
 
-    @SerializedName("trajet_id")
-    private Long id;
-    @SerializedName("secteur")
+    @SerializedName("idTrajet")
+    private Long trajet_id;
+    //    @SerializedName("secteur")
     private String secteur;
-    @SerializedName("lieuDeDepart")
+    //    @SerializedName("lieuDeDepart")
     private String lieuDeDepart;
-    @SerializedName("lieuDArrive")
+    //    @SerializedName("lieuDArrive")
     private String lieuDArrive;
-    @SerializedName("duree")
-    private String dureeTrajet;
-    @SerializedName("prix")
+    //    @SerializedName("duree")
+    private String duree;
+    //    @SerializedName("prix")
     private Double prix;
-    @SerializedName("statut")
+    //    @SerializedName("statut")
     private StatutTrajet statut;
-    @SerializedName("reservation")
+    //    @SerializedName("reservation")
     private Reservation reservation;
 
     public Trajet() {
     }
 
     public Long getId() {
-        return id;
+        return trajet_id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.trajet_id = id;
     }
 
     public String getLieuDeDepart() {
@@ -53,11 +54,11 @@ public class Trajet implements Serializable {
     }
 
     public String getDureeTrajet() {
-        return dureeTrajet;
+        return duree;
     }
 
-    public void setDureeTrajet(String dureeTrajet) {
-        this.dureeTrajet = dureeTrajet;
+    public void setDureeTrajet(String duree) {
+        this.duree = duree;
     }
 
     public Double getPrix() {
