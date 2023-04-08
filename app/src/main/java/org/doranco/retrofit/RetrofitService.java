@@ -14,6 +14,8 @@ public class RetrofitService {
 
     private Retrofit retrofit;
 
+//    private final String BACKEND_URL = "http://127.0.1.1:8080";
+    private final String BACKEND_URL = "http://jemitaxi.osc-fr1.scalingo.io";
     public RetrofitService() {
         initializeRetrofit();
     }
@@ -24,7 +26,7 @@ public class RetrofitService {
 
     private void initializeRetrofit(){
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.48:8080")
+                .baseUrl(BACKEND_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
@@ -33,7 +35,7 @@ public class RetrofitService {
 
     private void initializeRetrofitWithBearerAuth(String token){
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.48:8080")
+                .baseUrl(BACKEND_URL)
                 .client(setBearerAuth(token))
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
