@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/nomPrenomClientResa"
+              android:layout_alignParentLeft="true"
+              android:textColor="@color/black"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/departResa"
+            android:layout_below="@id/nomPrenomClientResa"
+            android:textColor="@color/black"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/arriveeResa"
+            android:layout_below="@id/departResa"
+            android:textColor="@color/black"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dateResa"
+            android:layout_below="@id/arriveeResa"
+            android:textColor="@color/black"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/heureResa"
+            android:layout_below="@id/dateResa"
+            android:textColor="@color/black"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/telClientResa"
+            android:layout_below="@id/heureResa"
+            android:textColor="@color/black"/>
+
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Accepter"
+            android:id="@+id/btnAccepterResa"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnRefuserResa"
+            android:text="Refuser"
+            android:layout_alignStart="@id/btnAccepterResa"
+            android:layout_marginRight="10dp"
+            android:layout_below="@+id/btnAccepterResa"/>
+
+
+</RelativeLayout>

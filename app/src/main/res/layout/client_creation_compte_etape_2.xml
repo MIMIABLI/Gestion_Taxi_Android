@@ -37,6 +37,13 @@
         android:hint="@string/entrezMdp"
         android:inputType="textPassword"/>
 
+    <TextView android:id="@+id/mdpTips"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Le mot de passe doit faire 8 caractères min"
+              android:layout_below="@id/entrezMotDePasse"
+              android:layout_alignStart="@id/entrezMotDePasse"/>
+
     <EditText
         android:id="@+id/entrezMotDePasseConfirmation"
         android:layout_width="match_parent"

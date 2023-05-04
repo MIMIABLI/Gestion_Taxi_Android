@@ -52,6 +52,6 @@ public class ChoisirChauffeur extends AppCompatActivity {
         chauffeursList.add(chauffeur3);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new MyAdapterListeChauffeur(getApplicationContext(), chauffeursList));
+        //recyclerView.setAdapter(new MyAdapterListeChauffeur(getApplicationContext(), chauffeursList));
     }
 }

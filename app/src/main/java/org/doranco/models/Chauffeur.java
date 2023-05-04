@@ -1,6 +1,8 @@
 package org.doranco.models;
 
-import com.google.gson.annotations.Expose;
+//import com.google.gson.annotations.Expose;
+//import com.google.gson.annotations.SerializedName;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
@@ -8,68 +10,57 @@ import java.util.List;
 
 public class Chauffeur implements Serializable {
 
-    @SerializedName("id")
-    @Expose
+    @SerializedName("idChauffeur")
     private Long id;
 
-    @SerializedName("nom")
-    @Expose
+//    @SerializedName("nom")
     private String nom;
 
-    @SerializedName("prenom")
-    @Expose
+//    @SerializedName("prenom")
     private String prenom;
 
-    @SerializedName("login")
-    @Expose
+//    @SerializedName("login")
     private String login;
 
-    @SerializedName("password")
-    @Expose
+//    @SerializedName("password")
     private String password;
 
-    @SerializedName("email")
-    @Expose
+//    @SerializedName("email")
     private String email;
 
-    @SerializedName("telephone")
-    @Expose
+//    @SerializedName("telephone")
     private String telephone;
 
-    @SerializedName("photo")
-    @Expose
+//    @SerializedName("photos")
     private int photos;
 
-    @SerializedName("typeDeVehicule")
-    @Expose
+//    @SerializedName("typeDeVehicules")
     private String typeDeVehicules;
 
-    @SerializedName("couleurDuVehicule")
-    @Expose
+//    @SerializedName("couleurDuVehicule")
     private String couleurDuVehicule;
 
-    @SerializedName("immatriculation")
-    @Expose
+//    @SerializedName("immatriculationDuVehicule")
     private String immatriculationDuVehicule;
 
-    @SerializedName("note")
-    @Expose
+//    @SerializedName("note")
     private Double note;
 
-    @SerializedName("secteur")
-    @Expose
+//    @SerializedName("secteur")
     private String secteur;
 
-    @SerializedName("prix")
-    @Expose
+//    @SerializedName("prix")
     private Double prix;
 
-    @SerializedName("listReservation")
-    @Expose
+//   @SerializedName("role")
+    private Role role;
+
+//    @SerializedName("listReservation")
     private List<Reservation> listReservation;
 
 
     public Chauffeur() {
+        this.role = Role.USER;
     }
 
     public Double getPrix() {
@@ -182,5 +173,21 @@ public class Chauffeur implements Serializable {
 
     public void setSecteur(String secteur) {
         this.secteur = secteur;
+    }
+
+    public List<Reservation> getListReservation() {
+        return listReservation;
+    }
+
+    public void setListReservation(List<Reservation> listReservation) {
+        this.listReservation = listReservation;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

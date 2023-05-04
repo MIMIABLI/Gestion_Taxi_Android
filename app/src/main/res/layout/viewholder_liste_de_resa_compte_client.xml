@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+    <TextView
+            android:id="@+id/dateResaClient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="date"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/heureResaClient"
+              android:layout_below="@id/dateResaClient"
+              android:textColor="@color/black"
+              android:text="heure"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/lieuDeDepartResaClient"
+              android:layout_below="@id/heureResaClient"
+              android:textColor="@color/black"
+              android:text="départ"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/lieuDarriveeResaClient"
+              android:layout_below="@id/lieuDeDepartResaClient"
+              android:textColor="@color/black"
+              android:text="arrivée"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/nomPrenomChauffeurResaClient"
+              android:layout_below="@id/lieuDarriveeResaClient"
+              android:textColor="@color/black"
+              android:text="chauffeur"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/statutResaClient"
+              android:textSize="20dp"
+              android:layout_alignParentRight="true"
+              android:layout_marginRight="20dp"
+              android:layout_centerVertical="true"
+              android:textColor="@color/black"
+              android:text="statut"/>
+
+</RelativeLayout>

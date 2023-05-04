@@ -6,6 +6,7 @@ public class AuthenticationResponse {
 
     private String token;
     private UserType userType;
+    private Long id;
 
     public String getToken() {
         return token;
@@ -19,4 +20,7 @@ public class AuthenticationResponse {
         return userType;
     }
 
+    public Long getId() {
+        return id;
+    }
 }

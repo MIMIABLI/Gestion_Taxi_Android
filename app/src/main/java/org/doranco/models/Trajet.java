@@ -1,5 +1,7 @@
 package org.doranco.models;
 
+//import com.google.gson.annotations.SerializedName;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
@@ -7,32 +9,32 @@ import java.io.Serializable;
 public class Trajet implements Serializable {
 
 
-    @SerializedName("id")
-    private Long id;
-    @SerializedName("secteur")
+    @SerializedName("idTrajet")
+    private Long trajet_id;
+    //    @SerializedName("secteur")
     private String secteur;
-    @SerializedName("depart")
+    //    @SerializedName("lieuDeDepart")
     private String lieuDeDepart;
-    @SerializedName("arrivee")
+    //    @SerializedName("lieuDArrive")
     private String lieuDArrive;
-    @SerializedName("duree")
-    private String dureeTrajet;
-    @SerializedName("prix")
+    //    @SerializedName("duree")
+    private String duree;
+    //    @SerializedName("prix")
     private Double prix;
-    @SerializedName("statutTrajet")
-    private Enum statut;
-    @SerializedName("reservation")
+    //    @SerializedName("statut")
+    private StatutTrajet statut;
+    //    @SerializedName("reservation")
     private Reservation reservation;
 
     public Trajet() {
     }
 
     public Long getId() {
-        return id;
+        return trajet_id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.trajet_id = id;
     }
 
     public String getLieuDeDepart() {
@@ -52,11 +54,11 @@ public class Trajet implements Serializable {
     }
 
     public String getDureeTrajet() {
-        return dureeTrajet;
+        return duree;
     }
 
-    public void setDureeTrajet(String dureeTrajet) {
-        this.dureeTrajet = dureeTrajet;
+    public void setDureeTrajet(String duree) {
+        this.duree = duree;
     }
 
     public Double getPrix() {
@@ -71,7 +73,7 @@ public class Trajet implements Serializable {
         return statut;
     }
 
-    public void setStatut(Enum statut) {
+    public void setStatut(StatutTrajet statut) {
         this.statut = statut;
     }
 

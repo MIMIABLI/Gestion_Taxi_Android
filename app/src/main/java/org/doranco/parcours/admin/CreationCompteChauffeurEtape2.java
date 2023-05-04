@@ -12,12 +12,20 @@ import android.os.Bundle;
 import org.doranco.gesttion_reserv.R;
 import org.doranco.models.Chauffeur;
 import org.doranco.retrofit.RetrofitService;
+import org.doranco.retrofit.auth.AuthenticationResponse;
+import org.doranco.retrofit.auth.RetrofitAuthenticationService;
 import org.doranco.retrofit.interfacesapi.ChauffeurApi;
+import org.doranco.utils.GetToken;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CreationCompteChauffeurEtape2 extends AppCompatActivity {
 
-    private RetrofitService retrofitService = new RetrofitService();
-    private ChauffeurApi chauffeurApi;
+    private RetrofitService retrofitService;
+    private RetrofitAuthenticationService authenticationService;
+    private GetToken getToken;
+    private String token;
     private Chauffeur chauffeur;
     private Button creationCompteChauffeur, retour;
     private EditText marqueDuVehicule, couleurDuVehicule, immatriculationDuVehicule, secteurDuChauffeur;
@@ -35,7 +43,11 @@ public class CreationCompteChauffeurEtape2 extends AppCompatActivity {
         immatriculationDuVehicule = findViewById(R.id.immatriculationDuVehicule);
         secteurDuChauffeur = findViewById(R.id.secteurDuCHauffeur);
 
-        chauffeurApi = retrofitService.getRetrofit().create(ChauffeurApi.class);
+        getToken = new GetToken(getApplicationContext());
+        token = getToken.getToken();
+        retrofitService = new RetrofitService(token);
+
+        authenticationService = retrofitService.getRetrofit().create(RetrofitAuthenticationService.class);
         chauffeur = (Chauffeur) getIntent().getSerializableExtra("chauffeur");
 
         onClickCreerCompteChauffeurValidation();
@@ -56,14 +68,25 @@ public class CreationCompteChauffeurEtape2 extends AppCompatActivity {
                 chauffeur.setCouleurDuVehicule(couleurVehicule);
                 chauffeur.setImmatriculationDuVehicule(immatriculation);
                 chauffeur.setSecteur(secteur);
+                chauffeur.setLogin(chauffeur.getPrenom());
 
                 if (chauffeur != null) {
-                    chauffeurApi.saveChauffeur(chauffeur);
-                    Toast.makeText(CreationCompteChauffeurEtape2.this, "Création de compte réussie",
-                            Toast.LENGTH_SHORT).show();
-                    Intent pageAccueilAdmin = new Intent(getApplicationContext(), MonCompteAdmin.class);
-                    startActivity(pageAccueilAdmin);
-                    finish();
+                    authenticationService.registerChauffeur(chauffeur).enqueue(new Callback<AuthenticationResponse>() {
+                        @Override
+                        public void onResponse(Call<AuthenticationResponse> call, Response<AuthenticationResponse> response) {
+                                Toast.makeText(CreationCompteChauffeurEtape2.this, "Création de compte réussie",
+                                        Toast.LENGTH_SHORT).show();
+                                Intent pageAccueilAdmin = new Intent(getApplicationContext(), MonCompteAdmin.class);
+                                startActivity(pageAccueilAdmin);
+                                finish();
+                            }
+
+                            @Override
+                            public void onFailure(Call<AuthenticationResponse> call, Throwable t) {
+                                Toast.makeText(CreationCompteChauffeurEtape2.this,
+                                        "Erreur lors de l'enregistrement du chauffeur.", Toast.LENGTH_SHORT).show();
+                            }
+                    });
 
                 } else {
                     Toast.makeText(CreationCompteChauffeurEtape2.this,

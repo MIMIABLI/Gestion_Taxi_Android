@@ -1,5 +1,7 @@
 package org.doranco.models;
 
+//import com.google.gson.annotations.SerializedName;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
@@ -7,28 +9,28 @@ import java.util.Date;
 
 public class Reservation implements Serializable {
 
-    @SerializedName("id")
+    @SerializedName("idReservation")
     private Long id;
 
-    @SerializedName("client")
+//    @SerializedName("client")
     private Client client;
 
-    @SerializedName("chauffeur")
+//    @SerializedName("chauffeur")
     private Chauffeur chauffeur;
 
-    @SerializedName("date")
-    private Date date;
+//    @SerializedName("date")
+    private String date;
 
-    @SerializedName("heureDepart")
-    private Date heureDepart;
+//    @SerializedName("heureDepart")
+    private String heureDepart;
 
-    @SerializedName("heureArrive")
-    private Date heureArrive;
+//    @SerializedName("heureArrive")
+    private String heureArrive;
 
-    @SerializedName("statutResa")
+//    @SerializedName("statutResa")
     private StatutResa statutResa;
 
-    @SerializedName("trajet")
+//    @SerializedName("trajet")
     private Trajet trajet;
 
     public Reservation() {
@@ -58,27 +60,27 @@ public class Reservation implements Serializable {
         this.chauffeur = chauffeur;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public Date getHeureDepart() {
+    public String getHeureDepart() {
         return heureDepart;
     }
 
-    public void setHeureDepart(Date heureDepart) {
+    public void setHeureDepart(String heureDepart) {
         this.heureDepart = heureDepart;
     }
 
-    public Date getHeureArrive() {
+    public String getHeureArrive() {
         return heureArrive;
     }
 
-    public void setHeureArrive(Date heureArrive) {
+    public void setHeureArrive(String heureArrive) {
         this.heureArrive = heureArrive;
     }
 

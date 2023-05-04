@@ -1,6 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="match_parent">
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+            android:id="@+id/mailEnregiste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"/>
+
+    <TextView
+            android:id="@+id/telEnregiste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/mailEnregiste"/>
+
+    <EditText
+            android:id="@+id/mofifierMonMail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:hint="modifier mon mail"
+            android:layout_below="@id/telEnregiste"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:ems="10"
+            android:inputType="textWebEmailAddress"
+            android:layout_marginBottom="30dp"/>
+
+    <EditText
+            android:id="@+id/confNouveauMail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="30dp"
+            android:ems="10"
+            android:inputType="textWebEmailAddress"
+            android:layout_below="@+id/mofifierMonMail"
+            android:hint="confirmer nouveau mail"/>
+
+    <EditText
+            android:id="@+id/nouveauTel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/confNouveauMail"
+            android:inputType="phone"
+            android:ems="10"
+            android:hint="modifier n° de tél" android:layout_marginTop="30dp" android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp" android:layout_marginBottom="30dp"/>
+
+    <Button
+        android:id="@+id/btnValiderModifs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nouveauTel"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:text="Valider"/>
+
+    <Button
+            android:id="@+id/btnRetourDeMesParams"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/nouveauTel"
+            android:layout_marginLeft="30dp"
+            android:text="@string/btnRetour"/>
+
+
+</RelativeLayout>

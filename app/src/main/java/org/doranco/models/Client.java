@@ -11,27 +11,32 @@ public class Client implements Serializable {
     @SerializedName("idClient")
     private Long id;
 
-    @SerializedName("nom")
+    //    @SerializedName("nom")
     private String nom;
 
-    @SerializedName("prenom")
+    //    @SerializedName("prenom")
     private String prenom;
 
-    @SerializedName("login")
+    //    @SerializedName("login")
     private String login;
 
-    @SerializedName("password")
+    //    @SerializedName("password")
     private String password;
 
-    @SerializedName("email")
+    //    @SerializedName("email")
     private String email;
 
-    @SerializedName("telephone")
+    //    @SerializedName("telephone")
     private String telephone;
 
+    //    @SerializedName("role")
+    private Role role;
+
+    //    @SerializedName("listReservation")
     private List<Reservation> listReservation;
 
     public Client() {
+        this.role = Role.USER;
     }
 
     public Long getId() {
@@ -96,5 +101,13 @@ public class Client implements Serializable {
 
     public void setListReservation(List<Reservation> listReservation) {
         this.listReservation = listReservation;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    private void setRole(Role role) {
+        this.role = role;
     }
 }

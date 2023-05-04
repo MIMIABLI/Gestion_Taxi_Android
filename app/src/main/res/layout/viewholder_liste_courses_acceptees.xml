@@ -18,7 +18,6 @@
             android:id="@+id/nomPrenomClient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nom/Prénom"
             android:textSize="20dp"
             android:layout_toRightOf="@id/marginLayout"/>
 
@@ -33,13 +32,12 @@
             android:layout_toRightOf="@id/marginLayout"/>
 
     <TextView
-            android:id="@+id/heureDeDepart"
+            android:id="@+id/telCLient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Heure"
             android:textSize="18dp"
-            android:layout_toRightOf="@id/dateDuDepart"
-            android:layout_below="@id/nomPrenomClient"/>
+            android:layout_toRightOf="@id/nomPrenomClient"
+            android:layout_marginLeft="15dp"/>
 
     <TextView
             android:id="@+id/lieuDeDepart"
