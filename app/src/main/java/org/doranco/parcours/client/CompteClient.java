@@ -15,21 +15,20 @@ import org.doranco.gesttion_reserv.PageConnexion;
 import org.doranco.gesttion_reserv.R;
 import org.doranco.models.Client;
 import org.doranco.models.Reservation;
-import org.doranco.parcours.chauffeurs.MaListeDeReservations;
 import org.doranco.retrofit.RetrofitService;
 import org.doranco.retrofit.interfacesapi.ClientApi;
+import org.doranco.utils.GetTime;
+
+import java.util.Date;
 
 public class CompteClient extends AppCompatActivity {
 
-    /*private final String SHARED_PREF_USER = "SHARED_PREF_USER";
-    private final String SHARED_PREF_USER_INFO_NAME = "SHARED_PREF_USER_INFO_NAME";*/
     private SharedPreferences sharedPreferences;
 
-    TextView nomClient, menuMonCompte, menuSeDéconnecter;
+    TextView date, menuMonCompte, menuSeDeconnecter;
     Button btnReserver, btnConsulterMesReservation;
     RetrofitService retrofitService = new RetrofitService();
     ClientApi clientApi;
-    //ControllerClient controllerClient = new ControllerClient();
     Client client = new Client();
 
     @Override
@@ -41,19 +40,14 @@ public class CompteClient extends AppCompatActivity {
 
         btnReserver = findViewById(R.id.btnReserverCompteClient);
         btnConsulterMesReservation = findViewById(R.id.btnConsulterReservationCompteClient);
-        nomClient = findViewById(R.id.nomClient);
+        date = findViewById(R.id.dateCompteClient);
         menuMonCompte = findViewById(R.id.btnMonCompteClient);
-        menuSeDéconnecter = findViewById(R.id.seDeconnecterCompteClient);
+        menuSeDeconnecter = findViewById(R.id.seDeconnecterCompteClient);
 
-//        try {
-//           //client = controllerClient.getClient("test", getApplicationContext());
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        date.setText(GetTime.getTodayDateAndHour(new Date()));
+
         client.setNom(getSharedPreferences(ESharedDatasRefs.USER_SHARED_DATAS.name(), MODE_PRIVATE)
                 .getString(ESharedDatasRefs.USER_SHARED_NAME.name(), ""));
-
-        nomClient.setText(client.getNom());
 
         faireUneReservation();
         consulterMesReservations();
@@ -101,7 +95,7 @@ public class CompteClient extends AppCompatActivity {
     }
 
     private void meDeconnecter() {
-        menuSeDéconnecter.setOnClickListener(new View.OnClickListener() {
+        menuSeDeconnecter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent pageLogin = new Intent(getApplicationContext(), PageConnexion.class);

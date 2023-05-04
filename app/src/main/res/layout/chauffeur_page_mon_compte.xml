@@ -1,46 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/btnDecoPageCompteChauffeur"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Déconnexion"
-        tools:layout_editor_absoluteX="314dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:layout_margin="10dp"
+        android:layout_alignParentRight="true"/>
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/btnMonCompteChauffeur"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mon compte"
-        tools:layout_editor_absoluteX="221dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@id/btnDecoPageCompteChauffeur"/>
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/dateCompteChauffeur"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="20dp" />
+        android:layout_margin="10dp"
+        android:layout_alignParentLeft="true"/>
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btnGererDemandeResa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Gérer les demandes de réservations"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="295dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btnVoirMesCourses"
+        android:layout_marginTop="20dp"/>
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/btnVoirMesCourses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Voir mes courses"
-        tools:layout_editor_absoluteX="118dp"
-        tools:layout_editor_absoluteY="376dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+</RelativeLayout>

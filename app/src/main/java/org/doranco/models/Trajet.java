@@ -1,31 +1,40 @@
 package org.doranco.models;
 
-public class Trajet {
+//import com.google.gson.annotations.SerializedName;
+
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
+
+public class Trajet implements Serializable {
 
 
-    private Long id;
-
+    @SerializedName("idTrajet")
+    private Long trajet_id;
+    //    @SerializedName("secteur")
+    private String secteur;
+    //    @SerializedName("lieuDeDepart")
     private String lieuDeDepart;
-
+    //    @SerializedName("lieuDArrive")
     private String lieuDArrive;
-
-    private String dureeTrajet;
-
+    //    @SerializedName("duree")
+    private String duree;
+    //    @SerializedName("prix")
     private Double prix;
-
-    private Enum statut;
-
+    //    @SerializedName("statut")
+    private StatutTrajet statut;
+    //    @SerializedName("reservation")
     private Reservation reservation;
 
     public Trajet() {
     }
 
     public Long getId() {
-        return id;
+        return trajet_id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.trajet_id = id;
     }
 
     public String getLieuDeDepart() {
@@ -45,11 +54,11 @@ public class Trajet {
     }
 
     public String getDureeTrajet() {
-        return dureeTrajet;
+        return duree;
     }
 
-    public void setDureeTrajet(String dureeTrajet) {
-        this.dureeTrajet = dureeTrajet;
+    public void setDureeTrajet(String duree) {
+        this.duree = duree;
     }
 
     public Double getPrix() {
@@ -64,7 +73,7 @@ public class Trajet {
         return statut;
     }
 
-    public void setStatut(Enum statut) {
+    public void setStatut(StatutTrajet statut) {
         this.statut = statut;
     }
 
@@ -74,5 +83,13 @@ public class Trajet {
 
     public void setReservation(Reservation reservation) {
         this.reservation = reservation;
+    }
+
+    public String getSecteur() {
+        return secteur;
+    }
+
+    public void setSecteur(String secteur) {
+        this.secteur = secteur;
     }
 }

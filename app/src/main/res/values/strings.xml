@@ -28,4 +28,7 @@
     //Messages
     <string name="addUserSuccess">Client ajouté avec succès !</string>
     <string name="addUserFailure">Erreur durant la création du compte</string>
+
+    //Commons
+    <string name="btnRetour">Retour</string>
 </resources>

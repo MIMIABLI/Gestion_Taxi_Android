@@ -1,4 +1,4 @@
-package org.doranco.models;
+package org.doranco.models.viewholders;
 
 import android.view.View;
 import android.widget.Button;
@@ -8,13 +8,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import org.doranco.gesttion_reserv.R;
 
-public class MyViewHolder extends RecyclerView.ViewHolder {
+public class MyViewHolderListeChauffeur extends RecyclerView.ViewHolder implements View.OnClickListener{
 
     ImageView imageChauffeur;
     TextView nom, vehicule, note, prix;
     Button button;
 
-    public MyViewHolder(@NonNull View itemView) {
+    public MyViewHolderListeChauffeur(@NonNull View itemView) {
         super(itemView);
 
         imageChauffeur = itemView.findViewById(R.id.imageviewtest);
@@ -23,5 +23,11 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         note = itemView.findViewById(R.id.note);
         prix = itemView.findViewById(R.id.prix);
         button = itemView.findViewById(R.id.btn_reserver);
+
+        button.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
     }
 }

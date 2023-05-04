@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@color/blue"
+        android:padding="3dp">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nomPrenomChauffeurInscrit"
+            android:layout_marginBottom="2dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="5dp"
+            android:textColor="@color/white"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/loginChauffeurInscrit"
+            android:layout_toEndOf="@id/nomPrenomChauffeurInscrit"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="2dp"
+            android:textColor="@color/white"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/telephoneChauffeurInscrit"
+            android:layout_below="@id/loginChauffeurInscrit"
+            android:textColor="@color/white"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mailChauffeurInscrit"
+            android:layout_below="@id/telephoneChauffeurInscrit"
+            android:textColor="@color/white"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/vehiculeChauffeurInscrit"
+            android:layout_below="@id/mailChauffeurInscrit"
+            android:textColor="@color/white"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/immatriculationChauffeurInscrit"
+            android:layout_below="@id/vehiculeChauffeurInscrit"
+            android:textColor="@color/white"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/modifierChauffeurInscrit"
+            android:text="modifer"
+            android:layout_alignStart="@id/supprimerChauffeurInscrit"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/white"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/supprimerChauffeurInscrit"
+            android:text="supprimer"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/modifierChauffeurInscrit"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/white"/>
+
+    <TextView
+            android:id="@+id/chauffeurId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="id n°"
+            android:layout_below="@id/supprimerChauffeurInscrit"
+            android:layout_alignStart="@id/supprimerChauffeurInscrit"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/white"/>
+
+
+</RelativeLayout>
