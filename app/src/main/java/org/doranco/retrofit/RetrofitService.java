@@ -14,8 +14,8 @@ public class RetrofitService {
 
     private Retrofit retrofit;
 
-//    private final String BACKEND_URL = "http://127.0.1.1:8080";
-    private final String BACKEND_URL = "http://jemitaxi.osc-fr1.scalingo.io";
+    private final String BACKEND_URL = "https://polar-ravine-68388.herokuapp.com";
+//    private final String BACKEND_URL = "http://jemitaxi.osc-fr1.scalingo.io";
     public RetrofitService() {
         initializeRetrofit();
     }

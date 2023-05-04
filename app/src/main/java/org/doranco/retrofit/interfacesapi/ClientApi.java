@@ -9,24 +9,6 @@ import retrofit2.http.*;
 
 public interface ClientApi {
 
-/*    @GET("/client/all")
-    Observable<List<Client>> getAllClient();
-
-    @POST("/client/add")
-    Observable<Client> saveClient(@Body Client Client);
-
-    @GET("/client/find/{id}")
-    Observable<Client> getClientById(@Path("id") Long id);
-
-    @GET("/client/findByLogin/{login}")
-    Observable<Client> getClientByLogin(@Path("login") String login);
-
-    @PUT("/client/update")
-    Observable<List<Client>> updateClient(@Body Client Client);
-
-    @DELETE("/client/delete/{id}")
-    Observable<List<Client>> delete(@Path("id") long id);*/
-
     @GET("/client/all")
     Observable<List<Client>> getAllClient();
 

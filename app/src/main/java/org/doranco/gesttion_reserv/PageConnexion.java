@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import org.doranco.models.Client;
@@ -35,6 +36,7 @@ public class PageConnexion extends AppCompatActivity {
     private final AuthenticationRequest authenticationRequest = new AuthenticationRequest();
     private AuthenticationResponse authenticationResponse;
     private String token;
+    private ProgressBar progressBar;
 
 
     @Override
@@ -45,7 +47,6 @@ public class PageConnexion extends AppCompatActivity {
         this.buttonSignUp = findViewById(R.id.btnSignUp);
         login = findViewById(R.id.loginPageConnexion);
         password = findViewById(R.id.passwordPageConnexion);
-
         retrofitAuthenticationService = retrofitService.getRetrofit().create(RetrofitAuthenticationService.class);
 
         connexionMonCompte();

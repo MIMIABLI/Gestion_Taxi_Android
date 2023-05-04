@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,6 +34,7 @@ public class ListeChauffeursInscrits extends AppCompatActivity {
     private GetToken getToken;
     private String token;
     private Button retour;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,11 +50,14 @@ public class ListeChauffeursInscrits extends AppCompatActivity {
         retrofitService = new RetrofitService(token);
         chauffeurApi = retrofitService.getRetrofit().create(ChauffeurApi.class);
 
+        this.progressBar = findViewById(R.id.progressBarChauffeursInscrits);
+
         chauffeurApi.getAllChauffeur().enqueue(new Callback<List<Chauffeur>>() {
             @Override
             public void onResponse(Call<List<Chauffeur>> call, Response<List<Chauffeur>> response) {
+
                 chauffeurList = response.body();
-                myAdapterListeChauffeursInscrits = new MyAdapterListeChauffeursInscrits(getApplicationContext(), chauffeurList, token);
+                myAdapterListeChauffeursInscrits = new MyAdapterListeChauffeursInscrits(getApplicationContext(), chauffeurList, token, progressBar);
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
                 recyclerView.setAdapter(myAdapterListeChauffeursInscrits);
             }

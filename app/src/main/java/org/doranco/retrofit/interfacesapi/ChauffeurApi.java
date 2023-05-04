@@ -1,5 +1,7 @@
 package org.doranco.retrofit.interfacesapi;
 
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 import org.doranco.models.Chauffeur;
 
 import java.util.List;
@@ -26,7 +28,7 @@ public interface ChauffeurApi {
     Call<List<Chauffeur>> updateChauffeur(@Body Chauffeur Chauffeur);
 
     @DELETE("/chauffeur/delete/{id}")
-    Call<List<Chauffeur>> delete(@Path("id") long id);
+    Call<ResponseBody> delete(@Path("id") long id);
 
     @GET("/chauffeur/allbysecteur/{secteur}")
     Call<List<Chauffeur>> getAllChauffeurBySecteur(@Path("secteur") String secteur);
