@@ -33,8 +33,5 @@ public interface ChauffeurApi {
     @GET("/chauffeur/allbysecteur/{secteur}")
     Call<List<Chauffeur>> getAllChauffeurBySecteur(@Path("secteur") String secteur);
 
-    @GET("/chauffeur/allbysecteur/{secteur}")
-    Call<List<Chauffeur>> getAllChauffeurBySecteur(@Path("secteur") String secteur);
-
 
 }
